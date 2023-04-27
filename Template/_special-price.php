@@ -1,6 +1,11 @@
 <!-- Special Price -->
 <?php
 
+// tombol cari ditekan
+if( isset($_POST["search"]) ) {
+    $product_shuffle = cari($_POST["keyword"]);
+}
+
 $brand = array_map(function ($pro){ return $pro['item_brand']; }, $product_shuffle);
 $unique = array_unique($brand);
 sort($unique);

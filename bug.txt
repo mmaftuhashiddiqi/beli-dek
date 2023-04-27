@@ -1,2 +1,5 @@
-### bagian search box
-- belum pungsi
+### login section
+- belum jadi
+
+### registrasi section
+- belum jadi

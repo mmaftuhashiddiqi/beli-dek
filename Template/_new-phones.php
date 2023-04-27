@@ -1,6 +1,11 @@
 <!-- New Phones -->
 <?php
 
+// tombol cari ditekan
+if( isset($_POST["search"]) ) {
+    $product_shuffle = cari($_POST["keyword"]);
+}
+
 shuffle($product_shuffle);
 
 // request method post

@@ -1,0 +1,8 @@
+### login admin
+- belum pungsi
+
+### login & register page
+- belum responsip
+
+### profile section
+- logout button belum responsip

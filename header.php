@@ -29,12 +29,6 @@
 
 <!-- start #header -->
 <header id="header">
-    <!-- <div class="strip d-flex justify-content-end px-4 py-1 bg-light">
-        <div class="font-rale font-size-14">
-            <a href="login.php" class="px-3 border-right border-left text-dark">Login</a>
-            <a href="registrasi.php" class="px-3 border-right text-dark">Registrasi</a>
-        </div>
-    </div> -->
 
     <!-- Primary Navigation -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark color-primary-bg" style="height: 70px; box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);">
@@ -57,10 +51,25 @@
                     <a class="nav-link" href="#">Coming Soon</a>
                 </li>
             </ul>
+
+            <!-- search section -->
             <form class="form-inline d-flex justify-content-end" action="" method="post">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="keyword" autocomplete="off" id="keyword">
                 <button class="btn btn-outline-light my-2 my-sm-0" type="submit" name="search" id="search">Search</button>
             </form>
+            <!-- !search section -->
+
+            <!-- profile section -->
+            <div class="profile">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="assets/template/profile.png" width="40" height="40" class="rounded-circle">
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="margin-left: 85%;">
+                    <a class="dropdown-item" href="logout.php">LogOut</a>
+                </div>
+            </div>
+            <!-- !profile section -->
+
         </div>
     </nav>
     <!-- !Primary Navigation -->

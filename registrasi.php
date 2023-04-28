@@ -9,7 +9,7 @@ if( isset($_POST["register"]) ) {
 				alert('user baru berhasil ditambahkan!');
 			  </script>";
 	} else {
-		echo mysqli_error($conn);
+		echo mysqli_error($con);
 	}
 
 }
@@ -34,39 +34,9 @@ if( isset($_POST["register"]) ) {
 
     <!-- Custom CSS file -->
     <link rel="stylesheet" href="css/style.css">
-
-	<style>
-		label {
-			display: block;
-		}
-	</style>
 </head>
 
 <body>
-
-<!-- <h1>Halaman Registrasi</h1>
-
-<form action="" method="post">
-
-	<ul>
-		<li>
-			<label for="username">username :</label>
-			<input type="text" name="username" id="username">
-		</li>
-		<li>
-			<label for="password">password :</label>
-			<input type="password" name="password" id="password">
-		</li>
-		<li>
-			<label for="password2">konfirmasi password :</label>
-			<input type="password" name="password2" id="password2">
-		</li>
-		<li>
-			<button type="submit" name="register">Register!</button>
-		</li>
-	</ul>
-	
-</form> -->
 
 <div class="w-100 h-100">
 	<div class="nav-container bg-dark text-white p-4 rounded-lg shadow-lg" style="width: 35vw; margin: 10vh auto;">
@@ -85,63 +55,8 @@ if( isset($_POST["register"]) ) {
 		
 		<!-- Pills content -->
 		<div class="tab-content">
-		<div class="tab-pane fade" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
-			<form>
-			<div class="text-center mb-3">
-				<p>Sign in with:</p>
-				<button type="button" class="btn btn-link btn-floating mx-1">
-				<i class="fab fa-facebook-f"></i>
-				</button>
-		
-				<button type="button" class="btn btn-link btn-floating mx-1">
-				<i class="fab fa-google"></i>
-				</button>
-		
-				<button type="button" class="btn btn-link btn-floating mx-1">
-				<i class="fab fa-twitter"></i>
-				</button>
-		
-				<button type="button" class="btn btn-link btn-floating mx-1">
-				<i class="fab fa-github"></i>
-				</button>
-			</div>
-		
-			<p class="text-center">or:</p>
-		
-			<!-- Email input -->
-			<div class="form-outline mb-4">
-				<label class="form-label" for="loginUsername">Username</label>
-				<input type="text" id="loginUsername" class="form-control" />
-			</div>
-		
-			<!-- Password input -->
-			<div class="form-outline mb-4">
-				<label class="form-label" for="loginPassword">Password</label>
-				<input type="password" id="loginPassword" class="form-control" />
-			</div>
-		
-			<!-- 2 column grid layout -->
-			<div class="row mb-4">
-				<div class="col-md-6 d-flex justify-content-center">
-				<!-- Checkbox -->
-				<div class="form-check mb-3 mb-md-0">
-					<input class="form-check-input" type="checkbox" value="" id="loginCheck" checked />
-					<label class="form-check-label" for="loginCheck"> Remember me </label>
-				</div>
-				</div>
-			</div>
-		
-			<!-- Submit button -->
-			<button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
-		
-			<!-- Register buttons -->
-			<div class="text-center">
-				<p>Not a member? <a href="registrasi.php">Register</a></p>
-			</div>
-			</form>
-		</div>
 		<div class="tab-pane fade show active" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
-			<form>
+			<form action="" method="post">
 			<div class="text-center mb-3">
 				<p>Sign up with:</p>
 				<button type="button" class="btn btn-link btn-floating mx-1">
@@ -165,24 +80,24 @@ if( isset($_POST["register"]) ) {
 		
 			<!-- Username input -->
 			<div class="form-outline mb-4">
-				<label class="form-label" for="registerUsername">Username</label>
-				<input type="text" id="registerUsername" class="form-control" />
+				<label class="form-label" for="username">Username</label>
+				<input type="text" name="username" id="username" class="form-control" />
 			</div>
 		
 			<!-- Password input -->
 			<div class="form-outline mb-4">
-				<label class="form-label" for="registerPassword">Password</label>
-				<input type="password" id="registerPassword" class="form-control" />
+				<label class="form-label" for="password">Password</label>
+				<input type="password" name="password" id="password" class="form-control" />
 			</div>
 		
 			<!-- Repeat Password input -->
 			<div class="form-outline mb-4">
-				<label class="form-label" for="registerRepeatPassword">Repeat password</label>
-				<input type="password" id="registerRepeatPassword" class="form-control" />
+				<label class="form-label" for="password2">Repeat password</label>
+				<input type="password" name="password2" id="password2" class="form-control" />
 			</div>
 		
 			<!-- Submit button -->
-			<button type="submit" class="btn btn-primary btn-block mb-3">Sign in</button>
+			<button type="submit" name="register" class="btn btn-primary btn-block mb-3">Sign up</button>
 			</form>
 		</div>
 		</div>

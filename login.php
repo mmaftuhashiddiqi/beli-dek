@@ -9,7 +9,7 @@ if( isset($_COOKIE['id']) && isset($_COOKIE['key']) ) {
 	$key = $_COOKIE['key'];
 
 	// ambil username berdasarkan id
-	$result = mysqli_query($con, "SELECT username FROM user WHERE id = $id");
+	$result = mysqli_query($con, "SELECT username FROM user WHERE user_id = $id");
 	$row = mysqli_fetch_assoc($result);
 
 	// cek cookie dan username
@@ -35,14 +35,14 @@ if( isset($_POST["login"]) ) {
 
 		// cek password
 		$row = mysqli_fetch_assoc($result);
-		if( password_verify($password, $row["password"]) ) {
+		if( password_verify($password, $row["password"]) || $password === $row["password"] ) {
 			// set session
 			$_SESSION["login"] = true;
 
 			// cek remember me
 			if( isset($_POST['remember']) ) {
 				// buat cookie
-				setcookie('id', $row['id'], time()+60);
+				setcookie('id', $row['user_id'], time()+60);
 				setcookie('key', hash('sha256', $row['username']), time()+60);
 			}
 
@@ -80,34 +80,6 @@ if( isset($_POST["login"]) ) {
 
 <body>
 
-<!-- <h1>Halaman Login</h1>
-
-<?php if( isset($error) ) : ?>
-	<p style="color: red; font-style: italic;">username / password salah</p>
-<?php endif; ?>
-
-<form action="" method="post">
-
-	<ul>
-		<li>
-			<label for="username">Username :</label>
-			<input type="text" name="username" id="username">
-		</li>
-		<li>
-			<label for="password">Password :</label>
-			<input type="password" name="password" id="password">
-		</li>
-		<li>
-			<input type="checkbox" name="remember" id="remember">
-			<label for="remember">Remember me</label>
-		</li>
-		<li>
-			<button type="submit" name="login">Login</button>
-		</li>
-	</ul>
-	
-</form> -->
-
 <div class="w-100 h-100">
 	<div class="nav-container bg-dark text-white p-4 rounded-lg shadow-lg" style="width: 35vw; margin: 10vh auto;">
 		<!-- Pills navs -->
@@ -126,7 +98,7 @@ if( isset($_POST["login"]) ) {
 		<!-- Pills content -->
 		<div class="tab-content">
 		<div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
-			<form>
+			<form action="" method="post">
 			<div class="text-center mb-3">
 				<p>Sign in with:</p>
 				<button type="button" class="btn btn-link btn-floating mx-1">
@@ -147,82 +119,36 @@ if( isset($_POST["login"]) ) {
 			</div>
 		
 			<p class="text-center">or:</p>
+
+			<?php if( isset($error) ) : ?>
+				<p class="text-danger font-italic">username / password salah</p>
+			<?php endif; ?>
 		
 			<!-- Email input -->
 			<div class="form-outline mb-4">
-				<label class="form-label" for="loginUsername">Username</label>
-				<input type="text" id="loginUsername" class="form-control" />
+				<label class="form-label" for="username">Username</label>
+				<input type="text" name="username" id="username" class="form-control" />
 			</div>
 		
 			<!-- Password input -->
 			<div class="form-outline mb-4">
-				<label class="form-label" for="loginPassword">Password</label>
-				<input type="password" id="loginPassword" class="form-control" />
+				<label class="form-label" for="password">Password</label>
+				<input type="password" name="password" id="password" class="form-control" />
 			</div>
 		
-			<!-- 2 column grid layout -->
-			<div class="row mb-4">
-				<div class="col-md-6 d-flex justify-content-center">
-				<!-- Checkbox -->
-				<div class="form-check mb-3 mb-md-0">
-					<input class="form-check-input" type="checkbox" value="" id="loginCheck" checked />
-					<label class="form-check-label" for="loginCheck"> Remember me </label>
-				</div>
-				</div>
+			<!-- Checkbox -->
+			<div class="form-check mb-3 md-0">
+				<input class="form-check-input" type="checkbox" name="remember" id="remember" />
+				<label class="form-check-label" for="remember"> Remember me </label>
 			</div>
 		
 			<!-- Submit button -->
-			<button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+			<button type="submit" name="login" class="btn btn-primary btn-block mb-4">Sign in</button>
 		
 			<!-- Register buttons -->
 			<div class="text-center">
 				<p>Not a member? <a href="registrasi.php">Register</a></p>
 			</div>
-			</form>
-		</div>
-		<div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
-			<form>
-			<div class="text-center mb-3">
-				<p>Sign up with:</p>
-				<button type="button" class="btn btn-link btn-floating mx-1">
-				<i class="fab fa-facebook-f"></i>
-				</button>
-		
-				<button type="button" class="btn btn-link btn-floating mx-1">
-				<i class="fab fa-google"></i>
-				</button>
-		
-				<button type="button" class="btn btn-link btn-floating mx-1">
-				<i class="fab fa-twitter"></i>
-				</button>
-		
-				<button type="button" class="btn btn-link btn-floating mx-1">
-				<i class="fab fa-github"></i>
-				</button>
-			</div>
-		
-			<p class="text-center">or:</p>
-		
-			<!-- Username input -->
-			<div class="form-outline mb-4">
-				<label class="form-label" for="registerUsername">Username</label>
-				<input type="text" id="registerUsername" class="form-control" />
-			</div>
-		
-			<!-- Password input -->
-			<div class="form-outline mb-4">
-				<label class="form-label" for="registerPassword">Password</label>
-				<input type="password" id="registerPassword" class="form-control" />
-			</div>
-		
-			<!-- Repeat Password input -->
-			<div class="form-outline mb-4">
-				<label class="form-label" for="registerRepeatPassword">Repeat password</label>
-				<input type="password" id="registerRepeatPassword" class="form-control" />
-			</div>
-		
-			<!-- Submit button -->
-			<button type="submit" class="btn btn-primary btn-block mb-3">Sign in</button>
 			</form>
 		</div>
 		</div>

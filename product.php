@@ -19,13 +19,17 @@
     include ('Template/_top-sale.php');
     /* include top sale section */
 
-    /*  include cart button  */        
-    include ('Template/_cart_button.php');
-    /*  include cart button  */
+    if ( isset($_SESSION['user']) ) {
+        /* include cart button */        
+        include ('Template/_cart_button.php');
+        /*  include cart button  */
+    }
 
-    /*  include add button  */        
-    include ('Template/_add_button.php');
-    /*  include add button  */
+    if ( isset($_SESSION['admin']) ) {
+        /* include add button */
+        include ('Template/_add_button.php');
+        /* include add button */
+    }
 ?>
 
 <?php

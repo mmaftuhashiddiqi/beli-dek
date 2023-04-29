@@ -45,20 +45,24 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                                 <input type="hidden" name="item_id" value="<?php echo $item['item_id'] ?? '1'; ?>">
                                 <input type="hidden" name="user_id" value="<?php echo 1; ?>">
                                 <?php
-                                if (in_array($item['item_id'], $Cart->getCartId($product->getData('cart')) ?? [])){
-                                    echo '<button type="submit" disabled id="add-to-chart-button" class="btn btn-success font-size-12 m-1">In the Cart</button>';
-                                }else{
-                                    echo '<button type="submit" name="top_sale_submit" id="add-to-chart-button" class="btn btn-warning font-size-12 m-1">Add to Cart</button>';
+                                if ( isset($_SESSION['user']) ) {
+                                    if (in_array($item['item_id'], $Cart->getCartId($product->getData('cart')) ?? [])) {
+                                        echo '<button type="submit" disabled id="add-to-chart-button" class="btn btn-success font-size-12 m-1">In the Cart</button>';
+                                    } else {
+                                        echo '<button type="submit" name="top_sale_submit" id="add-to-chart-button" class="btn btn-warning font-size-12 m-1">Add to Cart</button>';
+                                    }
                                 }
                                 ?>
 
-                                <!-- update button -->
-                                <a href="./update.php?id=<?= $item["item_id"]; ?>" id="update-button" class="text-decoration-none btn btn-info font-size-12 m-1">Update</a>
-                                <!-- !update button -->
+                                <?php if ( isset($_SESSION['admin']) ) { ?>
+                                    <!-- update button -->
+                                    <a href="./update.php?id=<?= $item["item_id"]; ?>" id="update-button" class="text-decoration-none btn btn-info font-size-12 m-1">Update</a>
+                                    <!-- !update button -->
 
-                                <!-- delete button -->
-                                <a href="./Template/_delete_product.php?id=<?= $item['item_id']; ?>" id="delete-button" class="text-decoration-none btn btn-danger font-size-12 m-1" onclick="return confirm('yakin?');">Delete</a>
-                                <!-- !delete button -->
+                                    <!-- delete button -->
+                                    <a href="./Template/_delete_product.php?id=<?= $item['item_id']; ?>" id="delete-button" class="text-decoration-none btn btn-danger font-size-12 m-1" onclick="return confirm('yakin?');">Delete</a>
+                                    <!-- !delete button -->
+                                <?php } ?>
 
                             </form>
                         </div>

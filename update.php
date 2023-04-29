@@ -6,6 +6,11 @@
 	    exit;
     }
 
+    if ( isset($_SESSION['user']) ) {
+        header('Location: index.php');
+        exit;
+    }
+
     ob_start();
     // include header.php file
     include ('header.php');
@@ -15,14 +20,18 @@
     /* include add product */
     include ('Template/_update_product.php');
     /* include add product */
+
+    if ( isset($_SESSION['user']) ) {
+        /* include chart button */
+        include ('Template/_cart_button.php');
+        /* include chart button */
+    }
     
-    /* include chart button */
-    include ('Template/_cart_button.php');
-    /* include chart button */
-    
-    /*  include add button  */        
-    include ('Template/_add_button.php');
-    /*  include add button  */
+    if ( isset($_SESSION['admin']) ) {
+        /* include add button */        
+        include ('Template/_add_button.php');
+        /* include add button */
+    }
 ?>
 
 <?php

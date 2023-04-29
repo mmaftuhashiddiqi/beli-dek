@@ -46,7 +46,8 @@ if( isset($_POST["login"]) ) {
 				setcookie('key', hash('sha256', $row['username']), time()+60);
 			}
 
-			header("Location: index.php?role=admin");
+			header("Location: index.php");
+			$_SESSION['admin'] = true;
 			exit;
 		}
 	

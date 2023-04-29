@@ -6,6 +6,11 @@
 	    exit;
     }
 
+    if ( isset($_SESSION['admin']) ) {
+        header('Location: index.php');
+        exit;
+    }
+
     ob_start();
     // include header.php file
     include ('header.php');
@@ -20,13 +25,9 @@
     include ('Template/_new-phones.php');
     /* include top sale section */
 
-    /*  include cart button  */        
+    /* include cart button */        
     include ('Template/_cart_button.php');
-    /*  include cart button  */
-
-    /*  include add button  */        
-    include ('Template/_add_button.php');
-    /*  include add button  */
+    /* include cart button */
 ?>
 
 <?php

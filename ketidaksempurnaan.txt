@@ -1,8 +1,11 @@
-### login user & login admin
-- role belum pungsi
+### cart table & product table
+- belum terintegrasi dengan baik (tidak delete automatically)
 
 ### login & register page
 - belum responsip
 
 ### profile section
 - logout button belum responsip
+
+### blog section
+- ilang

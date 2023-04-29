@@ -1,5 +1,12 @@
 <?php 
 
+session_start();
+
+if ( isset($_SESSION['user']) ) {
+	header('Location: ../index.php');
+	exit;
+}
+
 require ('../functions.php');
 
 $id = $_GET["id"];

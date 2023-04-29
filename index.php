@@ -12,33 +12,41 @@
 ?>
 
 <?php
-    /*  include banner area  */
-        include ('Template/_banner-area.php');
-    /*  include banner area  */
+    /* include banner area */
+    include ('Template/_banner-area.php');
+    /* include banner area */
 
-    /*  include top sale section */
-        include ('Template/_top-sale.php');
-    /*  include top sale section */
+    /* include top sale section */
+    include ('Template/_top-sale.php');
+    /* include top sale section */
 
-    /*  include special price section  */
-         include ('Template/_special-price.php');
-    /*  include special price section  */
+    /* include special price section */
+    include ('Template/_special-price.php');
+    /* include special price section */
 
-    /*  include banner ads  */
-        include ('Template/_banner-ads.php');
-    /*  include banner ads  */
+    /* include banner ads */
+    include ('Template/_banner-ads.php');
+    /* include banner ads */
 
-    /*  include new phones section  */
-        include ('Template/_new-phones.php');
-    /*  include new phones section  */
-        
-    /*  include cart button  */        
+    /* include new phones section */
+    include ('Template/_new-phones.php');
+    /* include new phones section */
+
+    /* include blog area */
+    include ('Template/_blogs.php');
+    /* include blog area */
+
+    if ( isset($_SESSION['user']) ) {
+        /* include cart button */        
         include ('Template/_cart_button.php');
-    /*  include cart button  */
+        /* include cart button */
+    }
 
-    /*  include add button  */        
+    if ( isset($_SESSION['admin']) ) {
+        /* include add button */        
         include ('Template/_add_button.php');
-    /*  include add button  */
+        /* include add button */
+    }
 ?>
 
 <?php

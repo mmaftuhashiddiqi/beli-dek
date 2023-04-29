@@ -1,5 +1,5 @@
-### login admin
-- belum pungsi
+### login user & login admin
+- role belum pungsi
 
 ### login & register page
 - belum responsip

@@ -1,11 +1,8 @@
-### cart table & product table
-- belum terintegrasi dengan baik (tidak delete automatically)
+### cart page
+- cart user satu dengan yang lain masih sama
 
 ### login & register page
 - belum responsip
 
 ### profile section
 - logout button belum responsip
-
-### blog section
-- ilang

@@ -1,6 +1,6 @@
 <?php
 
-$con = mysqli_connect("localhost", "root", "", "beli-dek");
+$con = mysqli_connect("localhost", "root", "", "beli_dek");
 
 function query($query) {
     global $con;

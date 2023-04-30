@@ -6,7 +6,7 @@ class DBController
     protected $host = 'localhost';
     protected $user = 'root';
     protected $password = '';
-    protected $database = "beli-dek";
+    protected $database = "beli_dek";
 
     // connection property
     public $con = null;

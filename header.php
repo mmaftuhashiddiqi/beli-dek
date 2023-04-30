@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
 
     <!-- Custom CSS file -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 
     <?php
     // require functions.php file
@@ -46,6 +46,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Category <i class="fas fa-chevron-down"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Blog</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Coming Soon</a>

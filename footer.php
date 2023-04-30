@@ -58,7 +58,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
 
 <!-- Custom Javascript -->
-<script src="js/index.js"></script>
+<script src="script.js"></script>
 
 </body>
 

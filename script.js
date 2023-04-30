@@ -36,6 +36,7 @@ $(document).ready(function(){
         $grid.isotope({ filter: filterValue});
     })
 
+
     // new phones owl carousel
     $("#new-phones .owl-carousel").owlCarousel({
         loop: true,
@@ -54,6 +55,22 @@ $(document).ready(function(){
         }
     });
 
+    // blogs owl carousel
+    $("#blogs .owl-carousel").owlCarousel({
+        loop: true,
+        nav: false,
+        dots: true,
+        responsive : {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 3
+            }
+        }
+    })
+
+
     // product qty section
     let $qty_up = $(".qty .qty-up");
     let $qty_down = $(".qty .qty-down");
@@ -67,7 +84,7 @@ $(document).ready(function(){
         let $price = $(`.product_price[data-id='${$(this).data("id")}']`);
 
         // change product price using ajax call
-        $.ajax({url: "template/ajax.php", type : 'post', data : { itemid : $(this).data("id")}, success: function(result){
+        $.ajax({url: "Template/ajax.php", type : 'post', data : { itemid : $(this).data("id")}, success: function(result){
                 let obj = JSON.parse(result);
                 let item_price = obj[0]['item_price'];
 
@@ -83,8 +100,8 @@ $(document).ready(function(){
                     let subtotal = parseInt($deal_price.text()) + parseInt(item_price);
                     $deal_price.text(subtotal.toFixed(2));
                 }
-            }}); // closing ajax request
 
+            }}); // closing ajax request
     }); // closing qty up button
 
     // click on qty down button
@@ -94,7 +111,7 @@ $(document).ready(function(){
         let $price = $(`.product_price[data-id='${$(this).data("id")}']`);
 
         // change product price using ajax call
-        $.ajax({url: "template/ajax.php", type : 'post', data : { itemid : $(this).data("id")}, success: function(result){
+        $.ajax({url: "Template/ajax.php", type : 'post', data : { itemid : $(this).data("id")}, success: function(result){
                 let obj = JSON.parse(result);
                 let item_price = obj[0]['item_price'];
 
@@ -111,8 +128,9 @@ $(document).ready(function(){
                     let subtotal = parseInt($deal_price.text()) - parseInt(item_price);
                     $deal_price.text(subtotal.toFixed(2));
                 }
-        }}); // closing ajax request
-    
+
+            }}); // closing ajax request
     }); // closing qty down button
+
 
 });

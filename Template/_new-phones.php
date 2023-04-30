@@ -18,7 +18,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
 ?>
 
-<section id="new-phones" class="mb-5">
+<section id="new-phones">
     <div class="container">
         <h4 class="font-rubik font-size-20">New Phones</h4>
         <hr>

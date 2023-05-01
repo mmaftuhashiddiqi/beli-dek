@@ -19,7 +19,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     }
 }
 
-$in_cart = $Cart->getCartId($product->getData('cart'));
+if ( isset($_SESSION['user']) ) {
+    $in_cart = $Cart->getCartId($product->getDataCart('cart'));
+} else {
+    $in_cart = $Cart->getCartId($product->getData('cart'));
+}
 
 ?>
 
@@ -55,7 +59,7 @@ $in_cart = $Cart->getCartId($product->getData('cart'));
                             </div>
                             <form method="post">
                                 <input type="hidden" name="item_id" value="<?php echo $item['item_id'] ?? '1'; ?>">
-                                <input type="hidden" name="user_id" value="<?php echo 1; ?>">
+                                <input type="hidden" name="user_id" value="<?php if (isset($_SESSION['user'])) {echo $_SESSION['user'];} ?>">
                                 <?php
                                 if ( isset($_SESSION['user']) ) {
                                     if (in_array($item['item_id'], $in_cart ?? [])) {

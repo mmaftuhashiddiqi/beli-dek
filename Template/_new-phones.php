@@ -43,10 +43,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                             </div>
                             <form method="post">
                                 <input type="hidden" name="item_id" value="<?php echo $item['item_id'] ?? '1'; ?>">
-                                <input type="hidden" name="user_id" value="<?php echo 1; ?>">
+                                <input type="hidden" name="user_id" value="<?php if (isset($_SESSION['user'])) {echo $_SESSION['user'];} ?>">
                                 <?php
                                 if ( isset($_SESSION['user']) ) {
-                                    if (in_array($item['item_id'], $Cart->getCartId($product->getData('cart')) ?? [])) {
+                                    if (in_array($item['item_id'], $Cart->getCartId($product->getDataCart('cart')) ?? [])) {
                                         echo '<button type="submit" disabled id="add-to-chart-button" class="btn btn-success font-size-12 m-1">In the Cart</button>';
                                     } else {
                                         echo '<button type="submit" name="top_sale_submit" id="add-to-chart-button" class="btn btn-warning font-size-12 m-1">Add to Cart</button>';

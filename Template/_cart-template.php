@@ -22,7 +22,7 @@
         <div class="row">
             <div class="col-sm-9">
                 <?php
-                    foreach ($product->getData('cart') as $item) :
+                    foreach ($product->getDataCart('cart') as $item) :
                         $cart = $product->getProduct($item['item_id']);
                         $subTotal[] = array_map(function ($item){
                 ?>

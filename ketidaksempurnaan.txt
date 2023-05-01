@@ -1,5 +1,5 @@
-### cart page
-- cart user satu dengan yang lain masih sama
+### wishlist section
+- save for later button masih error tapi pungsi
 
 ### login & register page
 - belum responsip

@@ -31,7 +31,7 @@ if( isset($_POST["submit"]) ) {
 ?>
 
 <!-- update product -->
-<form action="" method="post" enctype="multipart/form-data" style="margin-top: 100px; margin-bottom: 50px; margin-left: 25vw; margin-right: 25vw;">
+<form action="" method="post" enctype="multipart/form-data" style="margin-top: 100px; margin-bottom: 100px; margin-left: 25vw; margin-right: 25vw;">
     <input type="hidden" name="id" value="<?= $items["item_id"]; ?>">
     <input type="hidden" name="inputProductImageOld" value="<?= $items["item_image"]; ?>">
 

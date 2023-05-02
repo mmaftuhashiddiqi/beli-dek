@@ -1,20 +1,20 @@
 <!-- Top Sale -->
 <?php
 
-    // tombol cari ditekan
-    if( isset($_POST["search"]) ) {
-	    $product_shuffle = cari($_POST["keyword"]);
-    }
+// tombol cari ditekan
+if ( isset($_POST["search"]) ) {
+    $product_shuffle = cari($_POST["keyword"]);
+}
 
-    shuffle($product_shuffle);
+shuffle($product_shuffle);
 
-    // request method post
-    if($_SERVER['REQUEST_METHOD'] == "POST"){
-        if (isset($_POST['top_sale_submit'])){
-            // call method addToCart
-            $Cart->addToCart($_POST['user_id'], $_POST['item_id']);
-        }
+// request method post
+if ( $_SERVER['REQUEST_METHOD'] == "POST" ) {
+    if ( isset($_POST['top_sale_submit']) ) {
+        // call method addToCart
+        $Cart->addToCart($_POST['user_id'], $_POST['item_id']);
     }
+}
 
 ?>
 
@@ -55,13 +55,13 @@
                             ?>
 
                             <?php if ( isset($_SESSION['admin']) ) { ?>
-                            <!-- update button -->
-                            <a href="./update.php?id=<?= $item["item_id"]; ?>" id="update-button" class="text-decoration-none btn btn-info font-size-12 m-1">Update</a>
-                            <!-- !update button -->
+                                <!-- update button -->
+                                <a href="./update.php?id=<?= $item["item_id"]; ?>" id="update-button" class="text-decoration-none btn btn-info font-size-12 m-1">Update</a>
+                                <!-- !update button -->
 
-                            <!-- delete button -->
-                            <a href="./Template/_delete_product.php?id=<?= $item['item_id']; ?>" id="delete-button" class="text-decoration-none btn btn-danger font-size-12 m-1" onclick="return confirm('yakin?');">Delete</a>
-                            <!-- !delete button -->
+                                <!-- delete button -->
+                                <a href="./Template/_delete_product.php?id=<?= $item['item_id']; ?>" id="delete-button" class="text-decoration-none btn btn-danger font-size-12 m-1" onclick="return confirm('yakin?');">Delete</a>
+                                <!-- !delete button -->
                             <?php } ?>
 
                         </form>

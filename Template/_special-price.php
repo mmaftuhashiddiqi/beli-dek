@@ -2,7 +2,7 @@
 <?php
 
 // tombol cari ditekan
-if( isset($_POST["search"]) ) {
+if ( isset($_POST["search"]) ) {
     $product_shuffle = cari($_POST["keyword"]);
 }
 
@@ -12,8 +12,8 @@ sort($unique);
 shuffle($product_shuffle);
 
 // request method post
-if($_SERVER['REQUEST_METHOD'] == "POST"){
-    if (isset($_POST['special_price_submit'])){
+if ( $_SERVER['REQUEST_METHOD'] == "POST" ) {
+    if ( isset($_POST['special_price_submit']) ) {
         // call method addToCart
         $Cart->addToCart($_POST['user_id'], $_POST['item_id']);
     }
@@ -40,7 +40,7 @@ if ( isset($_SESSION['user']) ) {
         </div>
 
         <div class="grid">
-            <?php array_map(function ($item) use($in_cart){ ?>
+            <?php array_map(function ($item) use($in_cart) { ?>
             <div class="grid-item border <?php echo $item['item_brand'] ?? "Brand" ; ?>">
                 <div class="item py-2" style="width: 200px;">
                     <div class="product font-rale">
@@ -65,7 +65,7 @@ if ( isset($_SESSION['user']) ) {
                                     if (in_array($item['item_id'], $in_cart ?? [])) {
                                         echo '<button type="submit" disabled id="add-to-chart-button" class="btn btn-success font-size-12 m-1">In the Cart</button>';
                                     } else {
-                                        echo '<button type="submit" name="top_sale_submit" id="add-to-chart-button" class="btn btn-warning font-size-12 m-1">Add to Cart</button>';
+                                        echo '<button type="submit" name="special_price_submit" id="add-to-chart-button" class="btn btn-warning font-size-12 m-1">Add to Cart</button>';
                                     }
                                 }
                                 ?>

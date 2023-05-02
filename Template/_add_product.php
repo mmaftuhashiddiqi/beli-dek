@@ -25,7 +25,7 @@ if( isset($_POST["submit"]) ) {
 ?>
 
 <!-- add product -->
-<form action="" method="post" enctype="multipart/form-data" style="margin-top: 100px; margin-bottom: 50px; margin-left: 25vw; margin-right: 25vw;">
+<form action="" method="post" enctype="multipart/form-data" style="margin-top: 100px; margin-bottom: 100px; margin-left: 25vw; margin-right: 25vw;">
     <div class="form-group">
         <label for="inputBrandName">Nama Brand</label>
         <input type="text" name="inputBrandName" class="form-control" id="inputBrandName" placeholder="Brand Name">

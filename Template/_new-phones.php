@@ -49,7 +49,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                                     if (in_array($item['item_id'], $Cart->getCartId($product->getDataCart('cart')) ?? [])) {
                                         echo '<button type="submit" disabled id="add-to-chart-button" class="btn btn-success font-size-12 m-1">In the Cart</button>';
                                     } else {
-                                        echo '<button type="submit" name="top_sale_submit" id="add-to-chart-button" class="btn btn-warning font-size-12 m-1">Add to Cart</button>';
+                                        echo '<button type="submit" name="new_phones_submit" id="add-to-chart-button" class="btn btn-warning font-size-12 m-1">Add to Cart</button>';
                                     }
                                 }
                                 ?>

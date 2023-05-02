@@ -1,16 +1,16 @@
 <!-- Shopping cart section  -->
 <?php
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-        if (isset($_POST['delete-cart-submit'])){
-            $deletedrecord = $Cart->deleteCart($_POST['item_id']);
-        }
-
-        // save for later
-        if (isset($_POST['wishlist-submit'])){
-            $Cart->saveForLater($_POST['item_id']);
-        }
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+    if (isset($_POST['delete-cart-submit'])){
+        $deletedrecord = $Cart->deleteCart($_POST['item_id']);
     }
+
+    // save for later
+    if (isset($_POST['wishlist-submit'])){
+        $Cart->saveForLater($_POST['item_id']);
+    }
+}
 
 ?>
 
@@ -22,9 +22,9 @@
         <div class="row">
             <div class="col-sm-9">
                 <?php
-                    foreach ($product->getDataCart('cart') as $item) :
-                        $cart = $product->getProduct($item['item_id']);
-                        $subTotal[] = array_map(function ($item){
+                foreach ($product->getDataCart('cart') as $item) :
+                    $cart = $product->getProduct($item['item_id']);
+                    $subTotal[] = array_map(function ($item){
                 ?>
 
                 <!-- cart item -->
@@ -56,12 +56,12 @@
                                 <input type="text" data-id="<?php echo $item['item_id'] ?? '0'; ?>" class="qty_input border px-2 w-100 bg-light" disabled value="1" placeholder="1">
                                 <button data-id="<?php echo $item['item_id'] ?? '0'; ?>" class="qty-down border bg-light"><i class="fas fa-angle-down"></i></button>
                             </div>
-
+                            
                             <form method="post">
                                 <input type="hidden" value="<?php echo $item['item_id'] ?? 0; ?>" name="item_id">
                                 <button type="submit" name="delete-cart-submit" class="btn font-baloo text-danger px-3 border-right">Delete</button>
                             </form>
-
+                            
                             <form method="post">
                                 <input type="hidden" value="<?php echo $item['item_id'] ?? 0; ?>" name="item_id">
                                 <button type="submit" name="wishlist-submit" class="btn font-baloo text-danger">Save for Later</button>
@@ -79,9 +79,9 @@
                 <!-- !cart item -->
 
                 <?php
-                    return $item['item_price'];
-                        }, $cart); // closing array_map function
-                    endforeach;
+                return $item['item_price'];
+                    }, $cart); // closing array_map function
+                endforeach;
                 ?>
             </div>
 

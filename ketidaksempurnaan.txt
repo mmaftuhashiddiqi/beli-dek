@@ -1,5 +1,5 @@
-### wishlist section
-- save for later button masih error tapi pungsi
+### admin panel
+- belum jadi ashfdkaewoglkdfghar
 
 ### login & register page
 - belum responsip

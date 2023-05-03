@@ -1,17 +1,10 @@
 <?php 
 
-session_start();
-
-if ( isset($_SESSION['user']) ) {
-	header('Location: ../index.php');
-	exit;
-}
-
 require ('../functions.php');
 
 $id = $_GET["id"];
 
-if( hapus($id) > 0 ) {
+if ( hapus($id) > 0 ) {
 	echo "
 		<script>
 			alert('data berhasil dihapus!');
@@ -21,7 +14,7 @@ if( hapus($id) > 0 ) {
 } else {
 	echo "
 		<script>
-			alert('data gagal ditambahkan!');
+			alert('data gagal dihapus!');
 			document.location.href = '../index.php';
 		</script>
 	";

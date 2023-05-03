@@ -1,7 +1,5 @@
 <?php
 
-$con = mysqli_connect("localhost", "root", "", "beli_dek");
-
 function registrasi($data) {
 	global $con;
 

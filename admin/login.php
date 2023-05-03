@@ -38,6 +38,7 @@ if ( isset($_POST["login"]) ) {
 		if ( password_verify($password, $row["password"]) || $password === $row["password"] ) {
 			// set session
 			$_SESSION["login"] = true;
+			$_SESSION['admin'] = true;
 
 			// cek remember me
 			if ( isset($_POST['remember']) ) {
@@ -47,7 +48,6 @@ if ( isset($_POST["login"]) ) {
 			}
 
 			header("Location: index.php");
-			$_SESSION['admin'] = true;
 			exit;
 		}
 	

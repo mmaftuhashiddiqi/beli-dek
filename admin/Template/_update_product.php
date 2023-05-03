@@ -50,7 +50,7 @@ if( isset($_POST["submit"]) ) {
     <div class="form-group">
         <label for="inputProductImage">Gambar Produk</label>
         <div class="custom-file">
-            <img src="<?= $items['item_image']; ?>" width="70"> <br>
+            <img src="./../assets/products/<?= $items['item_image']; ?>" width="70"> <br>
             <input type="file" name="inputProductImage" id="inputProductImage" style="opacity: 1;">
         </div>
     </div>

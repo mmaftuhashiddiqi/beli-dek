@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 01, 2023 at 06:24 PM
+-- Generation Time: May 03, 2023 at 06:40 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -72,19 +72,19 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`item_id`, `item_brand`, `item_name`, `item_price`, `item_image`) VALUES
-(1, 'Samsung', 'Samsung Galaxy 10', 152.00, './assets/products/1.png'),
-(2, 'Redmi', 'Redmi Note 7', 122.00, './assets/products/2.png'),
-(3, 'Redmi', 'Redmi Note 6', 122.00, './assets/products/3.png'),
-(4, 'Redmi', 'Redmi Note 5', 122.00, './assets/products/4.png'),
-(5, 'Redmi', 'Redmi Note 4', 122.00, './assets/products/5.png'),
-(6, 'Redmi', 'Redmi Note 8', 122.00, './assets/products/6.png'),
-(7, 'Redmi', 'Redmi Note 9', 122.00, './assets/products/8.png'),
-(8, 'Redmi', 'Redmi Note', 122.00, './assets/products/10.png'),
-(9, 'Samsung', 'Samsung Galaxy S6', 152.00, './assets/products/11.png'),
-(10, 'Samsung', 'Samsung Galaxy S7', 152.00, './assets/products/12.png'),
-(11, 'Apple', 'Apple iPhone 5', 152.00, './assets/products/13.png'),
-(12, 'Apple', 'Apple iPhone 6', 152.00, './assets/products/14.png'),
-(13, 'Apple', 'Apple iPhone 7', 152.00, './assets/products/15.png');
+(1, 'Samsung', 'Samsung Galaxy 10', 152.00, '1.png'),
+(2, 'Redmi', 'Redmi Note 7', 122.00, '2.png'),
+(3, 'Redmi', 'Redmi Note 6', 122.00, '3.png'),
+(4, 'Redmi', 'Redmi Note 5', 122.00, '4.png'),
+(5, 'Redmi', 'Redmi Note 4', 122.00, '5.png'),
+(6, 'Redmi', 'Redmi Note 8', 122.00, '6.png'),
+(7, 'Redmi', 'Redmi Note 9', 122.00, '7.png'),
+(8, 'Redmi', 'Redmi Note', 122.00, '8.png'),
+(9, 'Samsung', 'Samsung Galaxy S6', 152.00, '9.png'),
+(10, 'Samsung', 'Samsung Galaxy S7', 152.00, '10.png'),
+(11, 'Apple', 'Apple iPhone 5', 152.00, '11.png'),
+(12, 'Apple', 'Apple iPhone 6', 152.00, '12.png'),
+(13, 'Apple', 'Apple iPhone 7', 152.00, '13.png');
 
 -- --------------------------------------------------------
 
@@ -103,8 +103,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `username`, `password`) VALUES
-(1, 'upin', 'upin123'),
-(2, 'ipin', '$2y$10$hNiUU3EFIJjW0tN9DPuCE.soHSnss0CkiZWa1XjKLxFG8a0ZZOJ9O');
+(1, 'upin', '$2y$10$l53IV/IiTsm.do3XTy/0A.Fkg5JDg/WU808TLNYkyB8Joh/4UkRgm'),
+(2, 'ipin', '$2y$10$jejdz8A6aoOmyLlRbKRU6.YhER0U8kj8frKYZ0ln.yMTsfC7Kywsq');
 
 -- --------------------------------------------------------
 

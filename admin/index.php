@@ -2,7 +2,7 @@
 
 session_start();
 
-if ( !isset($_SESSION["login"]) || !isset($_SESSION["user"]) ) {
+if ( !isset($_SESSION["login"]) || !isset($_SESSION["admin"]) ) {
     header("Location: login.php");
     exit;
 }
@@ -39,9 +39,9 @@ include ('Template/_new-phones.php');
 include ('Template/_blogs.php');
 /* include blog area */
 
-/* include cart button */        
-include ('Template/_cart_button.php');
-/* include cart button */
+/* include add button */        
+include ('Template/_add_button.php');
+/* include add button */
 
 ?>
 

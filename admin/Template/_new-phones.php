@@ -8,14 +8,6 @@ if( isset($_POST["search"]) ) {
 
 shuffle($product_shuffle);
 
-// request method post
-if($_SERVER['REQUEST_METHOD'] == "POST"){
-    if (isset($_POST['new_phones_submit'])){
-        // call method addToCart
-        $Cart->addToCart($_POST['user_id'], $_POST['item_id']);
-    }
-}
-
 ?>
 
 <section id="new-phones">
@@ -28,7 +20,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             <?php foreach ($product_shuffle as $item) { ?>
                 <div class="item py-2">
                     <div class="product font-rale">
-                        <a href="<?php printf('%s?item_id=%s', 'product.php',  $item['item_id']); ?>"><img src="./assets/products/<?php echo $item['item_image'] ?? "./assets/products/product-template.jpg"; ?>" alt="product" class="img-fluid"></a>
+                        <a href="<?php printf('%s?item_id=%s', 'product.php',  $item['item_id']); ?>"><img src="./../assets/products/<?php echo $item['item_image'] ?? "./../assets/products/product-template.jpg"; ?>" alt="product" class="img-fluid"></a>
                         <div class="text-center">
                             <h6><?php echo  $item['item_name'] ?? "Unknown";  ?></h6>
                             <div class="rating text-warning font-size-12">
@@ -42,15 +34,13 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                                 <span>$<?php echo $item['item_price'] ?? '0' ; ?></span>
                             </div>
                             <form method="post">
-                                <input type="hidden" name="item_id" value="<?php echo $item['item_id'] ?? '1'; ?>">
-                                <input type="hidden" name="user_id" value="<?php echo $_SESSION['user']; ?>">
-                                <?php
-                                if (in_array($item['item_id'], $Cart->getCartId($product->getDataCart('cart')) ?? [])) {
-                                    echo '<button type="submit" disabled id="add-to-chart-button" class="btn btn-success font-size-12 m-1">In the Cart</button>';
-                                } else {
-                                    echo '<button type="submit" name="new_phones_submit" id="add-to-chart-button" class="btn btn-warning font-size-12 m-1">Add to Cart</button>';
-                                }
-                                ?>
+                                <!-- update button -->
+                                <a href="./update.php?id=<?= $item["item_id"]; ?>" id="update-button" class="text-decoration-none btn btn-info font-size-12 m-1">Update</a>
+                                <!-- !update button -->
+
+                                <!-- delete button -->
+                                <a href="./Template/_delete_product.php?id=<?= $item['item_id']; ?>" id="delete-button" class="text-decoration-none btn btn-danger font-size-12 m-1" onclick="return confirm('yakin?');">Delete</a>
+                                <!-- !delete button -->
                             </form>
                         </div>
                     </div>

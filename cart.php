@@ -2,13 +2,8 @@
 
 session_start();
 
-if( !isset($_SESSION["login"]) ) {
+if ( !isset($_SESSION["login"]) || !isset($_SESSION["user"]) ) {
     header("Location: login.php");
-    exit;
-}
-
-if ( isset($_SESSION['admin']) ) {
-    header('Location: index.php');
     exit;
 }
 

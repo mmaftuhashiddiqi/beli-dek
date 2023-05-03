@@ -72,9 +72,8 @@ function upload() {
     $namaFileBaru = uniqid();
     $namaFileBaru .= '.';
     $namaFileBaru .= $ekstensiGambar;
-    $lokasiFileBaru = './assets/products/' . $namaFileBaru;
 
-    move_uploaded_file($tmpName, './assets/products/' . $namaFileBaru);
+    move_uploaded_file($tmpName, './../assets/products/' . $namaFileBaru);
 
-    return $lokasiFileBaru;
+    return $namaFileBaru;
 }

@@ -2,13 +2,8 @@
 
 session_start();
 
-if( !isset($_SESSION["login"]) ) {
+if ( !isset($_SESSION["login"]) || !isset($_SESSION["admin"]) ) {
     header("Location: login.php");
-    exit;
-}
-
-if ( isset($_SESSION['user']) ) {
-    header('Location: index.php');
     exit;
 }
 
@@ -21,7 +16,7 @@ if ( isset($_SESSION['user']) ) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Product</title>
+    <title>Add Product</title>
 
     <?php
     // require library
@@ -42,29 +37,21 @@ if ( isset($_SESSION['user']) ) {
     <?php
 
     /* include add product */
-    include ('Template/_update_product.php');
+    include ('Template/_add_product.php');
     /* include add product */
 
-    if ( isset($_SESSION['user']) ) {
-        /* include chart button */
-        include ('Template/_cart_button.php');
-        /* include chart button */
-    }
-
-    if ( isset($_SESSION['admin']) ) {
-        /* include add button */        
-        include ('Template/_add_button.php');
-        /* include add button */
-    }
+    /* include add button */        
+    include ('Template/_add_button.php');
+    /* include add button */
 
     // require library
-    require ('library/body.php');
+    require('library/body.php');
 
     ?>
 
     <!-- Custom Javascript -->
     <script src="script.js"></script>
-    
+
 </body>
 
 </html>

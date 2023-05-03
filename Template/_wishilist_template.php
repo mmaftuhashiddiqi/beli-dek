@@ -3,11 +3,11 @@
 
 if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
     if ( isset($_POST['delete-cart-submit']) ) {
-        $deletedrecord = $Cart->deleteCart($_POST['item_id'], 'wishlist');
+        $deletedrecord = $Cart->deleteCart($_POST['item_id'], $_POST['user_id'], 'wishlist');
     }
 
     if ( isset($_POST['cart-submit']) ) {
-        $Cart->saveForLater($_POST['item_id'], 'cart', 'wishlist');
+        $Cart->saveForLater($_POST['item_id'], $_POST['user_id'], 'cart', 'wishlist');
     }
 }
 
@@ -29,7 +29,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
                 <!-- cart item -->
                 <div class="row border-top py-3 mt-3">
                     <div class="col-sm-2">
-                        <img src="<?php echo $item['item_image'] ?? "./assets/products/1.png" ?>" style="height: 120px;" alt="cart1" class="img-fluid">
+                        <img src="./assets/products/<?php echo $item['item_image'] ?? "./assets/products/product-template.jpg" ?>" style="height: 120px;" alt="product" class="img-fluid">
                     </div>
                     <div class="col-sm-8">
                         <h5 class="font-baloo font-size-20"><?php echo $item['item_name'] ?? "Unknown"; ?></h5>
@@ -52,11 +52,13 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
                         <div class="qty d-flex pt-2">
                             <form method="post">
                                 <input type="hidden" value="<?php echo $item['item_id'] ?? 0; ?>" name="item_id">
+                                <input type="hidden" value="<?php echo $_SESSION['user'] ?? 0; ?>" name="user_id">
                                 <button type="submit" name="delete-cart-submit" class="btn font-baloo text-danger pl-0 pr-3 border-right">Delete</button>
                             </form>
 
                             <form method="post">
                                 <input type="hidden" value="<?php echo $item['item_id'] ?? 0; ?>" name="item_id">
+                                <input type="hidden" value="<?php echo $_SESSION['user'] ?? 0; ?>" name="user_id">
                                 <button type="submit" name="cart-submit" class="btn font-baloo text-danger">Add to Cart</button>
                             </form>
                         </div>

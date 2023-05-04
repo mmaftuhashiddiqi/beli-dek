@@ -20,6 +20,7 @@ if ( $_SERVER['REQUEST_METHOD'] == "POST" ) {
 }
 
 $in_cart = $Cart->getCartId($product->getDataCart('cart'));
+$in_wishlist = $Cart->getCartId($product->getDataCart('wishlist'));
 
 ?>
 
@@ -36,7 +37,7 @@ $in_cart = $Cart->getCartId($product->getDataCart('cart'));
         </div>
 
         <div class="grid">
-            <?php array_map(function ($item) use($in_cart) { ?>
+            <?php array_map(function ($item) use($in_cart, $in_wishlist) { ?>
             <div class="grid-item border <?php echo $item['item_brand'] ?? "Brand" ; ?>">
                 <div class="item py-2" style="width: 200px;">
                     <div class="product font-rale">
@@ -59,6 +60,8 @@ $in_cart = $Cart->getCartId($product->getDataCart('cart'));
                                 <?php
                                 if (in_array($item['item_id'], $in_cart ?? [])) {
                                     echo '<button type="submit" disabled id="add-to-chart-button" class="btn btn-success font-size-12 m-1">In the Cart</button>';
+                                } else if (in_array($item['item_id'], $in_wishlist ?? [])) {
+                                    echo '<button type="submit" disabled id="add-to-wishlist-button" class="btn btn-success font-size-12 m-1">In the Wishlist</button>';
                                 } else {
                                     echo '<button type="submit" name="special_price_submit" id="add-to-chart-button" class="btn btn-warning font-size-12 m-1">Add to Cart</button>';
                                 }

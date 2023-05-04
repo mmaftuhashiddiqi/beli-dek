@@ -60,7 +60,7 @@
             <!-- profile section -->
             <div class="profile">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img src="assets/template/profile.png" width="40" height="40" class="rounded-circle">
+                    <img src="./../assets/template/profile.png" width="40" height="40" class="rounded-circle">
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="margin-left: 85%;">
                     <a class="dropdown-item" href="logout.php">LogOut</a>

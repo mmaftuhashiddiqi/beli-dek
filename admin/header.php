@@ -26,7 +26,7 @@
 <header id="header">
 
     <!-- Primary Navigation -->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark color-primary-bg" style="height: 70px; box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark color-primary-bg shadow" style="height: 70px;">
         <a class="navbar-brand" href="index.php">Beli Dek</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -34,19 +34,21 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav m-auto font-rubik">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">On Sale</a>
+                    <a class="nav-link" href="index.php">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Products</a>
+                    <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Manage Products <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu font-rubik" aria-labelledby="navbarDropdownMenuLink" style="margin-left: 28%;">
+                        <a class="dropdown-item" href="add.php">Add Product</a>
+                        <a class="dropdown-item" href="#">Update Product</a>
+                        <a class="dropdown-item" href="#">Delete Product</a>
+                    </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Category <i class="fas fa-chevron-down"></i></a>
+                    <a class="nav-link" href="view.php">View Products</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Blog</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Coming Soon</a>
+                    <a class="nav-link" href="#">Orders</a>
                 </li>
             </ul>
 
@@ -62,8 +64,8 @@
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img src="./../assets/template/profile.png" width="40" height="40" class="rounded-circle">
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="margin-left: 85%;">
-                    <a class="dropdown-item" href="logout.php">LogOut</a>
+                <div class="dropdown-menu font-rubik" aria-labelledby="navbarDropdownMenuLink" style="margin-left: 85%;">
+                    <a class="dropdown-item" href="logout.php">Log out</a>
                 </div>
             </div>
             <!-- !profile section -->

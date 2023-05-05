@@ -11,7 +11,7 @@ shuffle($product_shuffle);
 ?>
 
 <section id="new-phones">
-    <div class="container">
+    <div class="container mb-5">
         <h4 class="font-rubik font-size-20">New Phones</h4>
         <hr>
 

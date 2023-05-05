@@ -11,7 +11,7 @@ shuffle($product_shuffle);
 ?>
 
 <section id="top-sale">
-    <div class="container py-5">
+    <div class="container py-5" style="margin-top: 70px;">
         <h4 class="font-rubik font-size-20">Top Sale</h4>
         <hr>
 

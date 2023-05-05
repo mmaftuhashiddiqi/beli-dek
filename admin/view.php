@@ -15,13 +15,17 @@ include ('header.php');
 
 <?php
 
-/* include dashboard */
-include ('Template/_dashboard.php');
-/* include dashboard */
+/* include top sale section */
+include ('Template/_top-sale.php');
+/* include top sale section */
 
-/* include statistics */
-include ('Template/_statistics.php');
-/* include statistics */
+/* include special price section */
+include ('Template/_special-price.php');
+/* include special price section */
+
+/* include new phones section */
+include ('Template/_new-phones.php');
+/* include new phones section */
 
 /* include add button */        
 include ('Template/_add_button.php');

@@ -26,7 +26,7 @@
 <header id="header">
 
     <!-- Primary Navigation -->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark color-primary-bg" style="height: 70px; box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark color-primary-bg shadow" style="height: 70px;">
         <a class="navbar-brand" href="index.php">Beli Dek</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -62,8 +62,8 @@
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img src="assets/template/profile.png" width="40" height="40" class="rounded-circle">
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="margin-left: 85%;">
-                    <a class="dropdown-item" href="logout.php">LogOut</a>
+                <div class="dropdown-menu font-rubik" aria-labelledby="navbarDropdownMenuLink" style="margin-left: 85%;">
+                    <a class="dropdown-item" href="logout.php">Log out</a>
                 </div>
             </div>
             <!-- !profile section -->

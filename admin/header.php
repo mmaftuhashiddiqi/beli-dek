@@ -37,18 +37,20 @@
                     <a class="nav-link" href="index.php">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Manage Products <i class="fas fa-chevron-down"></i></a>
-                    <div class="dropdown-menu font-rubik" aria-labelledby="navbarDropdownMenuLink" style="margin-left: 28%;">
-                        <a class="dropdown-item" href="add.php">Add Product</a>
-                        <a class="dropdown-item" href="#">Update Product</a>
-                        <a class="dropdown-item" href="#">Delete Product</a>
+                    <div class="btn-group">
+                        <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Manage Products <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-menu dropdown-menu-right font-rubik" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="add.php">Add Product</a>
+                            <a class="dropdown-item" href="#">Update Product</a>
+                            <a class="dropdown-item" href="#">Delete Product</a>
+                        </div>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="view.php">View Products</a>
+                    <a class="nav-link" href="products.php">View Products</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Orders</a>
+                    <a class="nav-link" href="orders.php">Orders</a>
                 </li>
             </ul>
 
@@ -60,11 +62,11 @@
             <!-- !search section -->
 
             <!-- profile section -->
-            <div class="profile">
+            <div class="btn-group">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img src="./../assets/template/profile.png" width="40" height="40" class="rounded-circle">
                 </a>
-                <div class="dropdown-menu font-rubik" aria-labelledby="navbarDropdownMenuLink" style="margin-left: 85%;">
+                <div class="dropdown-menu dropdown-menu-right font-rubik" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="logout.php">Log out</a>
                 </div>
             </div>

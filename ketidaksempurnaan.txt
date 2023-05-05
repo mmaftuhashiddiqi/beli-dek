@@ -1,8 +1,16 @@
-### admin panel
-- belum jadi ashfdkaewoglkdfghar
+### dashboard page
+- belum jadi
+
+### orders page
+- belum jadi
+* note: database-nya dibuat lengkap aja, biar ga pusing (diqi dari masa lalu)
+* note: jadi tombol proceed to buy nya harus diperbaiki
+
+### live search
+- belum pungsi
+
+### on delivery page for user
+- belum jadi
 
 ### login & register page
 - belum responsip
-
-### profile section
-- logout button belum responsip

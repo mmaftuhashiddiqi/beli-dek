@@ -15,17 +15,9 @@ include ('header.php');
 
 <?php
 
-/* include top sale section */
-include ('Template/_top-sale.php');
-/* include top sale section */
-
-/* include special price section */
-include ('Template/_special-price.php');
-/* include special price section */
-
-/* include new phones section */
-include ('Template/_new-phones.php');
-/* include new phones section */
+/* include product list */
+include ('Template/_products.php');
+/* include product list */
 
 /* include add button */        
 include ('Template/_add_button.php');

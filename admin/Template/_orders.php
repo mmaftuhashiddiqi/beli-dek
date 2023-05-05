@@ -20,7 +20,7 @@ if ( isset($_POST["ascending-price"]) ) {
 
 <section id="products-list">
     <div class="container" style="margin-top: 120px;">
-        <h4 class="font-rubik font-size-20">List of Products</h4>
+        <h4 class="font-rubik font-size-20">Order of Products</h4>
         <hr>
 
         <div class="container d-flex justify-content-end pt-2 pb-4 pr-0">
@@ -51,10 +51,12 @@ if ( isset($_POST["ascending-price"]) ) {
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">No</th>
-                        <th scope="col">Image</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Brand</th>
-                        <th scope="col">Price</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Product Brand</th>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Product Price</th>
+                        <th scope="col">Product Count</th>
+                        <th scope="col">Total Price</th>
                         <th scope="col">Manage</th>
                     </tr>
                 </thead>
@@ -64,18 +66,16 @@ if ( isset($_POST["ascending-price"]) ) {
                         <tr>
                             <th scope="row"><?= $i ?></th>
                             <td><img src="./../assets/products/<?= $item['item_image'] ?>" alt="product" width="40"></td>
-                            <td><?= $item['item_name'] ?></td>
                             <td><?= $item['item_brand'] ?></td>
+                            <td><?= $item['item_name'] ?></td>
+                            <td>$<?= $item['item_price'] ?></td>
+                            <td>$<?= $item['item_price'] ?></td>
                             <td>$<?= $item['item_price'] ?></td>
                             <td>
                                 <form method="post">
-                                    <!-- update button -->
-                                    <a href="./update.php?id=<?= $item["item_id"]; ?>" id="update-button" class="text-decoration-none btn btn-info font-size-12 m-1">Update</a>
-                                    <!-- !update button -->
-
-                                    <!-- delete button -->
-                                    <a href="./Template/_delete_product.php?id=<?= $item['item_id']; ?>" id="delete-button" class="text-decoration-none btn btn-danger font-size-12 m-1" onclick="return confirm('yakin?');">Delete</a>
-                                    <!-- !update button -->
+                                    <!-- process button -->
+                                    <a href="#" id="process-button" class="text-decoration-none btn btn-info font-size-12 m-1">Process</a>
+                                    <!-- !process button -->
                                 </form>
                             </td>
                         </tr>

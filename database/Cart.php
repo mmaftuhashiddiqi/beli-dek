@@ -95,4 +95,20 @@ class Cart
             return $result;
         }
     }
+
+    // proceed to buy
+    public function proceedToBuy($user_id = null) {
+        if ($user_id != null){
+            $query = "INSERT INTO `order` SELECT * FROM `cart` WHERE user_id={$user_id};";
+            $query .= "DELETE FROM `cart` WHERE user_id={$user_id};";
+
+            // execute multiple query
+            $result = $this->db->con->multi_query($query);
+
+            if($result){
+                header("Location: " . $_SERVER['PHP_SELF']);
+            }
+            return $result;
+        }
+    }
 }

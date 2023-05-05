@@ -68,7 +68,7 @@ $(document).ready(function(){
                 items: 3
             }
         }
-    })
+    });
 
 
     // product qty section
@@ -85,24 +85,26 @@ $(document).ready(function(){
 
         // change product price using ajax call
         $.ajax({url: "Template/ajax.php", type : 'post', data : { itemid : $(this).data("id")}, success: function(result){
-                let obj = JSON.parse(result);
-                let item_price = obj[0]['item_price'];
+            let obj = JSON.parse(result);
+            let item_price = obj[0]['item_price'];
 
-                if($input.val() >= 1 && $input.val() <= 9){
-                    $input.val(function(i, oldval){
-                        return ++oldval;
-                    });
+            if($input.val() >= 1 && $input.val() <= 9){
+                $input.val(function(i, oldval){
+                    return ++oldval;
+                });
 
-                    // increase price of the product
-                    $price.text(parseInt(item_price * $input.val()).toFixed(2));
+                // increase price of the product
+                $price.text(parseInt(item_price * $input.val()).toFixed(2));
 
-                    // set subtotal price
-                    let subtotal = parseInt($deal_price.text()) + parseInt(item_price);
-                    $deal_price.text(subtotal.toFixed(2));
-                }
+                // set subtotal price
+                let subtotal = parseInt($deal_price.text()) + parseInt(item_price);
+                $deal_price.text(subtotal.toFixed(2));
+            }
 
-            }}); // closing ajax request
-    }); // closing qty up button
+        }});
+        // closing ajax request
+    });
+    // closing qty up button
 
     // click on qty down button
     $qty_down.click(function(e){
@@ -112,25 +114,44 @@ $(document).ready(function(){
 
         // change product price using ajax call
         $.ajax({url: "Template/ajax.php", type : 'post', data : { itemid : $(this).data("id")}, success: function(result){
-                let obj = JSON.parse(result);
-                let item_price = obj[0]['item_price'];
+            let obj = JSON.parse(result);
+            let item_price = obj[0]['item_price'];
 
-                if($input.val() > 1 && $input.val() <= 10){
-                    $input.val(function(i, oldval){
-                        return --oldval;
-                    });
+            if($input.val() > 1 && $input.val() <= 10){
+                $input.val(function(i, oldval){
+                    return --oldval;
+                });
 
 
-                    // increase price of the product
-                    $price.text(parseInt(item_price * $input.val()).toFixed(2));
+                // increase price of the product
+                $price.text(parseInt(item_price * $input.val()).toFixed(2));
 
-                    // set subtotal price
-                    let subtotal = parseInt($deal_price.text()) - parseInt(item_price);
-                    $deal_price.text(subtotal.toFixed(2));
-                }
+                // set subtotal price
+                let subtotal = parseInt($deal_price.text()) - parseInt(item_price);
+                $deal_price.text(subtotal.toFixed(2));
+            }
 
-            }}); // closing ajax request
-    }); // closing qty down button
+        }});
+        // closing ajax request
+    });
+    // closing qty down button
 
+
+    // event ketika keyword ditulis
+    $('#keyword-live').on('keyup', function() {
+        // munculkan icon loading
+        $('.loader').show();
+
+        // ajax menggunakan load
+        // $('#container').load('ajax/mahasiswa.php?keyword=' + $('#keyword').val());
+
+        // $.get()
+        $.get('Template/products-live.php?keyword-live=' + $('#keyword-live').val(), function(data) {
+
+            $('#table-container').html(data);
+            $('.loader').hide();
+
+        });
+    });
 
 });

@@ -8,3 +8,10 @@ function cari($keyword) {
 			";
 	return query($query);
 }
+
+function sortedBy($keyword) {
+	$query = "SELECT * FROM product
+				ORDER BY item_price $keyword
+			";
+	return query($query);
+}

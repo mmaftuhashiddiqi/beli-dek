@@ -58,11 +58,12 @@
             <!-- !search section -->
 
             <!-- profile section -->
-            <div class="profile">
+            <div class="btn-group">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img src="assets/template/profile.png" width="40" height="40" class="rounded-circle">
                 </a>
-                <div class="dropdown-menu font-rubik" aria-labelledby="navbarDropdownMenuLink" style="margin-left: 85%;">
+                <div class="dropdown-menu dropdown-menu-right font-rubik" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">On delivery</a>
                     <a class="dropdown-item" href="logout.php">Log out</a>
                 </div>
             </div>

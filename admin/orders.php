@@ -7,6 +7,7 @@ if ( !isset($_SESSION["login"]) || !isset($_SESSION["admin"]) ) {
     exit;
 }
 
+ob_start();
 // include header.php file
 include ('header.php');
 
@@ -14,15 +15,11 @@ include ('header.php');
 
 <?php
 
-/* include products */
-include ('Template/_products.php');
-/* include products */
+/* include product list */
+include ('Template/_orders.php');
+/* include product list */
 
-/* include top sale section */
-include ('Template/_top-sale.php');
-/* include top sale section */
-
-/* include add button */
+/* include add button */        
 include ('Template/_add_button.php');
 /* include add button */
 

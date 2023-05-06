@@ -146,7 +146,7 @@ $(document).ready(function(){
         // $('#container').load('ajax/mahasiswa.php?keyword=' + $('#keyword').val());
 
         // $.get()
-        $.get('Template/products-live.php?keyword-live=' + $('#keyword-live').val(), function(data) {
+        $.get('Template/_products-live.php?keyword-live=' + $('#keyword-live').val(), function(data) {
 
             $('#table-container').html(data);
             $('.loader').hide();

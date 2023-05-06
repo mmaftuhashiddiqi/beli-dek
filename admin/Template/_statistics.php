@@ -4,7 +4,6 @@
         <hr>
 
         <div class="row">
-            <img alt="statistics-template" src="./../assets/template/statistic-template.jpg" width="1000">
         </div>
     </div>
 </section>

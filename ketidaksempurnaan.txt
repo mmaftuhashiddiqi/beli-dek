@@ -1,11 +1,11 @@
-### dashboard page
-- belum jadi
-
 ### live search
 - belum pungsi
 
 ### on delivery page for user
 - belum jadi
+
+### dashboard page
+- transaction section belum jadi
 
 ### login & register page
 - belum responsip

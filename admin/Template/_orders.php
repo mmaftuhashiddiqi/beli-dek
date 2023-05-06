@@ -86,9 +86,9 @@ if ( isset($_POST["ascending-price"]) ) {
                             <td><?= $order['username']; ?></td>
                             <td><?= $order['item_brand']; ?></td>
                             <td><?= $order['item_name']; ?></td>
-                            <td><?= $order['item_price']; ?></td>
+                            <td>$<?= $order['item_price']; ?></td>
                             <td>1</td>
-                            <td><?= $order['item_price']; ?></td>
+                            <td>$<?= $order['item_price']; ?></td>
                             <td>
                                 <form method="post">
                                     <!-- process button -->
@@ -96,7 +96,7 @@ if ( isset($_POST["ascending-price"]) ) {
                                     <!-- !process button -->
                                     
                                     <!-- done button -->
-                                    <a href="#" id="done-button" class="text-decoration-none btn btn-success font-size-12 m-1">Done</a>
+                                    <a href="./Template/_delete_order.php?item_id=<?= $order['item_id']; ?>&user_id=<?= $order['user_id']; ?>" id="done-button" class="text-decoration-none btn btn-success font-size-12 m-1">Done</a>
                                     <!-- !done button -->
                                 </form>
                             </td>

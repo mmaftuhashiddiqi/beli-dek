@@ -1,63 +1,53 @@
+<?php
+
+$productCount = count($product->getData());
+$adminCount = count($product->getData('admin'));
+$userCount = count($product->getData('user'));
+$orderCount = count($product->getData('orders'));
+
+?>
+
 <section id="dashboard">
     <div class="container" style="margin-top: 120px;">
         <h4 class="font-rubik font-size-20">Dashboard</h4>
         <hr>
 
-        <div class="row">
+        <div class="d-flex justify-content-center">
             <div class="card border-primary m-3" style="max-width: 18rem;">
-                <div class="card-header">Header</div>
+                <div class="card-header">Products Total</div>
                 <div class="card-body text-primary">
-                    <h5 class="card-title">Primary card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <div class="text-primary"><i class="fas fa-shopping-bag fa-lg m-2"></i><i class="fas fa-arrow-right m-2"></i><span class="m-2"><?= $productCount ?></span></div>
+                    <p class="card-text">There are <?= $productCount ?> products on this website.</p>
                 </div>
             </div>
             <div class="card border-secondary m-3" style="max-width: 18rem;">
-                <div class="card-header">Header</div>
+                <div class="card-header">Admins Total</div>
                 <div class="card-body text-secondary">
-                    <h5 class="card-title">Secondary card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <div class="text-secondary"><i class="fas fa-users-cog fa-lg m-2"></i><i class="fas fa-arrow-right m-2"></i><span class="m-2"><?= $adminCount ?></span></div>
+                    <p class="card-text">There are <?= $adminCount ?> admins who use this website.</p>
                 </div>
             </div>
             <div class="card border-success m-3" style="max-width: 18rem;">
-                <div class="card-header">Header</div>
+                <div class="card-header">Users Total</div>
                 <div class="card-body text-success">
-                    <h5 class="card-title">Success card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <div class="text-success"><i class="fas fa-users fa-lg m-2"></i><i class="fas fa-arrow-right m-2"></i><span class="m-2"><?= $userCount ?></span></div>
+                    <p class="card-text">There are <?= $userCount ?> users using this website.</p>
                 </div>
             </div>
+        </div>
+        <div class="d-flex justify-content-center">
             <div class="card border-danger m-3" style="max-width: 18rem;">
-                <div class="card-header">Header</div>
+                <div class="card-header">Orders Total</div>
                 <div class="card-body text-danger">
-                    <h5 class="card-title">Danger card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <div class="text-danger"><i class="fas fa-shopping-cart fa-lg m-2"></i><i class="fas fa-arrow-right m-2"></i><span class="m-2"><?= $orderCount ?></span></div>
+                    <p class="card-text"><?= $orderCount ?> orders are happening on this website.</p>
                 </div>
             </div>
             <div class="card border-warning m-3" style="max-width: 18rem;">
-                <div class="card-header">Header</div>
+                <div class="card-header">Transactions Total</div>
                 <div class="card-body text-warning">
-                    <h5 class="card-title">Warning card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-            <div class="card border-info m-3" style="max-width: 18rem;">
-                <div class="card-header">Header</div>
-                <div class="card-body text-info">
-                    <h5 class="card-title">Info card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-            <div class="card border-light m-3" style="max-width: 18rem;">
-                <div class="card-header">Header</div>
-                <div class="card-body">
-                    <h5 class="card-title">Light card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-            <div class="card border-dark m-3" style="max-width: 18rem;">
-                <div class="card-header">Header</div>
-                <div class="card-body text-dark">
-                    <h5 class="card-title">Dark card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <div class="text-warning"><i class="fas fa-file-invoice-dollar m-2"></i><i class="fas fa-arrow-right m-2"></i><span class="m-2">100</span></div>
+                    <p class="card-text">There have been 100 transactions on this website.</p>
                 </div>
             </div>
         </div>

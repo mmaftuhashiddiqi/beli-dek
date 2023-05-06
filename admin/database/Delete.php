@@ -15,8 +15,11 @@ function hapus($id) {
 
 	mysqli_query($con, "DELETE FROM product WHERE item_id = $id");
 
-	$ret = mysqli_affected_rows($con);
-	echo "<script>console.log({$ret})</script>";
+	return mysqli_affected_rows($con);
+}
 
+function hapusOrder($itemId, $userId) {
+	global $con;
+	mysqli_query($con, "DELETE FROM orders WHERE item_id = $itemId AND user_id = $userId");
 	return mysqli_affected_rows($con);
 }

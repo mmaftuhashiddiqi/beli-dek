@@ -19,8 +19,8 @@ if ( $_SERVER['REQUEST_METHOD'] == "POST" ) {
     }
 }
 
-$in_cart = $Cart->getCartId($product->getDataCart('cart'));
-$in_wishlist = $Cart->getCartId($product->getDataCart('wishlist'));
+$in_cart = $Cart->getCartId($Cart->getDataCart('cart'));
+$in_wishlist = $Cart->getCartId($Cart->getDataCart('wishlist'));
 
 ?>
 

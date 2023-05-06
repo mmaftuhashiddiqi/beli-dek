@@ -21,7 +21,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
         <div class="row">
             <div class="col-sm-9">
                 <?php
-                foreach ($product->getDataCart('wishlist') as $item) :
+                foreach ($Cart->getDataCart('wishlist') as $item) :
                     $cart = $product->getProduct($item['item_id']);
                     $subTotal[] = array_map(function ($item){
                 ?>

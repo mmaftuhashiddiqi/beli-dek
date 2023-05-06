@@ -1,19 +1,26 @@
 <?php
 
-shuffle($product_shuffle);
+// konfigurasi pagination
+$jumlahDataPerHalaman = 10;
+$jumlahData = count(query("SELECT * FROM orders"));
+$jumlahHalaman = ceil($jumlahData / $jumlahDataPerHalaman);
+$halamanAktif = ( isset($_GET["halaman"]) ) ? $_GET["halaman"] : 1;
+$awalData = ( $jumlahDataPerHalaman * $halamanAktif ) - $jumlahDataPerHalaman;
+
+$products = query("SELECT * FROM product LIMIT $awalData, $jumlahDataPerHalaman");
 
 // tombol cari ditekan
 if ( isset($_POST["search"]) ) {
-    $product_shuffle = cari($_POST["keyword"]);
+    $products = cari($_POST["keyword"]);
 }
 
 // sorted by
 if ( isset($_POST["ascending-price"]) ) {
-    $product_shuffle = sortedBy("ASC");
+    $products = sortedBy("ASC");
 } elseif ( isset($_POST["descending-price"]) ) {
-    $product_shuffle = sortedBy("DESC");
+    $products = sortedBy("DESC");
 } elseif ( isset($_POST["shuffle"]) ) {
-    $product_shuffle = cari("");
+    $products = cari("");
 }
 
 ?>
@@ -40,7 +47,7 @@ if ( isset($_POST["ascending-price"]) ) {
                     <form action="" method="post">
                         <button class="dropdown-item" type="submit" name="ascending-price" id="ascending-price">Ascending price</button>
                         <button class="dropdown-item" type="submit" name="descending-price" id="descending-price">Descending price</button>
-                        <button class="dropdown-item" type="submit" name="shuffle" id="shuffle">Shuffle</button>
+                        <button class="dropdown-item" type="submit" name="shuffle" id="shuffle">Normal</button>
                     </form>
                 </div>
             </div>
@@ -60,7 +67,7 @@ if ( isset($_POST["ascending-price"]) ) {
                 </thead>
                 <tbody>
                     <?php $i = 1; ?>
-                    <?php foreach ($product_shuffle as $item) { ?>
+                    <?php foreach ($products as $item) { ?>
                         <tr>
                             <th scope="row"><?= $i ?></th>
                             <td><img src="./../assets/products/<?= $item['item_image'] ?>" alt="product" width="40"></td>
@@ -84,5 +91,33 @@ if ( isset($_POST["ascending-price"]) ) {
                 </tbody>
             </table>
         </div>
+
+        <!-- pagination -->
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <?php if( $halamanAktif > 1 ) : ?>
+                    <li class="page-item">
+                        <a class="page-link" href="?halaman=<?= $halamanAktif - 1; ?>" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                <?php endif; ?>
+                <?php for( $i = 1; $i <= $jumlahHalaman; $i++ ) : ?>
+                    <?php if( $i == $halamanAktif ) : ?>
+                        <li class="page-item"><a class="page-link font-weight-bold text-danger" href="?halaman=<?= $i; ?>"><?= $i; ?></a></li>
+                    <?php else : ?>
+                        <li class="page-item"><a class="page-link" href="?halaman=<?= $i; ?>"><?= $i; ?></a></li>
+                    <?php endif; ?>
+                <?php endfor; ?>
+                <?php if( $halamanAktif < $jumlahHalaman ) : ?>                    
+                    <li class="page-item">
+                        <a class="page-link" href="?halaman=<?= $halamanAktif + 1; ?>" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                <?php endif; ?>
+            </ul>
+        </nav>
+        <!-- !pagination -->
     </div>
 </section>

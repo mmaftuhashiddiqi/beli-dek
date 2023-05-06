@@ -3,6 +3,6 @@
     <a href="cart.php" class="d-flex justify-content-center align-items-center rounded-circle bg-primary shadow badge-info" style="width: 50px; height: 50px; text-decoration: none;">
         <span class="d-flex justify-content-center font-size-18 text-white"><i class="fas fa-shopping-cart"></i></span>
     </a>
-    <span class="d-flex justify-content-center rounded-circle text-white bg-dark font-size-12" style="width: 20px; height: 20px; position: absolute;"><?php echo count($product->getDataCart('cart')); ?></span>
+    <span class="d-flex justify-content-center rounded-circle text-white bg-dark font-size-12" style="width: 20px; height: 20px; position: absolute;"><?php echo count($Cart->getDataCart('cart')); ?></span>
 </form>
 <!-- !chart button -->

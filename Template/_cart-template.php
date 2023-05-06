@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         <div class="row">
             <div class="col-sm-9">
                 <?php
-                foreach ($product->getDataCart('cart') as $item) :
+                foreach ($Cart->getDataCart('cart') as $item) :
                     $cart = $product->getProduct($item['item_id']);
                     $subTotal[] = array_map(function ($item){
                 ?>

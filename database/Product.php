@@ -25,21 +25,6 @@ class Product
         return $resultArray;
     }
 
-    // fetch cart data using getDataCart Method
-    public function getDataCart($table = 'cart'){
-        $userId = $_SESSION["user"];
-        $result = $this->db->con->query("SELECT * FROM {$table} WHERE user_id = $userId");
-        
-        $resultArray = array();
-        
-        // fetch product data one by one
-        while ($item = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-            $resultArray[] = $item;
-        }
-        
-        return $resultArray;
-    }
-
     // get product using item id
     public function getProduct($item_id = null, $table= 'product'){
         if (isset($item_id)){

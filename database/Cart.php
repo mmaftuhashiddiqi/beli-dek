@@ -59,6 +59,21 @@ class Cart
         }
     }
 
+    // fetch cart data using getDataCart Method
+    public function getDataCart($table = 'cart'){
+        $userId = $_SESSION["user"];
+        $result = $this->db->con->query("SELECT * FROM {$table} WHERE user_id = $userId");
+        
+        $resultArray = array();
+        
+        // fetch product data one by one
+        while ($item = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+            $resultArray[] = $item;
+        }
+        
+        return $resultArray;
+    }
+
     // calculate sub total
     public function getSum($arr){
         if(isset($arr)){
@@ -99,7 +114,7 @@ class Cart
     // proceed to buy
     public function proceedToBuy($user_id = null) {
         if ($user_id != null){
-            $query = "INSERT INTO `order` SELECT * FROM `cart` WHERE user_id={$user_id};";
+            $query = "INSERT INTO `orders` SELECT * FROM `cart` WHERE user_id={$user_id};";
             $query .= "DELETE FROM `cart` WHERE user_id={$user_id};";
 
             // execute multiple query

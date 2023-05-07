@@ -39,8 +39,8 @@ if ( isset($_POST["ascending-price"]) ) {
             <!-- live search -->
             <div class="live-search d-flex">
                 <form class="form-inline d-flex justify-content-end" action="" method="post">
-                    <img src="./../assets/template/loader.gif" class="loader d-none" width="50"">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Live search" aria-label="Search" name="keyword-live" autocomplete="off" id="keyword-live">
+                    <img src="./../assets/template/loader.gif" class="loader" width="50" style="display: none;">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Live search" aria-label="Search" name="keyword-order-live" autocomplete="off" id="keyword-order-live">
                 </form>
             </div>
             <!-- order by filter -->

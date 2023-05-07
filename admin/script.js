@@ -137,8 +137,8 @@ $(document).ready(function(){
     // closing qty down button
 
 
-    // event ketika keyword ditulis
-    $('#keyword-live').on('keyup', function() {
+    // event ketika keyword product ditulis
+    $('#keyword-product-live').on('keyup', function() {
         // munculkan icon loading
         $('.loader').show();
 
@@ -146,7 +146,24 @@ $(document).ready(function(){
         // $('#container').load('ajax/mahasiswa.php?keyword=' + $('#keyword').val());
 
         // $.get()
-        $.get('Template/_products-live.php?keyword-live=' + $('#keyword-live').val(), function(data) {
+        $.get('Template/_products-live.php?keyword-product-live=' + $('#keyword-product-live').val(), function(data) {
+
+            $('#table-container').html(data);
+            $('.loader').hide();
+
+        });
+    });
+
+    // event ketika keyword product ditulis
+    $('#keyword-order-live').on('keyup', function() {
+        // munculkan icon loading
+        $('.loader').show();
+
+        // ajax menggunakan load
+        // $('#container').load('ajax/mahasiswa.php?keyword=' + $('#keyword').val());
+
+        // $.get()
+        $.get('Template/_orders-live.php?keyword-order-live=' + $('#keyword-order-live').val(), function(data) {
 
             $('#table-container').html(data);
             $('.loader').hide();

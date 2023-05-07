@@ -1,5 +1,5 @@
-### live search
-- belum pungsi
+### sidebar
+- belum jadi
 
 ### on delivery page for user
 - belum jadi

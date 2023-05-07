@@ -1,20 +1,15 @@
 <?php 
 
-usleep(500000);
+// usleep(500000);
 require '../functions.php';
 
-$keywordLive = $_GET["keyword-live"];
+$keywordProductLive = $_GET["keyword-product-live"];
 
-$query = "SELECT * FROM product
-            WHERE
-          item_name LIKE '%$keywordLive%' OR
-          item_brand LIKE '%$keywordLive%'
-        ";
-$product_shuffle = query($query);
+$product_shuffle = cari($keywordProductLive);
 
 ?>
 
-<table class="table table-hover">
+<table class="table table-hover text-center">
     <thead class="thead-dark">
         <tr>
             <th scope="col">No</th>

@@ -16,23 +16,23 @@ include ('header.php');
 <?php
 
 /* include banner area */
-include ('Template/_banner-area.php');
+include ('Template/_banner_area.php');
 /* include banner area */
 
 /* include top sale section */
-include ('Template/_top-sale.php');
+include ('Template/_top_sale.php');
 /* include top sale section */
 
 /* include special price section */
-include ('Template/_special-price.php');
+include ('Template/_special_price.php');
 /* include special price section */
 
 /* include banner ads */
-include ('Template/_banner-ads.php');
+include ('Template/_banner_ads.php');
 /* include banner ads */
 
 /* include new phones section */
-include ('Template/_new-phones.php');
+include ('Template/_new_phones.php');
 /* include new phones section */
 
 /* include blog area */

@@ -71,7 +71,7 @@ if ( isset($_POST["login"]) ) {
 	?>
 
     <!-- Custom CSS file -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -159,7 +159,7 @@ require ('library/body.php');
 ?>
 
 <!-- Custom Javascript -->
-<script src="js/index.js"></script>
+<script src="index.js"></script>
 
 </body>
 

@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function () {
 
     // banner owl carousel
     $("#banner-area .owl-carousel").owlCarousel({
@@ -11,14 +11,14 @@ $(document).ready(function(){
         loop: true,
         nav: true,
         dots: false,
-        responsive : {
+        responsive: {
             0: {
                 items: 1
             },
             600: {
                 items: 3
             },
-            1000 : {
+            1000: {
                 items: 5
             }
         }
@@ -26,14 +26,14 @@ $(document).ready(function(){
 
     // isotope filter
     var $grid = $(".grid").isotope({
-        itemSelector : '.grid-item',
-        layoutMode : 'fitRows'
+        itemSelector: '.grid-item',
+        layoutMode: 'fitRows'
     });
 
     // filter items on button click
-    $(".button-group").on("click", "button", function(){
+    $(".button-group").on("click", "button", function () {
         var filterValue = $(this).attr('data-filter');
-        $grid.isotope({ filter: filterValue});
+        $grid.isotope({ filter: filterValue });
     })
 
 
@@ -42,14 +42,14 @@ $(document).ready(function(){
         loop: true,
         nav: false,
         dots: true,
-        responsive : {
+        responsive: {
             0: {
                 items: 1
             },
             600: {
                 items: 3
             },
-            1000 : {
+            1000: {
                 items: 5
             }
         }
@@ -60,7 +60,7 @@ $(document).ready(function(){
         loop: true,
         nav: false,
         dots: true,
-        responsive : {
+        responsive: {
             0: {
                 items: 1
             },
@@ -78,67 +78,71 @@ $(document).ready(function(){
     // let $input = $(".qty .qty_input");
 
     // click on qty up button
-    $qty_up.click(function(e){
+    $qty_up.click(function (e) {
 
         let $input = $(`.qty_input[data-id='${$(this).data("id")}']`);
         let $price = $(`.product_price[data-id='${$(this).data("id")}']`);
 
         // change product price using ajax call
-        $.ajax({url: "Template/ajax.php", type : 'post', data : { itemid : $(this).data("id")}, success: function(result){
-            let obj = JSON.parse(result);
-            let item_price = obj[0]['item_price'];
+        $.ajax({
+            url: "Template/ajax.php", type: 'post', data: { itemid: $(this).data("id") }, success: function (result) {
+                let obj = JSON.parse(result);
+                let item_price = obj[0]['item_price'];
 
-            if($input.val() >= 1 && $input.val() <= 9){
-                $input.val(function(i, oldval){
-                    return ++oldval;
-                });
+                if ($input.val() >= 1 && $input.val() <= 9) {
+                    $input.val(function (i, oldval) {
+                        return ++oldval;
+                    });
 
-                // increase price of the product
-                $price.text(parseInt(item_price * $input.val()).toFixed(2));
+                    // increase price of the product
+                    $price.text(parseInt(item_price * $input.val()).toFixed(2));
 
-                // set subtotal price
-                let subtotal = parseInt($deal_price.text()) + parseInt(item_price);
-                $deal_price.text(subtotal.toFixed(2));
+                    // set subtotal price
+                    let subtotal = parseInt($deal_price.text()) + parseInt(item_price);
+                    $deal_price.text(subtotal.toFixed(2));
+                }
+
             }
-
-        }});
+        });
         // closing ajax request
     });
     // closing qty up button
 
     // click on qty down button
-    $qty_down.click(function(e){
+    $qty_down.click(function (e) {
 
         let $input = $(`.qty_input[data-id='${$(this).data("id")}']`);
         let $price = $(`.product_price[data-id='${$(this).data("id")}']`);
 
         // change product price using ajax call
-        $.ajax({url: "Template/ajax.php", type : 'post', data : { itemid : $(this).data("id")}, success: function(result){
-            let obj = JSON.parse(result);
-            let item_price = obj[0]['item_price'];
+        $.ajax({
+            url: "Template/ajax.php", type: 'post', data: { itemid: $(this).data("id") }, success: function (result) {
+                let obj = JSON.parse(result);
+                let item_price = obj[0]['item_price'];
 
-            if($input.val() > 1 && $input.val() <= 10){
-                $input.val(function(i, oldval){
-                    return --oldval;
-                });
+                if ($input.val() > 1 && $input.val() <= 10) {
+                    $input.val(function (i, oldval) {
+                        return --oldval;
+                    });
 
 
-                // increase price of the product
-                $price.text(parseInt(item_price * $input.val()).toFixed(2));
+                    // increase price of the product
+                    $price.text(parseInt(item_price * $input.val()).toFixed(2));
 
-                // set subtotal price
-                let subtotal = parseInt($deal_price.text()) - parseInt(item_price);
-                $deal_price.text(subtotal.toFixed(2));
+                    // set subtotal price
+                    let subtotal = parseInt($deal_price.text()) - parseInt(item_price);
+                    $deal_price.text(subtotal.toFixed(2));
+                }
+
             }
-
-        }});
+        });
         // closing ajax request
     });
     // closing qty down button
 
 
     // event ketika keyword product ditulis
-    $('#keyword-product-live').on('keyup', function() {
+    $('#keyword-product-live').on('keyup', function () {
         // munculkan icon loading
         $('.loader').show();
 
@@ -146,7 +150,7 @@ $(document).ready(function(){
         // $('#container').load('ajax/mahasiswa.php?keyword=' + $('#keyword').val());
 
         // $.get()
-        $.get('Template/_products-live.php?keyword-product-live=' + $('#keyword-product-live').val(), function(data) {
+        $.get('Template/_products_live.php?keyword-product-live=' + $('#keyword-product-live').val(), function (data) {
 
             $('#table-container').html(data);
             $('.loader').hide();
@@ -155,7 +159,7 @@ $(document).ready(function(){
     });
 
     // event ketika keyword product ditulis
-    $('#keyword-order-live').on('keyup', function() {
+    $('#keyword-order-live').on('keyup', function () {
         // munculkan icon loading
         $('.loader').show();
 
@@ -163,7 +167,7 @@ $(document).ready(function(){
         // $('#container').load('ajax/mahasiswa.php?keyword=' + $('#keyword').val());
 
         // $.get()
-        $.get('Template/_orders-live.php?keyword-order-live=' + $('#keyword-order-live').val(), function(data) {
+        $.get('Template/_orders_live.php?keyword-order-live=' + $('#keyword-order-live').val(), function (data) {
 
             $('#table-container').html(data);
             $('.loader').hide();

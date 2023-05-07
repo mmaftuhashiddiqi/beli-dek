@@ -2,7 +2,7 @@
 <!-- !start #main-site -->
 
 <!-- start #footer -->
-<footer id="footer" class="bg-dark text-white py-5 mt-4">
+<!-- <footer id="footer" class="bg-dark text-white py-5 mt-4">
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-12 mb-3">
@@ -40,11 +40,11 @@
             </div>
         </div>
     </div>
-</footer>
+</footer> -->
 
-<div class="copyright text-center bg-dark text-white py-2">
+<!-- <div class="copyright text-center bg-dark text-white py-2">
     <p class="font-rale font-size-14"><span class="text-warning">&copy;</span> Copyrights 2023. Design With <span class="text-danger">♥</span> By Me</p>
-</div>
+</div> -->
 <!-- !start #footer -->
 
 <?php

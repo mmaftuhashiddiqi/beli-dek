@@ -20,6 +20,7 @@ Pada template project tersebut hanya tersedia session untuk user saja. Kemudian 
 
 2. **Untuk Admin**
    - Login form
+   - Logout
    - Dashboard page
    - View products page
    - View orders page
@@ -47,8 +48,8 @@ Pada template project tersebut hanya tersedia session untuk user saja. Kemudian 
 ## How to Use This Project
 
 1. Clone atau download repo ini.
-2. Kemudian jalankan kode mysql yang terdapa di `database/beli_dek.sql`.
-3. Untuk username dan passwor admin yaitu `admin` dan `admin123`.
+2. Kemudian jalankan kode mysql yang terdapat di `database/beli_dek.sql`.
+3. Untuk username admin yaitu `admin1` dan `admin2` dengan password yang sama dengan username.
 4. Untuk halaman user bisa diarahkan ke
    > localhost/beli-dek/
    

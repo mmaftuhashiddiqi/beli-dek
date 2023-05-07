@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2023 at 09:07 PM
+-- Generation Time: May 07, 2023 at 03:10 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -38,8 +38,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`admin_id`, `username`, `password`) VALUES
-(1, 'diqi', 'diqi123'),
-(2, 'admin', 'admin123');
+(1, 'admin1', 'admin1'),
+(2, 'admin2', 'admin2');
 
 -- --------------------------------------------------------
 
@@ -110,20 +110,6 @@ CREATE TABLE `user` (
   `password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`user_id`, `username`, `password`) VALUES
-(1, 'upin', '$2y$10$l53IV/IiTsm.do3XTy/0A.Fkg5JDg/WU808TLNYkyB8Joh/4UkRgm'),
-(2, 'ipin', '$2y$10$jejdz8A6aoOmyLlRbKRU6.YhER0U8kj8frKYZ0ln.yMTsfC7Kywsq'),
-(3, 'mail', '$2y$10$ziSRcWuOMAJcLacGbkf3Q.rWowRNcKWxRswqhWLcznoVuZL3YHojW'),
-(4, 'meimei', '$2y$10$vmklZ82aZsiKF7YVOF/hV.3AEUGyFy5pGLSUtnHk46a4oq2qdEWJm'),
-(5, 'jarjit', '$2y$10$tMNodH22vJmzkmS3HoXi1.LPqzd2wMPOHhI7II994lF7QJyueeeJK'),
-(6, 'susanti', '$2y$10$saX4.nkIgjCl2mz73xADhOo2nYWAF6eXbALo3E/DYoE/GjGGM9zoa'),
-(7, 'ehsan', '$2y$10$pP5VcizBXm27rY6XGTudr.9sY5wtcBICL4kaYfD6OytNh2EHqvtpi'),
-(8, 'fizi', '$2y$10$oHvTQj.Cf8GMb99LosndoOgnkEq1vuNc.euYpDfdCtqCZXKCR/WBK');
-
 -- --------------------------------------------------------
 
 --
@@ -190,7 +176,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

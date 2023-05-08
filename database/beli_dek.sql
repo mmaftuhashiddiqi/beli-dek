@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 07, 2023 at 03:10 PM
+-- Generation Time: May 08, 2023 at 02:17 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -38,8 +38,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`admin_id`, `username`, `password`) VALUES
-(1, 'admin1', 'admin1'),
-(2, 'admin2', 'admin2');
+(1, 'admin1', '$2y$10$oOhg548xlbiSTqS5zWhTi.DvUtqXkbIMJxeN1QBxr/wqA9reOraPG'),
+(2, 'admin2', '$2y$10$58UQYb1IGtm9CIgIlPPYfuhbMQHpfulers/0bqBohUz7wlAW37uYK');
 
 -- --------------------------------------------------------
 

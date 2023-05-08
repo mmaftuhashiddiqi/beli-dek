@@ -1,7 +1,7 @@
 <?php
 
 // konfigurasi pagination
-$jumlahDataPerHalaman = 7;
+$jumlahDataPerHalaman = 10;
 $jumlahData = count(query("SELECT * FROM orders"));
 $jumlahHalaman = ceil($jumlahData / $jumlahDataPerHalaman);
 $halamanAktif = ( isset($_GET["halaman"]) ) ? $_GET["halaman"] : 1;

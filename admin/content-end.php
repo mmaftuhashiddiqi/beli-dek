@@ -1,59 +1,44 @@
-                        </main>
-                        <!-- !start #main-site -->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- /#page-content-wrapper -->
+        </main>
+        <!-- page-content" -->
     </div>
-    <!-- /#wrapper -->
-</section>
+    <!-- page-wrapper -->
 
+    <?php
+    require ('library/body.php');
+    ?>
 
-<?php
-require('library/body.php');
-?>
-
-<!-- Custom Javascript -->
-<script src="script.js"></script>
-
-<!-- Custom Javascript for sidebar -->
-<script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-
-    $("#menu-toggle-2").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled-2");
-        $('#menu ul').hide();
-    });
-
-    function initMenu() {
-        $('#menu ul').hide();
-        $('#menu ul').children('.current').parent().show();
-        //$('#menu ul:first').show();
-        $('#menu li a').click(
-            function() {
-                var checkElement = $(this).next();
-                if (checkElement.is('ul') && checkElement.is(':visible')) {
-                    return false;
-                }
-                if (checkElement.is('ul') && !checkElement.is(':visible')) {
-                    $('#menu ul:visible').slideUp('normal');
-                    checkElement.slideDown('normal');
-                    return false;
-                }
+    <!-- Custom Javascript -->
+    <script src="script.js"></script>
+    
+    <!-- Custom Javascript for sidebar -->
+    <script id="rendered-js">
+        $(".sidebar-dropdown > a").click(function() {
+            $(".sidebar-submenu").slideUp(200);
+            if (
+                $(this).parent().hasClass("active")) {
+                $(".sidebar-dropdown").removeClass("active");
+                $(this).
+                parent().
+                removeClass("active");
+            } else {
+                $(".sidebar-dropdown").removeClass("active");
+                $(this).
+                next(".sidebar-submenu").
+                slideDown(200);
+                $(this).
+                parent().
+                addClass("active");
             }
-        );
-    }
+        });
 
-    $(document).ready(function() {
-        initMenu();
-    });
-    //# sourceURL=pen.js
-</script>
+        $("#close-sidebar").click(function() {
+            $(".page-wrapper").removeClass("toggled");
+        });
+        $("#show-sidebar").click(function() {
+            $(".page-wrapper").addClass("toggled");
+        });
+        //# sourceURL=pen.js
+    </script>
 </body>
 
 </html>

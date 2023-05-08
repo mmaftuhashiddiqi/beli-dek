@@ -8,7 +8,7 @@ $orderCount = count($product->getData('orders'));
 ?>
 
 <section id="dashboard">
-    <div class="container" style="margin-top: 120px;">
+    <div class="container" style="margin-top: 80px;">
         <h4 class="font-rubik font-size-20">Dashboard</h4>
         <hr>
 

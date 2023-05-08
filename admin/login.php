@@ -38,12 +38,12 @@ if ( isset($_POST["login"]) ) {
 		if ( password_verify($password, $row["password"]) || $password === $row["password"] ) {
 			// set session
 			$_SESSION["login"] = true;
-			$_SESSION['admin'] = true;
+			$_SESSION['admin'] = $row['admin_id'];
 
 			// cek remember me
 			if ( isset($_POST['remember']) ) {
 				// buat cookie
-				setcookie('id', $row['user_id'], time()+60);
+				setcookie('id', $row['admin_id'], time()+60);
 				setcookie('key', hash('sha256', $row['username']), time()+60);
 			}
 

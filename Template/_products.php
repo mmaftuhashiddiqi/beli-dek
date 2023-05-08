@@ -7,7 +7,7 @@ foreach ($product->getData() as $item) :
 
 ?>
 
-<section id="product" class="py-3" style="margin-top: 70px">
+<section id="product" class="py-5" style="margin-top: 60px">
     <div class="container">
         <div class="row">
             <div class="col-sm-6">

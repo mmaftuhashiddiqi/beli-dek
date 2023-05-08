@@ -41,7 +41,6 @@ Pada template project tersebut hanya tersedia session untuk user saja. Kemudian 
 
 2. **Untuk Admin**
    - Mobile responsive
-   - Sidebar
    - Transaction count
 
 

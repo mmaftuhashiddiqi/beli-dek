@@ -1,7 +1,7 @@
 <?php
 
 // konfigurasi pagination
-$jumlahDataPerHalaman = 10;
+$jumlahDataPerHalaman = 7;
 $jumlahData = count(query("SELECT * FROM orders"));
 $jumlahHalaman = ceil($jumlahData / $jumlahDataPerHalaman);
 $halamanAktif = ( isset($_GET["halaman"]) ) ? $_GET["halaman"] : 1;
@@ -31,7 +31,7 @@ if ( isset($_POST["ascending-price"]) ) {
 ?>
 
 <section id="products-list">
-    <div class="container" style="margin-top: 120px;">
+    <div class="container" style="margin-top: 80px;">
         <h4 class="font-rubik font-size-20">Order of Products</h4>
         <hr>
 

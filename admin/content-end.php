@@ -1,7 +1,6 @@
         </main>
-        <!-- page-content" -->
+        <!-- !Page Content -->
     </div>
-    <!-- page-wrapper -->
 
     <?php
     require ('library/body.php');

@@ -3,6 +3,9 @@
 // require MySQL Connection
 require ('database/DBController.php');
 
+// require Admin Class
+require ('database/Admin.php');
+
 // require Product Class
 require ('database/Product.php');
 
@@ -30,6 +33,9 @@ require ('database/Registration.php');
 
 // DBController object
 $db = new DBController();
+
+// Admin object
+$admin = new Admin($db);
 
 // Product object
 $product = new Product($db);

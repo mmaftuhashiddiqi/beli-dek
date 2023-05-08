@@ -1,5 +1,5 @@
 <!-- Owl-carousel -->
-<section id="banner-area" style="margin-top: 70px;">
+<section id="banner-area" style="margin-top: 60px;">
     <div class="owl-carousel owl-theme">
         <div class="item">
             <img src="./assets/banner/banner1.png" alt="banner1">

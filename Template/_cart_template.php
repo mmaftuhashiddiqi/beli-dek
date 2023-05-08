@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 ?>
 
-<section id="cart" class="py-5 mb-5" style="margin-top: 70px;">
+<section id="cart" class="py-5 mb-5" style="margin-top: 60px;">
     <div class="container-fluid w-75">
         <h5 class="font-baloo font-size-20">Shopping Cart</h5>
 

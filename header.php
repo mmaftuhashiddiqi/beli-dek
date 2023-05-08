@@ -26,7 +26,7 @@
 <header id="header">
 
     <!-- Primary Navigation -->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark color-primary-bg shadow" style="height: 70px;">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark color-primary-bg shadow" style="height: 60px;">
         <a class="navbar-brand" href="index.php">Beli Dek</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

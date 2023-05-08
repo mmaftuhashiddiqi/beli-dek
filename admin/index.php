@@ -9,7 +9,7 @@ if ( !isset($_SESSION["login"]) || !isset($_SESSION["admin"]) ) {
 
 ob_start();
 // include header.php file
-include ('header.php');
+include ('content-start.php');
 
 ?>
 
@@ -23,15 +23,11 @@ include ('Template/_dashboard.php');
 include ('Template/_statistics.php');
 /* include statistics */
 
-/* include add button */        
-include ('Template/_add_button.php');
-/* include add button */
-
 ?>
 
 <?php
 
 // include footer.php file
-include ('footer.php');
+include ('content-end.php');
 
 ?>

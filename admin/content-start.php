@@ -7,7 +7,17 @@
 
     <?php
     // require library
-    require ('library/head.php');
+    require('library/head.php');
+    ?>
+
+    <?php
+    // require functions.php file
+    require('functions.php');
+    ?>
+
+    <?php
+    // get data admin
+    $admins = $admin->getAdmin($_SESSION['admin']);
     ?>
 
     <!-- Custom CSS file -->
@@ -120,11 +130,10 @@
         /*----------------show sidebar button----------------*/
         #show-sidebar {
             position: fixed;
-            left: 0;
-            top: 10px;
-            border-radius: 0 4px 4px 0px;
+            left: 110px;
+            border-radius: 4px;
             width: 35px;
-            transition-delay: 0.3s;
+            transition-delay: 0.1s;
         }
 
         .page-wrapper.toggled #show-sidebar {
@@ -135,10 +144,10 @@
 
         .sidebar-wrapper {
             width: 260px;
-            height: 100%;
+            height: calc(100% - 60px);
             max-height: 100%;
             position: fixed;
-            top: 0;
+            bottom: 0;
             left: -300px;
             z-index: 999;
         }
@@ -180,7 +189,7 @@
             flex-grow: 1;
         }
 
-        .sidebar-wrapper .sidebar-brand #close-sidebar {
+        .sidebar-wrapper .sidebar-header #close-sidebar {
             cursor: pointer;
             font-size: 20px;
         }
@@ -519,194 +528,128 @@
             border-right: none;
         }
     </style>
-
-    <?php
-    // require functions.php file
-    require ('functions.php');
-    ?>
 </head>
 
-<body translate="no">
+<body>
     <div class="page-wrapper chiller-theme toggled">
-        <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
-            <i class="fas fa-bars"></i>
-        </a>
-        <nav id="sidebar" class="sidebar-wrapper">
-            <div class="sidebar-content">
-                <div class="sidebar-brand">
-                    <a href="#">pro sidebar</a>
-                    <div id="close-sidebar">
-                        <i class="fas fa-times"></i>
+        <!-- Primary Navigation -->
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark color-primary-bg" style="height: 60px;">
+            <!-- Hamburger Menu -->
+            <a id="show-sidebar" class="btn btn-sm btn-light" href="#">
+                <i class="fas fa-bars"></i>
+            </a>
+            <!-- !Hamburger Menu -->
+            <a class="navbar-brand" href="index.php">Beli Dek</a>
+            <!-- Hamburger Menu for Mobile -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- !Hamburger Menu for Mobile -->
+            <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
+                <!-- search section -->
+                <form class="form-inline" action="" method="post">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="keyword" autocomplete="off" id="keyword">
+                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit" name="search" id="search">Search</button>
+                </form>
+                <!-- !search section -->
+
+                <!-- profile section -->
+                <div class="btn-group">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="./../assets/template/profile.png" width="40" height="40" class="rounded-circle">
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right font-rubik" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="logout.php">Log out</a>
                     </div>
                 </div>
+                <!-- !profile section -->
+            </div>
+        </nav>
+        <!-- !Primary Navigation -->
+        <!-- Sidebar Navigation -->
+        <nav id="sidebar" class="sidebar-wrapper">
+            <!-- sidebar-content  -->
+            <div class="sidebar-content">
+                <!-- sidebar-header  -->
                 <div class="sidebar-header">
                     <div class="user-pic">
                         <img class="img-responsive img-rounded" src="./../assets/template/profile.png" alt="User picture">
                     </div>
                     <div class="user-info">
-                        <span class="user-name">Admin1</strong>
-                        </span>
+                        <span class="user-name"><strong><?= $admins[0]['username']; ?></strong></span>
                         <span class="user-role">Administrator</span>
                         <span class="user-status">
                             <i class="fa fa-circle"></i>
                             <span>Online</span>
                         </span>
                     </div>
-                </div>
-                <!-- sidebar-header  -->
-                <div class="sidebar-search">
-                    <div>
-                        <div class="input-group">
-                            <input type="text" class="form-control search-menu" placeholder="Search...">
-                            <div class="input-group-append">
-                                <span class="input-group-text">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                </span>
-                            </div>
-                        </div>
+                    <div id="close-sidebar" class="d-flex justify-content-end">
+                        <i class="fas fa-times"></i>
                     </div>
                 </div>
-                <!-- sidebar-search  -->
+                <!-- !sidebar-header  -->
+                <!-- sidebar-menu  -->
                 <div class="sidebar-menu">
                     <ul>
                         <li class="header-menu">
                             <span>General</span>
                         </li>
-                        <li class="sidebar-dropdown">
-                            <a href="#">
+                        <li>
+                            <a href="index.php">
                                 <i class="fa fa-tachometer-alt"></i>
                                 <span>Dashboard</span>
-                                <span class="badge badge-pill badge-warning">New</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa fa-cog"></i>
+                                <span>Manage Products</span>
                             </a>
                             <div class="sidebar-submenu">
                                 <ul>
                                     <li>
-                                        <a href="#">Dashboard 1
-                                            <span class="badge badge-pill badge-success">Pro</span>
-                                        </a>
+                                        <a href="add.php">Add Product</a>
                                     </li>
                                     <li>
-                                        <a href="#">Dashboard 2</a>
+                                        <a href="#">Update Product</a>
                                     </li>
                                     <li>
-                                        <a href="#">Dashboard 3</a>
+                                        <a href="#">Delete Product</a>
                                     </li>
                                 </ul>
                             </div>
                         </li>
-                        <li class="sidebar-dropdown">
-                            <a href="#">
-                                <i class="fa fa-shopping-cart"></i>
-                                <span>E-commerce</span>
-                                <span class="badge badge-pill badge-danger">3</span>
+                        <li>
+                            <a href="products.php">
+                                <i class="fa fa-eye"></i>
+                                <span>View Products</span>
+                                <span class="badge badge-pill badge-success"><?= count($product_shuffle) ?></span>
                             </a>
-                            <div class="sidebar-submenu">
-                                <ul>
-                                    <li>
-                                        <a href="#">Products
-
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Orders</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Credit cart</a>
-                                    </li>
-                                </ul>
-                            </div>
                         </li>
-                        <li class="sidebar-dropdown">
-                            <a href="#">
-                                <i class="far fa-gem"></i>
-                                <span>Components</span>
+                        <li>
+                            <a href="orders.php">
+                                <i class="fa fa-shopping-bag"></i>
+                                <span>Orders</span>
+                                <span class="badge badge-pill badge-warning"><?= count($orders) ?></span>
                             </a>
-                            <div class="sidebar-submenu">
-                                <ul>
-                                    <li>
-                                        <a href="#">General</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Panels</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Tables</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Icons</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Forms</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="sidebar-dropdown">
-                            <a href="#">
-                                <i class="fa fa-chart-line"></i>
-                                <span>Charts</span>
-                            </a>
-                            <div class="sidebar-submenu">
-                                <ul>
-                                    <li>
-                                        <a href="#">Pie chart</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Line chart</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Bar chart</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Histogram</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="sidebar-dropdown">
-                            <a href="#">
-                                <i class="fa fa-globe"></i>
-                                <span>Maps</span>
-                            </a>
-                            <div class="sidebar-submenu">
-                                <ul>
-                                    <li>
-                                        <a href="#">Google maps</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Open street map</a>
-                                    </li>
-                                </ul>
-                            </div>
                         </li>
                         <li class="header-menu">
-                            <span>Extra</span>
+                            <span>About</span>
                         </li>
                         <li>
                             <a href="#">
-                                <i class="fa fa-book"></i>
-                                <span>Documentation</span>
-                                <span class="badge badge-pill badge-primary">Beta</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-calendar"></i>
-                                <span>Calendar</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-folder"></i>
-                                <span>Examples</span>
+                                <i class="fa fa-address-card"></i>
+                                <span>About</span>
+                                <span class="badge badge-pill badge-info">!</span>
                             </a>
                         </li>
                     </ul>
                 </div>
-                <!-- sidebar-menu  -->
+                <!-- !sidebar-menu  -->
             </div>
-            <!-- sidebar-content  -->
-            <div class="sidebar-footer">
+            <!-- !sidebar-content  -->
+            <!-- sidebar-footer -->
+            <!-- <div class="sidebar-footer">
                 <a href="#">
                     <i class="fa fa-bell"></i>
                     <span class="badge badge-pill badge-warning notification">3</span>
@@ -722,7 +665,9 @@
                 <a href="#">
                     <i class="fa fa-power-off"></i>
                 </a>
-            </div>
+            </div> -->
+            <!-- !sidebar-footer -->
         </nav>
-        <!-- sidebar-wrapper  -->
+        <!-- !Sidebar Navigation -->
+        <!-- Page Content -->
         <main class="page-content">

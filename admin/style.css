@@ -110,3 +110,11 @@ button, button:focus {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+
+/* prevent to open on mobile */
+@media only screen and (max-width: 991px) {
+    html, body {
+        display: none;
+    }
+}

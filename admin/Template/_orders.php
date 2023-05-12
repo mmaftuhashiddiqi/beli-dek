@@ -89,9 +89,9 @@ if ( isset($_POST["ascending-price"]) ) {
                             <td><?= $order['order_date']; ?></td>
                             <td><?= $order['product_brand']; ?></td>
                             <td><?= $order['product_name']; ?></td>
-                            <td>Rp. <?= $order['product_price']; ?></td>
+                            <td><?= rupiah($order['product_price']); ?></td>
                             <td><?= $order['product_count'] ?></td>
-                            <td>Rp. <?= $order['product_price'] * $order['product_count']; ?></td>
+                            <td><?= rupiah($order['product_price'] * $order['product_count']); ?></td>
                             <td>
                                 <form method="post">
                                     <!-- process button -->

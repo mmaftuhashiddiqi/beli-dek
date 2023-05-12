@@ -26,7 +26,7 @@ function tambah($data) {
         return false;
     }
 
-    $query = "INSERT INTO product
+    $query = "INSERT INTO products
                 VALUES
                 ('', '$brandName', '$productName', '$productStock', '$productPrice', '$productImage')
             ";

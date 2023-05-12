@@ -71,11 +71,11 @@ if ( isset($_POST["ascending-price"]) ) {
                     <?php foreach ($products as $product) { ?>
                         <tr>
                             <th scope="row"><?= $i ?></th>
-                            <td><img src="./../assets/products/<?= $product['product_image'] ?>" alt="product" width="40"></td>
-                            <td><?= $product['product_brand'] ?></td>
-                            <td><?= $product['product_name'] ?></td>
-                            <td><?= $product['product_stock'] ?></td>
-                            <td>$<?= $product['product_price'] ?></td>
+                            <td><img src="./../assets/products/<?= $product['product_image']; ?>" alt="product" width="40"></td>
+                            <td><?= $product['product_brand']; ?></td>
+                            <td><?= $product['product_name']; ?></td>
+                            <td><?= $product['product_stock']; ?></td>
+                            <td><?= rupiah($product['product_price']); ?></td>
                             <td>
                                 <form method="post">
                                     <!-- update button -->

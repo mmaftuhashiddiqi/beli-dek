@@ -46,15 +46,15 @@ foreach ($product->getData() as $products) :
                 <table class="my-3">
                     <tr class="font-rale font-size-14">
                         <td>M.R.P:</td>
-                        <td><strike>Rp. 16200000</strike></td>
+                        <td><strike><?= rupiah(16200000) ?></strike></td>
                     </tr>
                     <tr class="font-rale font-size-14">
                         <td>Deal Price:</td>
-                        <td class="font-size-20 text-danger">Rp. <span><?php echo $products['product_price'] ?? 0; ?></span><small class="text-dark font-size-12">&nbsp;&nbsp;Inclusive of all taxes</small></td>
+                        <td class="font-size-20 text-danger"><span><?php echo rupiah($products['product_price']) ?? 0; ?></span><small class="text-dark font-size-12">&nbsp;&nbsp;Inclusive of all taxes</small></td>
                     </tr>
                     <tr class="font-rale font-size-14">
                         <td>You Save:</td>
-                        <td><span class="font-size-16 text-danger">Rp. 5200000</span></td>
+                        <td><span class="font-size-16 text-danger"><?= rupiah(5200000) ?></span></td>
                     </tr>
                 </table>
                 <!--- !product price -->

@@ -39,7 +39,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                                 <span><i class="far fa-star"></i></span>
                             </div>
                             <div class="price py-2">
-                                <span>Rp. <?php echo $products['product_price'] ?? '0' ; ?></span>
+                                <span><?php echo rupiah($products['product_price']) ?? '0' ; ?></span>
                             </div>
                             <form method="post">
                                 <input type="hidden" name="product_id" value="<?php echo $products['product_id'] ?? '1'; ?>">

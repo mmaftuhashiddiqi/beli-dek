@@ -63,6 +63,15 @@
                     <img src="assets/template/profile.png" width="40" height="40" class="rounded-circle">
                 </a>
                 <div class="dropdown-menu dropdown-menu-right font-rubik" aria-labelledby="navbarDropdownMenuLink">
+                    <?php $users = query("SELECT * FROM users WHERE user_id={$_SESSION['user']}"); ?>
+                    <?php if ($users[0]['user_fullname']) { ?>
+                    <a class="dropdown-item" href="#"><?= $users[0]['user_fullname'] ?></a>
+                    <hr>
+                    <?php } ?>
+                    <?php if (!$users[0]['user_fullname']) { ?>
+                    <a class="dropdown-item" href="profile.php">Complete Profile</a>
+                    <hr>
+                    <?php } ?>
                     <a class="dropdown-item" href="#">On delivery</a>
                     <a class="dropdown-item" href="logout.php">Log out</a>
                 </div>

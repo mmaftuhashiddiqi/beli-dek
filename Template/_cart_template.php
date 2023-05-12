@@ -79,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                     </div>
                     <div class="col-sm-2 text-right">
                         <div class="font-size-20 text-danger font-baloo">
-                            Rp. <span class="product_price" data-id="<?php echo $products['product_id'] ?? '0'; ?>"><?php echo $products['product_price'] ?? 0; ?></span>
+                            <span class="product_price" data-id="<?php echo $products['product_id'] ?? '0'; ?>"><?php echo rupiah($products['product_price']) ?? 0; ?></span>
                         </div>
                     </div>
                 </div>
@@ -97,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 <div class="sub-total border text-center mt-2">
                     <h6 class="font-size-12 font-rale text-success py-3"><i class="fas fa-check"></i> Your order is eligible for FREE Delivery.</h6>
                     <div class="border-top py-4">
-                        <h5 class="font-baloo font-size-20">Subtotal ( <?php echo isset($subTotal) ? count($subTotal) : 0; ?> product):&nbsp; <span class="text-danger">$<span class="text-danger" id="deal-price"><?php echo isset($subTotal) ? $Cart->getSum($subTotal) : 0; ?></span> </span> </h5>
+                        <h5 class="font-baloo font-size-20">Subtotal ( <?php echo isset($subTotal) ? count($subTotal) : 0; ?> product):&nbsp; <span class="text-danger"><span class="text-danger" id="deal-price"><?php echo isset($subTotal) ? rupiah($Cart->getSum($subTotal)) : 0; ?></span> </span> </h5>
                         <form action="" method="post">
                             <input type="hidden" value="<?php echo $_SESSION['user'] ?? 0; ?>" name="user_id">
                             <button type="submit" name="proceed-to-buy" class="btn btn-warning mt-3">Proceed to Buy</button>

@@ -15,6 +15,12 @@ require ('database/Search.php');
 // require Registration Class
 require ('database/Registration.php');
 
+// require View Class
+require ('database/View.php');
+
+// require Profile Class
+require ('database/Profile.php');
+
 
 // DBController object
 $db = new DBController();

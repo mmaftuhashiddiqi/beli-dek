@@ -70,7 +70,7 @@
                         <img class="img-responsive img-rounded" src="./../assets/template/profile.png" alt="User picture">
                     </div>
                     <div class="user-info">
-                        <span class="user-name"><strong><?= $admins[0]['admin_username']; ?></strong></span>
+                        <span class="user-name"><strong><?= $admins[0]['admin_fullname'] ? $admins[0]['admin_fullname'] : $admins[0]['admin_username']; ?></strong></span>
                         <span class="user-role">Administrator</span>
                         <span class="user-status">
                             <i class="fa fa-circle"></i>
@@ -92,6 +92,12 @@
                             <a href="index.php">
                                 <i class="fa fa-tachometer-alt"></i>
                                 <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="users.php">
+                                <i class="fa fa-users"></i>
+                                <span>View Users</span>
                             </a>
                         </li>
                         <li class="sidebar-dropdown">
@@ -142,25 +148,6 @@
                 <!-- !sidebar-menu  -->
             </div>
             <!-- !sidebar-content  -->
-            <!-- sidebar-footer -->
-            <!-- <div class="sidebar-footer">
-                <a href="#">
-                    <i class="fa fa-bell"></i>
-                    <span class="badge badge-pill badge-warning notification">3</span>
-                </a>
-                <a href="#">
-                    <i class="fa fa-envelope"></i>
-                    <span class="badge badge-pill badge-success notification">7</span>
-                </a>
-                <a href="#">
-                    <i class="fa fa-cog"></i>
-                    <span class="badge-sonar"></span>
-                </a>
-                <a href="#">
-                    <i class="fa fa-power-off"></i>
-                </a>
-            </div> -->
-            <!-- !sidebar-footer -->
         </nav>
         <!-- !Sidebar Navigation -->
         <!-- Page Content -->

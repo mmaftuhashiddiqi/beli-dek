@@ -27,6 +27,9 @@ require ('database/Update.php');
 // require Search Class
 require ('database/Search.php');
 
+// require View Class
+require ('database/View.php');
+
 
 // DBController object
 $db = new DBController();

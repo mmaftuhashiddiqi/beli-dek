@@ -22,6 +22,7 @@ Pada template project tersebut hanya tersedia session untuk user saja. Kemudian 
    - Login form
    - Logout
    - Dashboard page
+   - View users page
    - View products page
    - View orders page
    - Search bar
@@ -38,6 +39,7 @@ Pada template project tersebut hanya tersedia session untuk user saja. Kemudian 
 1. **Untuk User**
    - Mobile responsive
    - On delivery page
+   - Product count
 
 2. **Untuk Admin**
    - Mobile responsive
@@ -47,12 +49,16 @@ Pada template project tersebut hanya tersedia session untuk user saja. Kemudian 
 ## How to Use This Project
 
 1. Clone atau download repo ini.
-2. Kemudian jalankan kode mysql yang terdapat di `database/beli_dek.sql`.
-3. Untuk username admin yaitu `admin1` dan `admin2` dengan password yang sama dengan username.
-4. Untuk halaman user bisa diarahkan ke
+2. Tempatkan repo atau folder `beli-dek` pada folder `htdocs` jika menggunakan xampp.
+3. Kemudian jalankan kode mysql yang terdapat di `database/ecommerce.sql`.
+4. Untuk username admin yaitu `admina`, `adminb` dan `adminc` dengan password-nya masing-masing yaitu `admina123`, `adminb123` dan `adminc123`.
+5. Untuk username user yaitu `usera`, `userb` dan `userc` dengan password-nya masing-masing yaitu `usera123`, `userb123` dan `userc123`, atau user juga bisa membuat akun dan password-nya sendiri pada menu registrasi yang terdapat pada
+   > localhost/beli-dek/registrasi.php
+
+6. Untuk login halaman user bisa diarahkan ke
    > localhost/beli-dek/
-   
-   dan untuk halaman admin bisa diarahkan ke
+
+   dan untuk login halaman admin bisa diarahkan ke
    > localhost/beli-dek/admin
 
 

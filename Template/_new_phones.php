@@ -12,7 +12,7 @@ shuffle($product_shuffle);
 if($_SERVER['REQUEST_METHOD'] == "POST"){
     if (isset($_POST['new_phones_submit'])){
         // call method addToCart
-        $Cart->addToCart($_POST['user_id'], $_POST['item_id']);
+        $Cart->addToCart($_POST['user_id'], $_POST['product_id']);
     }
 }
 
@@ -25,12 +25,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
         <!-- owl carousel -->
         <div class="owl-carousel owl-theme">
-            <?php foreach ($product_shuffle as $item) { ?>
+            <?php foreach ($product_shuffle as $products) { ?>
                 <div class="item py-2">
                     <div class="product font-rale">
-                        <a href="<?php printf('%s?item_id=%s', 'product.php',  $item['item_id']); ?>"><img src="./assets/products/<?php echo $item['item_image'] ?? "./assets/products/product-template.jpg"; ?>" alt="product" class="img-fluid"></a>
+                        <a href="<?php printf('%s?product_id=%s', 'product.php',  $products['product_id']); ?>"><img src="./assets/products/<?php echo $products['product_image'] ?? "./assets/products/product-template.jpg"; ?>" alt="product" class="img-fluid"></a>
                         <div class="text-center">
-                            <h6><?php echo  $item['item_name'] ?? "Unknown";  ?></h6>
+                            <h6><?php echo  $products['product_name'] ?? "Unknown";  ?></h6>
                             <div class="rating text-warning font-size-12">
                                 <span><i class="fas fa-star"></i></span>
                                 <span><i class="fas fa-star"></i></span>
@@ -39,15 +39,15 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                                 <span><i class="far fa-star"></i></span>
                             </div>
                             <div class="price py-2">
-                                <span>$<?php echo $item['item_price'] ?? '0' ; ?></span>
+                                <span>Rp. <?php echo $products['product_price'] ?? '0' ; ?></span>
                             </div>
                             <form method="post">
-                                <input type="hidden" name="item_id" value="<?php echo $item['item_id'] ?? '1'; ?>">
+                                <input type="hidden" name="product_id" value="<?php echo $products['product_id'] ?? '1'; ?>">
                                 <input type="hidden" name="user_id" value="<?php echo $_SESSION['user']; ?>">
                                 <?php
-                                if (in_array($item['item_id'], $Cart->getCartId($Cart->getDataCart('cart')) ?? [])) {
+                                if (in_array($products['product_id'], $Cart->getCartId($Cart->getDataCart('carts')) ?? [])) {
                                     echo '<button type="submit" disabled id="add-to-chart-button" class="btn btn-success font-size-12 m-1">In the Cart</button>';
-                                } else if (in_array($item['item_id'], $Cart->getCartId($Cart->getDataCart('wishlist')) ?? [])) {
+                                } else if (in_array($products['product_id'], $Cart->getCartId($Cart->getDataCart('wishlists')) ?? [])) {
                                     echo '<button type="submit" disabled id="add-to-wishlist-button" class="btn btn-success font-size-12 m-1">In the Wishlist</button>';
                                 } else {
                                     echo '<button type="submit" name="new_phones_submit" id="add-to-chart-button" class="btn btn-warning font-size-12 m-1">Add to Cart</button>';

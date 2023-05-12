@@ -70,7 +70,7 @@
                         <img class="img-responsive img-rounded" src="./../assets/template/profile.png" alt="User picture">
                     </div>
                     <div class="user-info">
-                        <span class="user-name"><strong><?= $admins[0]['username']; ?></strong></span>
+                        <span class="user-name"><strong><?= $admins[0]['admin_username']; ?></strong></span>
                         <span class="user-role">Administrator</span>
                         <span class="user-status">
                             <i class="fa fa-circle"></i>

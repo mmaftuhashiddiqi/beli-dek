@@ -72,23 +72,23 @@ if ( isset($_POST["register"]) ) {
 			</div>
 		
 			<p class="text-center">or:</p>
-		
+
 			<!-- Username input -->
 			<div class="form-outline mb-4">
-				<label class="form-label" for="username">Username</label>
-				<input type="text" name="username" id="username" class="form-control" />
+				<label class="form-label" for="user-username">Username</label>
+				<input type="text" name="user-username" id="user-username" class="form-control" />
 			</div>
 		
 			<!-- Password input -->
 			<div class="form-outline mb-4">
-				<label class="form-label" for="password">Password</label>
-				<input type="password" name="password" id="password" class="form-control" />
+				<label class="form-label" for="user-password">Password</label>
+				<input type="password" name="user-password" id="user-password" class="form-control" />
 			</div>
 		
 			<!-- Repeat Password input -->
 			<div class="form-outline mb-4">
-				<label class="form-label" for="password2">Repeat password</label>
-				<input type="password" name="password2" id="password2" class="form-control" />
+				<label class="form-label" for="user-password2">Repeat password</label>
+				<input type="password" name="user-password2" id="user-password2" class="form-control" />
 			</div>
 		
 			<!-- Submit button -->

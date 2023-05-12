@@ -14,6 +14,7 @@ $orders = cariOrder($keywordOrderLive);
         <tr>
             <th scope="col">No</th>
             <th scope="col">Username</th>
+            <th scope="col">Order Date</th>
             <th scope="col">Product Brand</th>
             <th scope="col">Product Name</th>
             <th scope="col">Product Price</th>
@@ -33,12 +34,13 @@ $orders = cariOrder($keywordOrderLive);
         ?>
             <tr>
                 <th scope="row"><?= $i ?></th>
-                <td><?= $order['username']; ?></td>
-                <td><?= $order['item_brand']; ?></td>
-                <td><?= $order['item_name']; ?></td>
-                <td>$<?= $order['item_price']; ?></td>
-                <td>1</td>
-                <td>$<?= $order['item_price']; ?></td>
+                <td><?= $order['user_username']; ?></td>
+                <td><?= $order['order_date']; ?></td>
+                <td><?= $order['product_brand']; ?></td>
+                <td><?= $order['product_name']; ?></td>
+                <td>Rp. <?= $order['product_price']; ?></td>
+                <td><?= $order['product_count']; ?></td>
+                <td>Rp. <?= $order['product_price']; ?></td>
                 <td>
                     <form method="post">
                         <!-- process button -->
@@ -46,7 +48,7 @@ $orders = cariOrder($keywordOrderLive);
                         <!-- !process button -->
                         
                         <!-- done button -->
-                        <a href="./Template/_delete_order.php?item_id=<?= $order['item_id']; ?>&user_id=<?= $order['user_id']; ?>" id="done-button" class="text-decoration-none btn btn-success font-size-12 m-1">Done</a>
+                        <a href="./Template/_delete_order.php?product_id=<?= $order['product_id']; ?>&user_id=<?= $order['user_id']; ?>" id="done-button" class="text-decoration-none btn btn-success font-size-12 m-1">Done</a>
                         <!-- !done button -->
                     </form>
                 </td>

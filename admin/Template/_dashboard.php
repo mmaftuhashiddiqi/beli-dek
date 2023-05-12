@@ -1,8 +1,8 @@
 <?php
 
 $productCount = count($product->getData());
-$adminCount = count($product->getData('admin'));
-$userCount = count($product->getData('user'));
+$adminCount = count($product->getData('admins'));
+$userCount = count($product->getData('users'));
 $orderCount = count($product->getData('orders'));
 
 ?>

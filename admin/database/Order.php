@@ -13,10 +13,10 @@ class Order
     // fecth order data using getDataOrder Method
     public function getDataOrder(){
         $result = $this->db->con->query(
-            "SELECT orders.user_id, orders.item_id, user.username, product.item_brand, product.item_name, product.item_price
+            "SELECT orders.user_id, orders.product_id, users.user_username, orders.order_date, products.product_brand, products.product_name, products.product_price, orders.product_count
             FROM orders
-            INNER JOIN user ON orders.user_id = user.user_id
-            INNER JOIN product ON orders.item_id = product.item_id"
+            INNER JOIN users ON orders.user_id = users.user_id
+            INNER JOIN products ON orders.product_id = products.product_id"
         );
 
         $resultArray = array();

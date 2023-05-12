@@ -8,10 +8,11 @@ $halamanAktif = ( isset($_GET["halaman"]) ) ? $_GET["halaman"] : 1;
 $awalData = ( $jumlahDataPerHalaman * $halamanAktif ) - $jumlahDataPerHalaman;
 
 $orders = query(
-    "SELECT orders.user_id, orders.item_id, user.username, product.item_brand, product.item_name, product.item_price
+    "SELECT orders.user_id, orders.product_id, users.user_username, orders.order_date, products.product_brand, products.product_name, products.product_price, orders.product_count
     FROM orders
-    INNER JOIN user ON orders.user_id = user.user_id
-    INNER JOIN product ON orders.item_id = product.item_id LIMIT $awalData, $jumlahDataPerHalaman"
+    INNER JOIN users ON orders.user_id = users.user_id
+    INNER JOIN products ON orders.product_id = products.product_id 
+    LIMIT $awalData, $jumlahDataPerHalaman"
 );
 
 // tombol cari ditekan
@@ -64,6 +65,7 @@ if ( isset($_POST["ascending-price"]) ) {
                     <tr>
                         <th scope="col">No</th>
                         <th scope="col">Username</th>
+                        <th scope="col">Order Date</th>
                         <th scope="col">Product Brand</th>
                         <th scope="col">Product Name</th>
                         <th scope="col">Product Price</th>
@@ -83,12 +85,13 @@ if ( isset($_POST["ascending-price"]) ) {
                     ?>
                         <tr>
                             <th scope="row"><?= $i ?></th>
-                            <td><?= $order['username']; ?></td>
-                            <td><?= $order['item_brand']; ?></td>
-                            <td><?= $order['item_name']; ?></td>
-                            <td>$<?= $order['item_price']; ?></td>
-                            <td>1</td>
-                            <td>$<?= $order['item_price']; ?></td>
+                            <td><?= $order['user_username']; ?></td>
+                            <td><?= $order['order_date']; ?></td>
+                            <td><?= $order['product_brand']; ?></td>
+                            <td><?= $order['product_name']; ?></td>
+                            <td>Rp. <?= $order['product_price']; ?></td>
+                            <td><?= $order['product_count'] ?></td>
+                            <td>Rp. <?= $order['product_price'] * $order['product_count']; ?></td>
                             <td>
                                 <form method="post">
                                     <!-- process button -->
@@ -96,7 +99,7 @@ if ( isset($_POST["ascending-price"]) ) {
                                     <!-- !process button -->
                                     
                                     <!-- done button -->
-                                    <a href="./Template/_delete_order.php?item_id=<?= $order['item_id']; ?>&user_id=<?= $order['user_id']; ?>" id="done-button" class="text-decoration-none btn btn-success font-size-12 m-1">Done</a>
+                                    <a href="./Template/_delete_order.php?product_id=<?= $order['product_id']; ?>&user_id=<?= $order['user_id']; ?>" id="done-button" class="text-decoration-none btn btn-success font-size-12 m-1">Done</a>
                                     <!-- !done button -->
                                 </form>
                             </td>

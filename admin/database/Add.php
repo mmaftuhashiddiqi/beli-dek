@@ -1,6 +1,6 @@
 <?php
 
-$con = mysqli_connect("localhost", "root", "", "beli_dek");
+$con = mysqli_connect("localhost", "root", "", "ecommerce");
 
 function query($query) {
     global $con;
@@ -17,6 +17,7 @@ function tambah($data) {
 
     $brandName = htmlspecialchars($data["inputBrandName"]);
     $productName = htmlspecialchars($data["inputProductName"]);
+    $productStock = htmlspecialchars($data["inputProductStock"]);
     $productPrice = htmlspecialchars($data["inputProductPrice"]);
 
     // upload gambar
@@ -27,7 +28,7 @@ function tambah($data) {
 
     $query = "INSERT INTO product
                 VALUES
-                ('', '$brandName', '$productName', '$productPrice', '$productImage')
+                ('', '$brandName', '$productName', '$productStock', '$productPrice', '$productImage')
             ";
     mysqli_query($con, $query);
 

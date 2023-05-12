@@ -35,6 +35,10 @@ if( isset($_POST["submit"]) ) {
         <input type="text" name="inputProductName" class="form-control" id="inputProductName" placeholder="Product Name">
     </div>
     <div class="form-group">
+        <label for="inputProductPrice">Stok Produk</label>
+        <input type="number" name="inputProductStock" class="form-control" id="inputProductStock" placeholder="Product Stock">
+    </div>
+    <div class="form-group">
         <label for="inputProductPrice">Harga Produk</label>
         <input type="number" name="inputProductPrice" class="form-control" id="inputProductPrice" placeholder="Product Price">
     </div>

@@ -12,7 +12,7 @@ class Cart
     }
 
     // insert into cart table
-    public  function insertIntoCart($params = null, $table = "cart"){
+    public  function insertIntoCart($params = null, $table = "carts"){
         if ($this->db->con != null){
             if ($params != null){
                 // "Insert into cart(user_id) values (0)"
@@ -31,12 +31,12 @@ class Cart
         }
     }
 
-    // to get user_id and item_id and insert into cart table
-    public  function addToCart($userid, $itemid){
-        if (isset($userid) && isset($itemid)){
+    // to get user_id and product_id and insert into cart table
+    public  function addToCart($userid, $productid){
+        if (isset($userid) && isset($productid)){
             $params = array(
                 "user_id" => $userid,
-                "item_id" => $itemid
+                "product_id" => $productid
             );
 
             // insert data into cart
@@ -48,10 +48,10 @@ class Cart
         }
     }
 
-    // delete cart item using cart item id
-    public function deleteCart($item_id = null, $user_id= null, $table = 'cart'){
-        if($item_id != null && $user_id != null){
-            $result = $this->db->con->query("DELETE FROM {$table} WHERE item_id={$item_id} AND user_id={$user_id}");
+    // delete cart product using cart product id
+    public function deleteCart($product_id = null, $user_id= null, $table = 'carts'){
+        if($product_id != null && $user_id != null){
+            $result = $this->db->con->query("DELETE FROM {$table} WHERE product_id={$product_id} AND user_id={$user_id}");
             if($result){
                 header("Location: " . $_SERVER['PHP_SELF']);
             }
@@ -60,15 +60,15 @@ class Cart
     }
 
     // fetch cart data using getDataCart Method
-    public function getDataCart($table = 'cart'){
+    public function getDataCart($table = 'carts'){
         $userId = $_SESSION["user"];
         $result = $this->db->con->query("SELECT * FROM {$table} WHERE user_id = $userId");
         
         $resultArray = array();
         
         // fetch product data one by one
-        while ($item = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-            $resultArray[] = $item;
+        while ($product = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+            $resultArray[] = $product;
         }
         
         return $resultArray;
@@ -78,15 +78,15 @@ class Cart
     public function getSum($arr){
         if(isset($arr)){
             $sum = 0;
-            foreach ($arr as $item){
-                $sum += floatval($item[0]);
+            foreach ($arr as $product){
+                $sum += floatval($product[0]);
             }
             return sprintf('%.2f' , $sum);
         }
     }
 
-    // get item_it of shopping cart list
-    public function getCartId($cartArray = null, $key = "item_id"){
+    // get product_id of shopping cart list
+    public function getCartId($cartArray = null, $key = "product_id"){
         if ($cartArray != null){
             $cart_id = array_map(function ($value) use($key){
                 return $value[$key];
@@ -96,10 +96,10 @@ class Cart
     }
 
     // Save for later
-    public function saveForLater($item_id = null, $user_id, $saveTable = "wishlist", $fromTable = "cart"){
-        if ($item_id != null && $user_id != null){
-            $query = "INSERT INTO {$saveTable} SELECT * FROM {$fromTable} WHERE item_id={$item_id} AND user_id={$user_id};";
-            $query .= "DELETE FROM {$fromTable} WHERE item_id={$item_id} AND user_id={$user_id};";
+    public function saveForLater($product_id = null, $user_id, $saveTable = "wishlists", $fromTable = "carts"){
+        if ($product_id != null && $user_id != null){
+            $query = "INSERT INTO $saveTable (`user_id`, `product_id`, `product_count`) SELECT `user_id`, `product_id`, `product_count` FROM $fromTable WHERE `product_id`=$product_id AND `user_id`=$user_id;";
+            $query .= "DELETE FROM $fromTable WHERE `product_id`=$product_id AND `user_id`=$user_id;";
 
             // execute multiple query
             $result = $this->db->con->multi_query($query);
@@ -114,16 +114,28 @@ class Cart
     // proceed to buy
     public function proceedToBuy($user_id = null) {
         if ($user_id != null){
-            $query = "INSERT INTO `orders` SELECT * FROM `cart` WHERE user_id={$user_id};";
-            $query .= "DELETE FROM `cart` WHERE user_id={$user_id};";
+            date_default_timezone_set('Asia/Jakarta');
+            $datetime = date("Y-m-d H:i:s");
+            echo $datetime;
 
-            // execute multiple query
-            $result = $this->db->con->multi_query($query);
+            $dataCart = "SELECT `user_id`, `product_id`, `product_count` FROM `carts` WHERE user_id={$user_id};";
+            $dataCartResult = $this->db->con->query($dataCart);
+
+            $result = "";
+            foreach ($dataCartResult as $cart) {
+                $result .= "INSERT INTO `orders` 
+                            VALUES ('', '$datetime', {$cart['user_id']}, {$cart['product_id']}, {$cart['product_count']});";
+            }
+
+            $result .= "DELETE FROM `carts` WHERE user_id={$user_id};";
+
+            // execute query
+            $result = $this->db->con->multi_query($result);
 
             if($result){
                 header("Location: " . $_SERVER['PHP_SELF']);
             }
-            return $result;
+            return;
         }
     }
 }

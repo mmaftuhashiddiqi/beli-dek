@@ -11,11 +11,11 @@ class Cart
         $this->db = $db;
     }
 
-    // insert into cart table
-    public  function insertIntoCart($params = null, $table = "cart"){
+    // insert into carts table
+    public  function insertIntoCart($params = null, $table = "carts"){
         if ($this->db->con != null){
             if ($params != null){
-                // "Insert into cart(user_id) values (0)"
+                // "Insert into carts(user_id) values (0)"
                 // get table columns
                 $columns = implode(',', array_keys($params));
 
@@ -31,15 +31,15 @@ class Cart
         }
     }
 
-    // to get user_id and item_id and insert into cart table
-    public  function addToCart($userid, $itemid){
-        if (isset($userid) && isset($itemid)){
+    // to get user_id and product_id and insert into carts table
+    public  function addToCart($userid, $productid){
+        if (isset($userid) && isset($productid)){
             $params = array(
                 "user_id" => $userid,
-                "item_id" => $itemid
+                "product_id" => $productid
             );
 
-            // insert data into cart
+            // insert data into carts
             $result = $this->insertIntoCart($params);
             if ($result){
                 // Reload Page
@@ -48,10 +48,10 @@ class Cart
         }
     }
 
-    // delete cart item using cart item id
-    public function deleteCart($item_id = null, $table = 'cart'){
-        if($item_id != null){
-            $result = $this->db->con->query("DELETE FROM {$table} WHERE item_id={$item_id}");
+    // delete cart product using cart product id
+    public function deleteCart($product_id = null, $table = 'carts'){
+        if($product_id != null){
+            $result = $this->db->con->query("DELETE FROM {$table} WHERE product_id={$product_id}");
             if($result){
                 header("Location:" . $_SERVER['PHP_SELF']);
             }
@@ -63,15 +63,15 @@ class Cart
     public function getSum($arr){
         if(isset($arr)){
             $sum = 0;
-            foreach ($arr as $item){
-                $sum += floatval($item[0]);
+            foreach ($arr as $product){
+                $sum += floatval($product[0]);
             }
             return sprintf('%.2f' , $sum);
         }
     }
 
-    // get item_it of shopping cart list
-    public function getCartId($cartArray = null, $key = "item_id"){
+    // get product_id of shopping cart list
+    public function getCartId($cartArray = null, $key = "product_id"){
         if ($cartArray != null){
             $cart_id = array_map(function ($value) use($key){
                 return $value[$key];
@@ -81,10 +81,10 @@ class Cart
     }
 
     // Save for later
-    public function saveForLater($item_id = null, $saveTable = "wishlist", $fromTable = "cart"){
-        if ($item_id != null){
-            $query = "INSERT INTO {$saveTable} SELECT * FROM {$fromTable} WHERE item_id={$item_id};";
-            $query .= "DELETE FROM {$fromTable} WHERE item_id={$item_id};";
+    public function saveForLater($product_id = null, $saveTable = "wishlists", $fromTable = "carts"){
+        if ($product_id != null){
+            $query = "INSERT INTO {$saveTable} SELECT * FROM {$fromTable} WHERE product_id={$product_id};";
+            $query .= "DELETE FROM {$fromTable} WHERE product_id={$product_id};";
 
             // execute multiple query
             $result = $this->db->con->multi_query($query);

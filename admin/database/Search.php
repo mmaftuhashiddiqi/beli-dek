@@ -1,39 +1,39 @@
 <?php
 
 function cari($keyword) {
-	$query = "SELECT * FROM product
+	$query = "SELECT * FROM products
 				WHERE
-			  item_brand LIKE '%$keyword%' OR
-			  item_name LIKE '%$keyword%'
+			  product_brand LIKE '%$keyword%' OR
+			  product_name LIKE '%$keyword%'
 			";
 	return query($query);
 }
 
 function sortedBy($keyword) {
-	$query = "SELECT * FROM product
-				ORDER BY item_price $keyword
+	$query = "SELECT * FROM products
+				ORDER BY product_price $keyword
 			";
 	return query($query);
 }
 
 function cariOrder($keyword) {
-	$query = " SELECT orders.user_id, orders.item_id, user.username, product.item_brand, product.item_name, product.item_price
-				FROM orders
-				INNER JOIN user ON orders.user_id = user.user_id
-				INNER JOIN product ON orders.item_id = product.item_id
+	$query = "SELECT orders.user_id, orders.product_id, users.user_username, orders.order_date, products.product_brand, products.product_name, products.product_price, orders.product_count
+	            FROM orders
+    	        INNER JOIN users ON orders.user_id = users.user_id
+        	    INNER JOIN products ON orders.product_id = products.product_id
 				WHERE
-				item_brand LIKE '%$keyword%' OR
-				item_name LIKE '%$keyword%' OR
-				username LIKE '%$keyword%'
+				product_brand LIKE '%$keyword%' OR
+				product_name LIKE '%$keyword%' OR
+				user_username LIKE '%$keyword%'
 			";
 	return query($query);
 }
 
 function sortedOrderBy($keyword) {
-	$query = " SELECT orders.user_id, orders.item_id, user.username, product.item_brand, product.item_name, product.item_price
-				FROM orders
-				INNER JOIN user ON orders.user_id = user.user_id
-				INNER JOIN product ON orders.item_id = product.item_id
+	$query = " SELECT orders.user_id, orders.product_id, users.user_username, orders.order_date, products.product_brand, products.product_name, products.product_price, orders.product_count
+	            FROM orders
+    	        INNER JOIN users ON orders.user_id = users.user_id
+        	    INNER JOIN products ON orders.product_id = products.product_id;
 				ORDER BY product.item_price $keyword
 			";
 	return query($query);

@@ -2,10 +2,10 @@
 
 require ('../functions.php');
 
-$itemId = $_GET["item_id"];
+$productId = $_GET["product_id"];
 $userId = $_GET["user_id"];
 
-if ( hapusOrder($itemId, $userId) > 0 ) {
+if ( hapusOrder($productId, $userId) > 0 ) {
 	echo "
 		<script>
 			alert('product has been sent!');

@@ -1,16 +1,16 @@
 <?php
 
-$con = mysqli_connect("localhost", "root", "", "beli_dek");
+$con = mysqli_connect("localhost", "root", "", "ecommerce");
 
 function registrasi($data) {
 	global $con;
 
-	$username = strtolower(stripslashes($data["username"]));
-	$password = mysqli_real_escape_string($con, $data["password"]);
-	$password2 = mysqli_real_escape_string($con, $data["password2"]);
+	$username = strtolower(stripslashes($data["user-username"]));
+	$password = mysqli_real_escape_string($con, $data["user-password"]);
+	$password2 = mysqli_real_escape_string($con, $data["user-password2"]);
 
 	// cek username sudah ada atau belum
-	$result = mysqli_query($con, "SELECT username FROM user WHERE username = '$username'");
+	$result = mysqli_query($con, "SELECT user_username FROM users WHERE user_username = '$username'");
 
 	if( mysqli_fetch_assoc($result) ) {
 		echo "<script>
@@ -31,7 +31,7 @@ function registrasi($data) {
 	$password = password_hash($password, PASSWORD_DEFAULT);
 
 	// tambahkan userbaru ke database
-	mysqli_query($con, "INSERT INTO user VALUES('', '$username', '$password')");
+	mysqli_query($con, "INSERT INTO users VALUES('', '', '$username', '', '', '$password')");
 
 	return mysqli_affected_rows($con);
 }

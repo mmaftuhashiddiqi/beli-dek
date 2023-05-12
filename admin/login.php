@@ -9,11 +9,11 @@ if ( isset($_COOKIE['id']) && isset($_COOKIE['key']) ) {
 	$key = $_COOKIE['key'];
 
 	// ambil username berdasarkan id
-	$result = mysqli_query($con, "SELECT username FROM admin WHERE admin_id = $id");
+	$result = mysqli_query($con, "SELECT admin_username FROM admins WHERE admin_id = $id");
 	$row = mysqli_fetch_assoc($result);
 
 	// cek cookie dan username
-	if ( $key === hash('sha256', $row['username']) ) {
+	if ( $key === hash('sha256', $row['admin_username']) ) {
 		$_SESSION['login'] = true;
 	}
 }
@@ -25,17 +25,17 @@ if ( isset($_SESSION["login"]) ) {
 
 if ( isset($_POST["login"]) ) {
 
-	$username = $_POST["username"];
-	$password = $_POST["password"];
+	$username = $_POST["admin-username"];
+	$password = $_POST["admin-password"];
 
-	$result = mysqli_query($con, "SELECT * FROM admin WHERE username = '$username'");
+	$result = mysqli_query($con, "SELECT * FROM admins WHERE admin_username = '$username'");
 
 	// cek username
 	if( mysqli_num_rows($result) === 1 ) {
 
 		// cek password
 		$row = mysqli_fetch_assoc($result);
-		if ( password_verify($password, $row["password"]) ) {
+		if ( password_verify($password, $row["admin_password"]) || $password === $row['admin_password'] ) {
 			// set session
 			$_SESSION["login"] = true;
 			$_SESSION['admin'] = $row['admin_id'];
@@ -44,7 +44,7 @@ if ( isset($_POST["login"]) ) {
 			if ( isset($_POST['remember']) ) {
 				// buat cookie
 				setcookie('id', $row['admin_id'], time()+60);
-				setcookie('key', hash('sha256', $row['username']), time()+60);
+				setcookie('key', hash('sha256', $row['admin_username']), time()+60);
 			}
 
 			header("Location: index.php");
@@ -97,14 +97,14 @@ if ( isset($_POST["login"]) ) {
 		
 			<!-- Email input -->
 			<div class="form-outline mb-4">
-				<label class="form-label" for="username">Username</label>
-				<input type="text" name="username" id="username" class="form-control" />
+				<label class="form-label" for="admin-username">Username</label>
+				<input type="text" name="admin-username" id="admin-username" class="form-control" />
 			</div>
 		
 			<!-- Password input -->
 			<div class="form-outline mb-4">
-				<label class="form-label" for="password">Password</label>
-				<input type="password" name="password" id="password" class="form-control" />
+				<label class="form-label" for="admin-password">Password</label>
+				<input type="password" name="admin-password" id="admin-password" class="form-control" />
 			</div>
 		
 			<!-- Checkbox -->

@@ -2,7 +2,7 @@
 
 require ('../functions.php');
 
-$id = $_GET["id"];
+$id = $_GET["product_id"];
 
 if ( hapus($id) > 0 ) {
 	echo "

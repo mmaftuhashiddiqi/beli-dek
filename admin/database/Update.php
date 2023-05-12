@@ -6,6 +6,7 @@ function ubah($data) {
 	$id = $data["id"];
 	$brandName = htmlspecialchars($data["inputBrandName"]);
     $productName = htmlspecialchars($data["inputProductName"]);
+    $productStock = htmlspecialchars($data["inputProductStock"]);
     $productPrice = htmlspecialchars($data["inputProductPrice"]);
 	$productImageOld = htmlspecialchars($data["inputProductImageOld"]);
 	
@@ -16,12 +17,13 @@ function ubah($data) {
 		$productImage = upload();
 	}
 
-	$query = "UPDATE product SET
-				item_brand = '$brandName',
-				item_name = '$productName',
-				item_price = '$productPrice',
-				item_image = '$productImage'
-			  WHERE item_id = $id;
+	$query = "UPDATE products SET
+				product_brand = '$brandName',
+				product_name = '$productName',
+				product_stock = '$productStock',
+				product_price = '$productPrice',
+				product_image = '$productImage'
+			  WHERE product_id = $id;
 			";
 
 	mysqli_query($con, $query);

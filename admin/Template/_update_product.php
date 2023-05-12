@@ -4,7 +4,7 @@
 $id = $_GET["id"];
 
 // query data mahasiswa berdasarkan id
-$items = query("SELECT * FROM product WHERE item_id = $id")[0];
+$products = query("SELECT * FROM products WHERE product_id = $id")[0];
 
 // cek apakah tombol submit sudah ditekan atau belum
 if( isset($_POST["submit"]) ) {
@@ -32,25 +32,29 @@ if( isset($_POST["submit"]) ) {
 
 <!-- update product -->
 <form action="" method="post" enctype="multipart/form-data" style="margin-top: 100px; margin-bottom: 100px; margin-left: 25vw; margin-right: 25vw;">
-    <input type="hidden" name="id" value="<?= $items["item_id"]; ?>">
-    <input type="hidden" name="inputProductImageOld" value="<?= $items["item_image"]; ?>">
+    <input type="hidden" name="id" value="<?= $products["product_id"]; ?>">
+    <input type="hidden" name="inputProductImageOld" value="<?= $products["product_image"]; ?>">
 
     <div class="form-group">
         <label for="inputBrandName">Nama Brand</label>
-        <input type="text" name="inputBrandName" class="form-control" id="inputBrandName" value="<?= $items["item_brand"]; ?>">
+        <input type="text" name="inputBrandName" class="form-control" id="inputBrandName" value="<?= $products["product_brand"]; ?>">
     </div>
     <div class="form-group">
         <label for="inputProductName">Nama Produk</label>
-        <input type="text" name="inputProductName" class="form-control" id="inputProductName" value="<?= $items["item_name"]; ?>">
+        <input type="text" name="inputProductName" class="form-control" id="inputProductName" value="<?= $products["product_name"]; ?>">
+    </div>
+    <div class="form-group">
+        <label for="inputProductPrice">Stok Produk</label>
+        <input type="number" name="inputProductStock" class="form-control" id="inputProductStock" value="<?= $products["product_stock"]; ?>">
     </div>
     <div class="form-group">
         <label for="inputProductPrice">Harga Produk</label>
-        <input type="number" name="inputProductPrice" class="form-control" id="inputProductPrice" value="<?= $items["item_price"]; ?>">
+        <input type="number" name="inputProductPrice" class="form-control" id="inputProductPrice" value="<?= $products["product_price"]; ?>">
     </div>
     <div class="form-group">
         <label for="inputProductImage">Gambar Produk</label>
         <div class="custom-file">
-            <img src="./../assets/products/<?= $items['item_image']; ?>" width="70"> <br>
+            <img src="./../assets/products/<?= $products['product_image']; ?>" width="70"> <br>
             <input type="file" name="inputProductImage" id="inputProductImage" style="opacity: 1;">
         </div>
     </div>

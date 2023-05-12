@@ -11,10 +11,10 @@ function query($query) {
 }
 
 function cari($keyword) {
-	$query = "SELECT * FROM product
+	$query = "SELECT * FROM products
 				WHERE
-			  item_brand LIKE '%$keyword%' OR
-			  item_name LIKE '%$keyword%'
+			  product_brand LIKE '%$keyword%' OR
+			  product_name LIKE '%$keyword%'
 			";
 	return query($query);
 }

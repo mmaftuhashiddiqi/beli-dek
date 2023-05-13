@@ -158,7 +158,7 @@ $(document).ready(function () {
         });
     });
 
-    // event ketika keyword product ditulis
+    // event ketika keyword order ditulis
     $('#keyword-order-live').on('keyup', function () {
         // munculkan icon loading
         $('.loader').show();
@@ -168,6 +168,23 @@ $(document).ready(function () {
 
         // $.get()
         $.get('Template/_orders_live.php?keyword-order-live=' + $('#keyword-order-live').val(), function (data) {
+
+            $('#table-container').html(data);
+            $('.loader').hide();
+
+        });
+    });
+
+    // event ketika keyword user ditulis
+    $('#keyword-user-live').on('keyup', function () {
+        // munculkan icon loading
+        $('.loader').show();
+
+        // ajax menggunakan load
+        // $('#container').load('ajax/mahasiswa.php?keyword=' + $('#keyword').val());
+
+        // $.get()
+        $.get('Template/_users_live.php?keyword-user-live=' + $('#keyword-user-live').val(), function (data) {
 
             $('#table-container').html(data);
             $('.loader').hide();

@@ -137,8 +137,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`user_id`, `user_fullname`, `user_username`, `user_phone`, `user_address`, `user_password`) VALUES
 (1, 'User A', 'usera', '087654321', 'Jl. Colombo Yogyakarta No.1', '$2y$10$0W3TQolgR2PbiGA/kXgvoedt0lJiFskfbmje.qrN3pOA4U3a64T6a'),
-(2, 'User B', 'userb', '087654321', 'Jl. Colombo Yogyakarta No.1', '$2y$10$i8BHjjex7jRMZdHq1su/6eYloCulHj0I1S56e5sRDdeUXynSd28oO'),
-(3, 'User C', 'userc', '087654321', 'Jl. Colombo Yogyakarta No.1', '$2y$10$38cyD00LRQNfkQOaVvn0xuYeKpsVtH4uDnwUCZtc63mnn4NgDXr72');
+(2, 'User B', 'userb', '087654321', 'Jl. Colombo Yogyakarta No.2', '$2y$10$i8BHjjex7jRMZdHq1su/6eYloCulHj0I1S56e5sRDdeUXynSd28oO'),
+(3, 'User C', 'userc', '087654321', 'Jl. Colombo Yogyakarta No.3', '$2y$10$38cyD00LRQNfkQOaVvn0xuYeKpsVtH4uDnwUCZtc63mnn4NgDXr72');
 
 -- --------------------------------------------------------
 

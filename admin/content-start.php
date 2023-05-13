@@ -98,6 +98,7 @@
                             <a href="users.php">
                                 <i class="fa fa-users"></i>
                                 <span>View Users</span>
+                                <span class="badge badge-pill badge-primary"><?= count($users) ?></span>
                             </a>
                         </li>
                         <li class="sidebar-dropdown">

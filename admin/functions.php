@@ -6,6 +6,9 @@ require ('database/DBController.php');
 // require Admin Class
 require ('database/Admin.php');
 
+// requier User Class
+require ('database/User.php');
+
 // require Product Class
 require ('database/Product.php');
 
@@ -36,6 +39,10 @@ $db = new DBController();
 
 // Admin object
 $admin = new Admin($db);
+
+// User object
+$user = new User($db);
+$users = $user->getDataUser();
 
 // Product object
 $product = new Product($db);

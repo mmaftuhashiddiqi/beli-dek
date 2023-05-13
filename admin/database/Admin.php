@@ -1,6 +1,6 @@
 <?php
 
-// php cart class
+// php admin class
 class Admin
 {
     public $db = null;

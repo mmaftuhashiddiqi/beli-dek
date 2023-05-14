@@ -15,10 +15,11 @@ if ( isset($_COOKIE['id']) && isset($_COOKIE['key']) ) {
 	// cek cookie dan username
 	if ( $key === hash('sha256', $row['user_username']) ) {
 		$_SESSION['login'] = true;
+		$_SESSION['user'] = $id;
 	}
 }
 
-if ( isset($_SESSION["login"]) ) {
+if ( isset($_SESSION["login"]) && isset($_SESSION['user']) ) {
 	header("Location: index.php");
 	exit;
 }
@@ -85,7 +86,7 @@ if ( isset($_POST["login"]) ) {
 			aria-controls="pills-login" aria-selected="true">Login</a>
 		</li>
 		<li class="nav-item" role="presentation">
-			<a class="nav-link" id="tab-register" data-mdb-toggle="pill" href="registrasi.php" role="tab"
+			<a class="nav-link" id="tab-register" data-mdb-toggle="pill" href="register.php" role="tab"
 			aria-controls="pills-register" aria-selected="false">Register</a>
 		</li>
 		</ul>
@@ -143,7 +144,7 @@ if ( isset($_POST["login"]) ) {
 		
 			<!-- Register buttons -->
 			<div class="text-center">
-				<p>Not a member? <a href="registrasi.php">Register</a></p>
+				<p>Not a member? <a href="register.php">Register</a></p>
 			</div>
 			</form>
 		</div>

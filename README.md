@@ -53,7 +53,7 @@ Pada template project tersebut hanya tersedia session untuk user saja. Kemudian 
 3. Kemudian jalankan kode mysql yang terdapat di `database/ecommerce.sql`.
 4. Untuk username admin yaitu `admina`, `adminb` dan `adminc` dengan password-nya masing-masing yaitu `admina123`, `adminb123` dan `adminc123`.
 5. Untuk username user yaitu `usera`, `userb` dan `userc` dengan password-nya masing-masing yaitu `usera123`, `userb123` dan `userc123`, atau user juga bisa membuat akun dan password-nya sendiri pada menu registrasi yang terdapat pada
-   > localhost/beli-dek/registrasi.php
+   > localhost/beli-dek/register.php
 
 6. Untuk login halaman user bisa diarahkan ke
    > localhost/beli-dek/

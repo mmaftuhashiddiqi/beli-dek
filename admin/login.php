@@ -15,10 +15,11 @@ if ( isset($_COOKIE['id']) && isset($_COOKIE['key']) ) {
 	// cek cookie dan username
 	if ( $key === hash('sha256', $row['admin_username']) ) {
 		$_SESSION['login'] = true;
+		$_SESSION['admin'] = $id;
 	}
 }
 
-if ( isset($_SESSION["login"]) ) {
+if ( isset($_SESSION["login"]) && isset($_SESSION['admin']) ) {
 	header("Location: index.php");
 	exit;
 }

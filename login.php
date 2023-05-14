@@ -36,7 +36,7 @@ if ( isset($_POST["login"]) ) {
 
 		// cek password
 		$row = mysqli_fetch_assoc($result);
-		if ( password_verify($password, $row["user_password"]) || $password === $row["user_password"] ) {
+		if ( password_verify($password, $row["user_password"]) ) {
 			// set session
 			$_SESSION["login"] = true;
 			$_SESSION['user'] = $row["user_id"];

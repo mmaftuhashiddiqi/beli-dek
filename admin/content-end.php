@@ -1,13 +1,13 @@
-        </main>
-        <!-- !Page Content -->
-    </div>
+    </main>
+    <!-- !Page Content -->
+  </div>
 
-    <?php
-    require ('library/body.php');
-    ?>
+  <?php
+  require ('library/body.php');
+  ?>
 
-    <!-- Custom Javascript -->
-    <script src="script.js"></script>
+  <!-- Custom Javascript -->
+  <script src="script.js"></script>
 </body>
 
 </html>

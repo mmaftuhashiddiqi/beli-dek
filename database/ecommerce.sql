@@ -53,7 +53,7 @@ CREATE TABLE `carts` (
   `cart_id` int(10) NOT NULL,
   `user_id` int(10) NOT NULL,
   `product_id` int(10) NOT NULL,
-  `product_count` int(10) NOT NULL
+  `product_count` int(10) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------

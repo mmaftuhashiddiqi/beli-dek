@@ -39,7 +39,6 @@ Pada template project tersebut hanya tersedia session untuk user saja. Kemudian 
 1. **Untuk User**
    - Mobile responsive
    - On delivery page
-   - Product count
 
 2. **Untuk Admin**
    - Mobile responsive

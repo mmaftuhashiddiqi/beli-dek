@@ -32,7 +32,7 @@ if (isset($_POST["search"])) {
     </div>
 
     <div id="table-container">
-      <table class="table table-hover text-center">
+      <table class="table table-bordered table-hover text-center">
         <thead class="thead-dark">
           <tr>
             <th scope="col">No</th>

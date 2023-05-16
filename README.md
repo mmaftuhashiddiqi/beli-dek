@@ -1,12 +1,10 @@
 # E-Commerce Project - Tugas Akhir Basis Data untuk Statistika
 
-
 ## Disclaimer
 
-Project ini Saya buat dengan menggunakan template project tutorial yang ada di youtube dengan judul `Complete Mobile Shopee E-Commerce Website Course - PHP & MySQL` (https://youtu.be/KLWA2vCERSQ).
+Project ini Saya buat dengan menggunakan template project tutorial yang ada di youtube dengan judul `Complete Mobile Shopee E-Commerce Website Course - PHP & MySQL` (<https://youtu.be/KLWA2vCERSQ>).
 
 Pada template project tersebut hanya tersedia session untuk user saja. Kemudian Saya menambahkan session untuk admin beserta fitur-fiturnya dan juga menambahkan login dan registration form.
-
 
 ## Fitur-Fitur yang Tersedia
 
@@ -33,7 +31,6 @@ Pada template project tersebut hanya tersedia session untuk user saja. Kemudian 
    - Update product
    - Delete product
 
-
 ## Fitur-FItur yang Sedang Dikembangkan
 
 1. **Untuk User**
@@ -42,10 +39,9 @@ Pada template project tersebut hanya tersedia session untuk user saja. Kemudian 
 
 2. **Untuk Admin**
    - Mobile responsive
-   - Transaction count
+   - Statistics section
 
-
-## How to Use This Project
+## Installation Guide
 
 1. Clone atau download repo ini.
 2. Tempatkan repo atau folder `beli-dek` pada folder `htdocs` jika menggunakan xampp.
@@ -59,6 +55,5 @@ Pada template project tersebut hanya tersedia session untuk user saja. Kemudian 
 
    dan untuk login halaman admin bisa diarahkan ke
    > localhost/beli-dek/admin
-
 
 Sekian, Terima kasih 🙏.

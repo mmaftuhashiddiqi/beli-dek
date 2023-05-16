@@ -5,6 +5,8 @@ $brandCount = count(query("SELECT COUNT(product_brand) FROM products GROUP BY pr
 $adminCount = count($product->getData('admins'));
 $userCount = count($product->getData('users'));
 $orderCount = count($product->getData('orders'));
+$orderAutoInc = query("SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = 'ecommerce' AND TABLE_NAME = 'orders'");
+$transactionCount = $orderAutoInc[0]['AUTO_INCREMENT'] - 1;
 
 ?>
 
@@ -73,9 +75,9 @@ $orderCount = count($product->getData('orders'));
           <div class="text-info">
             <i class="fas fa-file-invoice-dollar m-2"></i>
             <i class="fas fa-arrow-right m-2"></i>
-            <span class="m-2">100</span>
+            <span class="m-2"><?= $transactionCount ?></span>
           </div>
-          <p class="card-text">There have been 100 transactions on this website.</p>
+          <p class="card-text">There have been <?= $transactionCount ?> transactions on this website.</p>
         </div>
       </div>
     </div>

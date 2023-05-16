@@ -9,7 +9,7 @@ $products = cari($keywordProductLive);
 
 ?>
 
-<table class="table table-hover text-center">
+<table class="table table-bordered table-hover text-center">
   <thead class="thead-dark">
     <tr>
       <th scope="col">No</th>

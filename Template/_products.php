@@ -46,7 +46,7 @@ foreach ($product->getData() as $products) :
             <table class="my-3">
               <tr class="font-rale font-size-14">
                 <td>M.R.P:</td>
-                <td><strike><?= rupiah(16200000) ?></strike></td>
+                <td><strike><?= rupiah($products['product_price'] + 1200000) ?></strike></td>
               </tr>
               <tr class="font-rale font-size-14">
                 <td>Deal Price:</td>
@@ -54,7 +54,7 @@ foreach ($product->getData() as $products) :
               </tr>
               <tr class="font-rale font-size-14">
                 <td>You Save:</td>
-                <td><span class="font-size-16 text-danger"><?= rupiah(5200000) ?></span></td>
+                <td><span class="font-size-16 text-danger"><?= rupiah(1200000) ?></span></td>
               </tr>
             </table>
             <!--- !product price -->

@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               </div>
 
               <div class="col-sm-2 text-right">
-                <div class="font-size-20 text-danger font-baloo">
+                <div class="text-danger font-baloo">
                   Rp. <span class="product_price" data-id="<?php echo $products['product_id'] ?? '0'; ?>"><?php echo $products['product_price'] ?? 0; ?></span>
                 </div>
               </div>

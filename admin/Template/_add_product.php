@@ -8,14 +8,14 @@ if (isset($_POST["submit"])) {
     echo "
 			<script>
 				alert('data berhasil ditambahkan!');
-				document.location.href = 'index.php';
+				document.location.href = 'products.php';
 			</script>
 		";
   } else {
     echo "
 			<script>
 				alert('data gagal ditambahkan!');
-				document.location.href = 'index.php';
+				document.location.href = 'products.php';
 			</script>
 		";
   }
@@ -46,6 +46,10 @@ if (isset($_POST["submit"])) {
     <div class="custom-file">
       <input type="file" name="inputProductImage" id="inputProductImage" style="opacity: 1;">
     </div>
+  </div>
+  <div class="form-group">
+    <label for="inputProductDesc">Deskripsi Produk</label>
+    <textarea name="inputProductDesc" class="form-control" id="inputProductDesc" placeholder="Product Description" rows="7"></textarea>
   </div>
   <button type="submit" name="submit" class="btn btn-primary">Add Product</button>
 </form>

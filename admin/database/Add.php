@@ -21,6 +21,7 @@ function tambah($data)
   $productName = htmlspecialchars($data["inputProductName"]);
   $productStock = htmlspecialchars($data["inputProductStock"]);
   $productPrice = htmlspecialchars($data["inputProductPrice"]);
+  $productDesc = htmlspecialchars($data["inputProductDesc"]);
 
   // upload gambar
   $productImage = upload();
@@ -28,9 +29,16 @@ function tambah($data)
     return false;
   }
 
-  $query = "INSERT INTO products
+  // cek enter di textarea
+  $productDescArr = explode("\r\n", $productDesc);
+  $productDescNew = '';
+  foreach ($productDescArr as $arr) {
+    $productDescNew .= $arr . '<br>';
+  }
+
+  $query = "INSERT INTO products (product_brand, product_name, product_stock, product_price, product_image, product_desc)
                 VALUES
-                ('', '$brandName', '$productName', '$productStock', '$productPrice', '$productImage')
+                ('$brandName', '$productName', '$productStock', '$productPrice', '$productImage', '$productDescNew')
             ";
   mysqli_query($con, $query);
 

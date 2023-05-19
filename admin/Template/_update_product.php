@@ -14,14 +14,14 @@ if (isset($_POST["submit"])) {
     echo "
 			<script>
 				alert('data berhasil diubah!');
-				document.location.href = './index.php';
+				document.location.href = './products.php';
 			</script>
 		";
   } else {
     echo "
 			<script>
 				alert('data gagal diubah!');
-				document.location.href = './index.php';
+				document.location.href = './products.php';
 			</script>
 		";
   }
@@ -56,6 +56,10 @@ if (isset($_POST["submit"])) {
       <img src="./../assets/products/<?= $products['product_image']; ?>" width="70"> <br>
       <input type="file" name="inputProductImage" id="inputProductImage" style="opacity: 1;">
     </div>
+  </div>
+  <div class="form-group">
+    <label for="inputProductDesc">Deskripsi Produk</label>
+    <textarea name="inputProductDesc" class="form-control" id="inputProductDesc" rows="7"><?= $products["product_desc"]; ?></textarea>
   </div>
 
   <button type="submit" name="submit" class="btn btn-primary">Update Product</button>

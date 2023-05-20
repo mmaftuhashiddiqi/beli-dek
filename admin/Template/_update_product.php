@@ -34,6 +34,9 @@ if (isset($_POST["submit"])) {
   <input type="hidden" name="id" value="<?= $products["product_id"]; ?>">
   <input type="hidden" name="inputProductImageOld" value="<?= $products["product_image"]; ?>">
 
+  <h4 class="font-rubik font-size-20">Update Product (<?= $products["product_name"] ?>)</h4>
+  <hr class="mb-5">
+
   <div class="form-group">
     <label for="inputBrandName">Nama Brand</label>
     <input type="text" name="inputBrandName" class="form-control" id="inputBrandName" value="<?= $products["product_brand"]; ?>">
@@ -62,6 +65,9 @@ if (isset($_POST["submit"])) {
     <textarea name="inputProductDesc" class="form-control" id="inputProductDesc" rows="7"><?= $products["product_desc"]; ?></textarea>
   </div>
 
-  <button type="submit" name="submit" class="btn btn-primary">Update Product</button>
+  <div class="button-action py-3">
+    <button type="submit" name="submit" class="btn btn-primary mr-2">Update Product</button>
+    <a href="products.php" class="btn btn-danger">Cancel</a>
+  </div>
 </form>
 <!-- !update product -->

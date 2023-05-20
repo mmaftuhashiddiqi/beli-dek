@@ -40,10 +40,6 @@ if (!isset($_SESSION["login"]) || !isset($_SESSION["admin"])) {
   include('Template/_add_product.php');
   /* include add product */
 
-  /* include add button */
-  include('Template/_add_button.php');
-  /* include add button */
-
   // require library
   require('library/body.php');
 

@@ -34,15 +34,15 @@ $products = cari($keywordProductLive);
         <td><?= rupiah($product['product_price']); ?></td>
         <td>
           <!-- Button trigger modal -->
-          <a href="?product_id=<?= $product['product_id'] ?>" type="button" class="btn btn-light font-size-12 m-1" data-toggle="modal" data-target="#exampleModalCenter">
+          <button type="button" class="btn btn-light font-size-12 m-1" data-toggle="modal" data-target="#Modal<?= $product['product_id'] ?>">
             Show Description
-          </a>
+          </button>
           <!-- Modal -->
-          <div class="modal fade text-left" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal fade text-left" id="Modal<?= $product['product_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="ModalTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalCenterTitle"><?= $product['product_name'] ?> Description</h5>
+                  <h5 class="modal-title" id="ModalTitle"><?= $product['product_name'] ?> Description</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>

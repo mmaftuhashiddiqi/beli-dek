@@ -8,22 +8,29 @@ $products = query("SELECT * FROM products WHERE product_id = $id")[0];
 
 // cek apakah tombol submit sudah ditekan atau belum
 if (isset($_POST["submit"])) {
-
-  // cek apakah data berhasil diubah atau tidak
-  if (ubah($_POST) > 0) {
-    echo "
+  if (!empty($_POST['inputPaymentMethod'])) {
+    // cek apakah data berhasil diubah atau tidak
+    if (ubah($_POST) > 0) {
+      echo "
 			<script>
 				alert('data berhasil diubah!');
 				document.location.href = './products.php';
 			</script>
 		";
-  } else {
-    echo "
+    } else {
+      echo "
 			<script>
 				alert('data gagal diubah!');
 				document.location.href = './products.php';
 			</script>
 		";
+    }
+  } else {
+    echo "
+    <script>
+      alert('please select at least one option!');
+    </script>
+    ";
   }
 }
 
@@ -39,11 +46,11 @@ if (isset($_POST["submit"])) {
 
   <div class="form-group">
     <label for="inputBrandName">Nama Brand</label>
-    <input type="text" name="inputBrandName" class="form-control" id="inputBrandName" value="<?= $products["product_brand"]; ?>">
+    <input type="text" name="inputBrandName" class="form-control" id="inputBrandName" value="<?= $products["product_brand"]; ?>" required>
   </div>
   <div class="form-group">
     <label for="inputProductName">Nama Produk</label>
-    <input type="text" name="inputProductName" class="form-control" id="inputProductName" value="<?= $products["product_name"]; ?>">
+    <input type="text" name="inputProductName" class="form-control" id="inputProductName" value="<?= $products["product_name"]; ?>" required>
   </div>
   <div class="form-group">
     <label for="inputProductDesc">Deskripsi Produk</label>
@@ -51,11 +58,11 @@ if (isset($_POST["submit"])) {
   </div>
   <div class="form-group">
     <label for="inputProductPrice">Stok Produk</label>
-    <input type="number" name="inputProductStock" class="form-control" id="inputProductStock" value="<?= $products["product_stock"]; ?>">
+    <input type="number" name="inputProductStock" class="form-control" id="inputProductStock" value="<?= $products["product_stock"]; ?>" required>
   </div>
   <div class="form-group">
     <label for="inputProductPrice">Harga Produk</label>
-    <input type="number" name="inputProductPrice" class="form-control" id="inputProductPrice" value="<?= $products["product_price"]; ?>">
+    <input type="number" name="inputProductPrice" class="form-control" id="inputProductPrice" value="<?= $products["product_price"]; ?>" required>
   </div>
   <div class="form-group">
     <?php

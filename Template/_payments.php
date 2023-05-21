@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="input-group mb-1">
               <div class="input-group-prepend">
                 <div class="input-group-text">
-                  <input type="radio" name="inputPaymentMethod" id="inputPaymentMethod<?= $paymentMethods ?>" value="<?= $paymentMethods ?>">
+                  <input type="radio" name="inputPaymentMethod" id="inputPaymentMethod<?= $paymentMethods ?>" value="<?= $paymentMethods ?>" required>
                 </div>
               </div>
               <label class="form-control" for="inputPaymentMethod<?= $paymentMethods ?>" style="background-color: #E9ECEF;"><?= $paymentMethods ?></label>

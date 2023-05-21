@@ -25,6 +25,9 @@ if (isset($_POST["submit"])) {
 
 <!-- add product -->
 <form action="" method="post" enctype="multipart/form-data" style="margin-top: 100px; margin-bottom: 100px; margin-left: 25vw; margin-right: 25vw;">
+  <h4 class="font-rubik font-size-20">Add Product</h4>
+  <hr class="mb-5">
+
   <div class="form-group">
     <label for="inputFullName">Nama Lengkap</label>
     <input type="text" name="inputFullName" class="form-control" id="inputFullName" placeholder="Full Name">
@@ -37,6 +40,10 @@ if (isset($_POST["submit"])) {
     <label for="inputAddress">Alamat</label>
     <input type="text" name="inputAddress" class="form-control" id="inputAddress" placeholder="Address">
   </div>
-  <button type="submit" name="submit" class="btn btn-primary">Complete Profile</button>
+
+  <div class="py-3">
+    <button type="submit" name="submit" class="btn btn-primary mr-2">Complete Profile</button>
+    <a href="index.php" class="btn btn-danger">Cancel</a>
+  </div>
 </form>
 <!-- !add product -->

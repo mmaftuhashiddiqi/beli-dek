@@ -12,8 +12,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   }
 
   // proceed to buy
-  if (isset($_POST['proceed-to-buy'])) {
-    $Cart->proceedToBuy($_POST['user_id']);
+  if (isset($_POST['proceed-to-pay'])) {
+    $Cart->proceedToPay($_POST['user_id']);
   }
 
   // increase product amount
@@ -128,7 +128,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </h5>
             <form action="" method="post">
               <input type="hidden" value="<?php echo $_SESSION['user'] ?? 0; ?>" name="user_id">
-              <button type="submit" name="proceed-to-buy" class="btn btn-warning mt-3">Proceed to Buy</button>
+              <button type="submit" name="proceed-to-pay" class="btn btn-warning mt-3">Proceed to Pay</button>
             </form>
           </div>
         </div>

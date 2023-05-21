@@ -155,29 +155,23 @@ class Cart
   }
 
   // proceed to buy
-  public function proceedToBuy($user_id = null)
+  public function proceedToPay($user_id = null)
   {
     if ($user_id != null) {
-      date_default_timezone_set('Asia/Jakarta');
-      $datetime = date("Y-m-d H:i:s");
-      echo $datetime;
+      $query = "INSERT INTO `payments` (`user_id`, `product_id`, `product_count`, `payment_method`)
+                    SELECT carts.user_id, carts.product_id, carts.product_count, products.payment_method
+                    FROM carts
+                    INNER JOIN users ON carts.user_id = users.user_id
+                    INNER JOIN products ON carts.product_id = products.product_id
+                    WHERE carts.user_id = {$user_id};";
 
-      $dataCart = "SELECT `user_id`, `product_id`, `product_count` FROM `carts` WHERE user_id={$user_id};";
-      $dataCartResult = $this->db->con->query($dataCart);
-
-      $result = "";
-      foreach ($dataCartResult as $cart) {
-        $result .= "INSERT INTO `orders` (`order_date`, `user_id`, `product_id`, `product_count`)
-                            VALUES ('$datetime', {$cart['user_id']}, {$cart['product_id']}, {$cart['product_count']});";
-      }
-
-      $result .= "DELETE FROM `carts` WHERE user_id={$user_id};";
+      $query .= "DELETE FROM `carts` WHERE user_id={$user_id};";
 
       // execute query
-      $result = $this->db->con->multi_query($result);
+      $result = $this->db->con->multi_query($query);
 
       if ($result) {
-        header("Location: " . $_SERVER['PHP_SELF']);
+        header("Location: payment.php");
       }
       return;
     }

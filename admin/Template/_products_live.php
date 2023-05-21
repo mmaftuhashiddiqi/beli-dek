@@ -12,27 +12,26 @@ $products = cari($keywordProductLive);
 <table class="table table-bordered table-hover text-center">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">No</th>
-      <th scope="col">Image</th>
-      <th scope="col">Brand</th>
-      <th scope="col">Name</th>
-      <th scope="col">Stock</th>
-      <th scope="col">Price</th>
-      <th scope="col">Description</th>
-      <th scope="col">Manage</th>
+      <th scope="col" class="align-middle">No</th>
+      <th scope="col" class="align-middle">Image</th>
+      <th scope="col" class="align-middle">Brand</th>
+      <th scope="col" class="align-middle">Name</th>
+      <th scope="col" class="align-middle">Description</th>
+      <th scope="col" class="align-middle">Stock</th>
+      <th scope="col" class="align-middle">Price</th>
+      <th scope="col" class="align-middle">Payment</th>
+      <th scope="col" class="align-middle">Manage</th>
     </tr>
   </thead>
   <tbody>
     <?php $i = 1; ?>
     <?php foreach ($products as $product) { ?>
       <tr>
-        <th scope="row"><?= $i ?></th>
-        <td><img src="./../assets/products/<?= $product['product_image']; ?>" alt="product" width="40"></td>
-        <td><?= $product['product_brand']; ?></td>
-        <td><?= $product['product_name']; ?></td>
-        <td><?= $product['product_stock']; ?></td>
-        <td><?= rupiah($product['product_price']); ?></td>
-        <td>
+        <th scope="row" class="align-middle"><?= $i ?></th>
+        <td class="align-middle"><img src="./../assets/products/<?= $product['product_image']; ?>" alt="product" width="40"></td>
+        <td class="align-middle"><?= $product['product_brand']; ?></td>
+        <td class="align-middle"><?= $product['product_name']; ?></td>
+        <td class="align-middle">
           <!-- Button trigger modal -->
           <button type="button" class="btn btn-light font-size-12 m-1" data-toggle="modal" data-target="#Modal<?= $product['product_id'] ?>">
             Show Description
@@ -48,7 +47,7 @@ $products = cari($keywordProductLive);
                   </button>
                 </div>
                 <div class="modal-body">
-                  <?= $product['product_desc']; ?>
+                  <p class="text-break"><?= $product['product_desc']; ?></p>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -57,7 +56,17 @@ $products = cari($keywordProductLive);
             </div>
           </div>
         </td>
-        <td>
+        <td class="align-middle"><?= $product['product_stock']; ?></td>
+        <td class="align-middle"><?= rupiah($product['product_price']); ?></td>
+        <td class="align-middle">
+          <?php
+          $paymentMethod = json_decode($product['payment_method']);
+          foreach ($paymentMethod as $payment) {
+          ?>
+            <p class="bg-warning rounded d-inline-block p-1 m-1"><?= $payment ?></p>
+          <?php } ?>
+        </td>
+        <td class="align-middle">
           <form method="post">
             <!-- update button -->
             <a href="./update.php?id=<?= $product["product_id"]; ?>" id="update-button" class="text-decoration-none btn btn-info font-size-12 m-1">Update</a>

@@ -72,7 +72,7 @@
               <a class="dropdown-item" href="profile.php">Complete Profile</a>
               <hr>
             <?php } ?>
-            <a class="dropdown-item" href="#">On delivery</a>
+            <a class="dropdown-item" href="payment.php">Need to Pay <span class="badge badge-pill badge-warning"><?= count(query("SELECT * FROM payments WHERE user_id = {$_SESSION['user']}")) ?></span></a>
             <a class="dropdown-item" href="logout.php">Log out</a>
           </div>
         </div>

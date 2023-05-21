@@ -19,15 +19,10 @@ function tambah($data)
 
   $brandName = htmlspecialchars($data["inputBrandName"]);
   $productName = htmlspecialchars($data["inputProductName"]);
+  $productDesc = htmlspecialchars($data["inputProductDesc"]);
   $productStock = htmlspecialchars($data["inputProductStock"]);
   $productPrice = htmlspecialchars($data["inputProductPrice"]);
-  $productDesc = htmlspecialchars($data["inputProductDesc"]);
-
-  // upload gambar
-  $productImage = upload();
-  if (!$productImage) {
-    return false;
-  }
+  $paymentMethod = $data["inputPaymentMethod"];
 
   // cek enter di textarea
   $productDescArr = explode("\r\n", $productDesc);
@@ -36,9 +31,18 @@ function tambah($data)
     $productDescNew .= $arr . '<br>';
   }
 
-  $query = "INSERT INTO products (product_brand, product_name, product_stock, product_price, product_image, product_desc)
+  // json encode payment method
+  $paymentMethodStr = json_encode($paymentMethod);
+
+  // upload gambar
+  $productImage = upload();
+  if (!$productImage) {
+    return false;
+  }
+
+  $query = "INSERT INTO products (product_brand, product_name, product_desc, product_stock, product_price, payment_method, product_image)
                 VALUES
-                ('$brandName', '$productName', '$productStock', '$productPrice', '$productImage', '$productDescNew')
+                ('$brandName', '$productName', '$productDescNew', '$productStock', '$productPrice', '$paymentMethodStr', '$productImage')
             ";
   mysqli_query($con, $query);
 

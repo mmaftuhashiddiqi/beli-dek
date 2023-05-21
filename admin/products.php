@@ -20,7 +20,7 @@ include('Template/_products.php');
 /* include product list */
 
 /* include add button */
-include('Template/_add_button.php');
+// include('Template/_add_button.php');
 /* include add button */
 
 ?>

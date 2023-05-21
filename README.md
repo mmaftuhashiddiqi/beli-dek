@@ -14,6 +14,7 @@ Pada template project tersebut hanya tersedia session untuk user saja. Kemudian 
    - Logout
    - Shopping cart
    - Wishlist
+   - Payment
    - Search bar
 
 2. **Untuk Admin**

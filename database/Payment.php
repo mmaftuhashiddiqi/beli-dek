@@ -77,7 +77,12 @@ class Payment
       $result = $this->db->con->multi_query($result);
 
       if ($result) {
-        header("Location: index.php");
+        echo "
+		      <script>
+			      alert('payment successfully made, your order will be processed immediately');
+			      document.location.href = 'index.php';
+		      </script>
+	      ";
       }
       return;
     }

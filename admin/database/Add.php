@@ -24,13 +24,6 @@ function tambah($data)
   $productPrice = htmlspecialchars($data["inputProductPrice"]);
   $paymentMethod = $data["inputPaymentMethod"];
 
-  // cek enter di textarea
-  $productDescArr = explode("\r\n", $productDesc);
-  $productDescNew = '';
-  foreach ($productDescArr as $arr) {
-    $productDescNew .= $arr . '<br>';
-  }
-
   // json encode payment method
   $paymentMethodStr = json_encode($paymentMethod);
 
@@ -42,7 +35,7 @@ function tambah($data)
 
   $query = "INSERT INTO products (product_brand, product_name, product_desc, product_stock, product_price, payment_method, product_image)
                 VALUES
-                ('$brandName', '$productName', '$productDescNew', '$productStock', '$productPrice', '$paymentMethodStr', '$productImage')
+                ('$brandName', '$productName', '$productDesc', '$productStock', '$productPrice', '$paymentMethodStr', '$productImage')
             ";
   mysqli_query($con, $query);
 

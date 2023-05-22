@@ -1,5 +1,12 @@
 <?php
 
+session_start();
+
+if (!isset($_SESSION["login"]) || !isset($_SESSION["admin"])) {
+  header("Location: login.php");
+  exit;
+}
+
 require('../functions.php');
 
 $productId = $_GET["product_id"];

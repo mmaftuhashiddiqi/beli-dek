@@ -13,14 +13,14 @@ if (isset($_POST["submit"])) {
     if (ubah($_POST) > 0) {
       echo "
 			<script>
-				alert('data berhasil diubah!');
+				alert('product modified successfully!');
 				document.location.href = './products.php';
 			</script>
 		";
     } else {
       echo "
 			<script>
-				alert('data gagal diubah!');
+				alert('product failed to change!');
 				document.location.href = './products.php';
 			</script>
 		";

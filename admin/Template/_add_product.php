@@ -7,14 +7,14 @@ if (isset($_POST["submit"])) {
     if (tambah($_POST) > 0) {
       echo "
 			<script>
-				alert('data berhasil ditambahkan!');
+				alert('product added successfully!');
 				document.location.href = 'products.php';
 			</script>
 		";
     } else {
       echo "
 			<script>
-				alert('data gagal ditambahkan!');
+				alert('product failed to add!');
 				document.location.href = 'products.php';
 			</script>
 		";
@@ -22,7 +22,7 @@ if (isset($_POST["submit"])) {
   } else {
     echo "
     <script>
-      alert('please select at least one option!');
+      alert('please select at least one payment option!');
     </script>
     ";
   }

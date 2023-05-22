@@ -98,7 +98,7 @@ if (isset($_POST["ascending-price"])) {
                         </button>
                       </div>
                       <div class="modal-body">
-                        <p class="text-break"><?= $product['product_desc']; ?></p>
+                        <p class="text-break"><?= nl2br($product['product_desc']); ?></p>
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -124,7 +124,7 @@ if (isset($_POST["ascending-price"])) {
                   <!-- !update button -->
 
                   <!-- delete button -->
-                  <a href="./Template/_delete_product.php?product_id=<?= $product['product_id']; ?>" id="delete-button" class="text-decoration-none btn btn-danger font-size-12 m-1" onclick="return confirm('yakin?');">Delete</a>
+                  <a href="./Template/_delete_product.php?product_id=<?= $product['product_id']; ?>" id="delete-button" class="text-decoration-none btn btn-danger font-size-12 m-1" onclick="return confirm('are you sure?');">Delete</a>
                   <!-- !update button -->
                 </form>
               </td>

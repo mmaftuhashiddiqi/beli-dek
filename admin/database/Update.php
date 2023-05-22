@@ -13,13 +13,6 @@ function ubah($data)
   $paymentMethod = $data["inputPaymentMethod"];
   $productImageOld = htmlspecialchars($data["inputProductImageOld"]);
 
-  // cek enter di textarea
-  $productDescArr = explode("\r\n", $productDesc);
-  $productDescNew = '';
-  foreach ($productDescArr as $arr) {
-    $productDescNew .= $arr . '<br>';
-  }
-
   // json encode payment method
   $paymentMethodStr = json_encode($paymentMethod);
 
@@ -33,7 +26,7 @@ function ubah($data)
   $query = "UPDATE products SET
 				product_brand = '$brandName',
 				product_name = '$productName',
-        product_desc = '$productDescNew',
+        product_desc = '$productDesc',
 				product_stock = '$productStock',
 				product_price = '$productPrice',
         payment_method = '$paymentMethodStr',

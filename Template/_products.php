@@ -147,7 +147,7 @@ foreach ($product->getData() as $products) :
           <div class="col-12">
             <h6 class="font-rubik">Product Description</h6>
             <hr>
-            <p class="font-rale font-size-14"><?php echo $products['product_desc'] ?></p>
+            <p class="font-rale font-size-14"><?php echo nl2br($products['product_desc']) ?></p>
           </div>
         </div>
       </div>

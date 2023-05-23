@@ -150,7 +150,7 @@ $(document).ready(function () {
     // $('#container').load('ajax/mahasiswa.php?keyword=' + $('#keyword').val());
 
     // $.get()
-    $.get('Template/_products_live.php?keyword-product-live=' + $('#keyword-product-live').val(), function (data) {
+    $.get('products-live.php?keyword-product-live=' + $('#keyword-product-live').val(), function (data) {
 
       $('#table-container').html(data);
       $('.loader').hide();
@@ -167,7 +167,7 @@ $(document).ready(function () {
     // $('#container').load('ajax/mahasiswa.php?keyword=' + $('#keyword').val());
 
     // $.get()
-    $.get('Template/_orders_live.php?keyword-order-live=' + $('#keyword-order-live').val(), function (data) {
+    $.get('orders-live.php?keyword-order-live=' + $('#keyword-order-live').val(), function (data) {
 
       $('#table-container').html(data);
       $('.loader').hide();
@@ -184,7 +184,7 @@ $(document).ready(function () {
     // $('#container').load('ajax/mahasiswa.php?keyword=' + $('#keyword').val());
 
     // $.get()
-    $.get('Template/_users_live.php?keyword-user-live=' + $('#keyword-user-live').val(), function (data) {
+    $.get('users-live.php?keyword-user-live=' + $('#keyword-user-live').val(), function (data) {
 
       $('#table-container').html(data);
       $('.loader').hide();

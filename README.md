@@ -41,6 +41,9 @@ Pada template project tersebut hanya tersedia session untuk user saja. Kemudian 
 2. **Untuk Admin**
    - Mobile responsive
    - Statistics section
+   - Not yet paid order page
+   - already paid order page
+   - Payment / order message
 
 ## Installation Guide
 

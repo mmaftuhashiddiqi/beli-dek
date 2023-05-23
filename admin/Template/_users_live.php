@@ -1,7 +1,7 @@
 <?php
 
 // usleep(500000);
-require '../functions.php';
+require 'functions.php';
 
 $keywordUserLive = $_GET["keyword-user-live"];
 

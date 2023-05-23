@@ -1,7 +1,7 @@
 <?php
 
 // usleep(500000);
-require '../functions.php';
+require 'functions.php';
 
 $keywordOrderLive = $_GET["keyword-order-live"];
 
@@ -47,7 +47,7 @@ $orders = cariOrder($keywordOrderLive);
             <!-- !process button -->
 
             <!-- done button -->
-            <a href="./Template/_delete_order.php?product_id=<?= $order['product_id']; ?>&user_id=<?= $order['user_id']; ?>" id="done-button" class="text-decoration-none btn btn-success font-size-12 m-1">Done</a>
+            <a href="done.php?product_id=<?= $order['product_id']; ?>&user_id=<?= $order['user_id']; ?>" id="done-button" class="text-decoration-none btn btn-success font-size-12 m-1">Done</a>
             <!-- !done button -->
           </form>
         </td>

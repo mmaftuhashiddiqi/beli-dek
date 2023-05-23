@@ -1,7 +1,7 @@
 <?php
 
 // usleep(500000);
-require '../functions.php';
+require 'functions.php';
 
 $keywordProductLive = $_GET["keyword-product-live"];
 
@@ -73,7 +73,7 @@ $products = cari($keywordProductLive);
             <!-- !update button -->
 
             <!-- delete button -->
-            <a href="./Template/_delete_product.php?product_id=<?= $product['product_id']; ?>" id="delete-button" class="text-decoration-none btn btn-danger font-size-12 m-1" onclick="return confirm('are you sure?');">Delete</a>
+            <a href="delete.php?product_id=<?= $product['product_id']; ?>" id="delete-button" class="text-decoration-none btn btn-danger font-size-12 m-1" onclick="return confirm('are you sure?');">Delete</a>
             <!-- !update button -->
           </form>
         </td>

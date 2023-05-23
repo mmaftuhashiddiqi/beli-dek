@@ -15,9 +15,9 @@ include('content-start.php');
 
 <?php
 
-/* include product list */
-include('Template/_orders.php');
-/* include product list */
+/* include order items if it is not empty */
+count($orders) ? include('Template/_orders.php') :  include('Template/notFound/_order_notFound.php');
+/* include order items if it is not empty */
 
 ?>
 

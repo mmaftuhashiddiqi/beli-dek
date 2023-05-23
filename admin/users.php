@@ -15,9 +15,9 @@ include('content-start.php');
 
 <?php
 
-/* include product list */
-include('Template/_users.php');
-/* include product list */
+/* include user items if it is not empty */
+count($users) ? include('Template/_users.php') :  include('Template/notFound/_user_notFound.php');
+/* include user items if it is not empty */
 
 ?>
 

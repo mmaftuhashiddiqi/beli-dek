@@ -15,9 +15,9 @@ include('content-start.php');
 
 <?php
 
-/* include product list */
-include('Template/_products.php');
-/* include product list */
+/* include user items if it is not empty */
+count($product_shuffle) ? include('Template/_products.php') :  include('Template/notFound/_product_notFound.php');
+/* include user items if it is not empty */
 
 /* include add button */
 // include('Template/_add_button.php');

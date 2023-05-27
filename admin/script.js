@@ -174,6 +174,23 @@ $(document).ready(function () {
 
     });
   });
+  
+  // event ketika keyword delivery ditulis
+  $('#keyword-delivery-live').on('keyup', function () {
+    // munculkan icon loading
+    $('.loader').show();
+
+    // ajax menggunakan load
+    // $('#container').load('ajax/mahasiswa.php?keyword=' + $('#keyword').val());
+
+    // $.get()
+    $.get('deliveries-live.php?keyword-delivery-live=' + $('#keyword-delivery-live').val(), function (data) {
+
+      $('#table-container').html(data);
+      $('.loader').hide();
+
+    });
+  });
 
   // event ketika keyword user ditulis
   $('#keyword-user-live').on('keyup', function () {

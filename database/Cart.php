@@ -158,8 +158,8 @@ class Cart
   public function proceedToPay($user_id = null)
   {
     if ($user_id != null) {
-      $query = "INSERT INTO `payments` (`user_id`, `product_id`, `product_count`, `payment_method`)
-                    SELECT carts.user_id, carts.product_id, carts.product_count, products.payment_method
+      $query = "INSERT INTO `payments` (`user_id`, `product_id`, `product_count`, `payment_method`, `delivery_method`)
+                    SELECT carts.user_id, carts.product_id, carts.product_count, products.payment_method, products.delivery_method
                     FROM carts
                     INNER JOIN users ON carts.user_id = users.user_id
                     INNER JOIN products ON carts.product_id = products.product_id

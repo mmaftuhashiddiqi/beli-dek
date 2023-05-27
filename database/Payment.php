@@ -56,19 +56,19 @@ class Payment
   }
 
   // proceed to buy
-  public function proceedToBuy($user_id = null, $payment_method = null)
+  public function proceedToBuy($user_id = null, $payment_method = null, $delivery_method = null)
   {
-    if ($user_id != null && $payment_method != null) {
+    if ($user_id != null && $payment_method != null && $delivery_method != null) {
       date_default_timezone_set('Asia/Jakarta');
       $datetime = date("Y-m-d H:i:s");
 
-      $dataCart = "SELECT `user_id`, `product_id`, `product_count`, `payment_method` FROM `payments` WHERE user_id={$user_id};";
+      $dataCart = "SELECT `user_id`, `product_id`, `product_count` FROM `payments` WHERE user_id={$user_id};";
       $dataCartResult = $this->db->con->query($dataCart);
 
       $result = "";
       foreach ($dataCartResult as $cart) {
-        $result .= "INSERT INTO `orders` (`order_date`, `user_id`, `product_id`, `product_count`, `payment_method`)
-                    VALUES ('$datetime', {$cart['user_id']}, {$cart['product_id']}, {$cart['product_count']}, '$payment_method');";
+        $result .= "INSERT INTO `orders` (`order_date`, `user_id`, `product_id`, `product_count`, `payment_method`, `delivery_method`)
+                    VALUES ('$datetime', {$cart['user_id']}, {$cart['product_id']}, {$cart['product_count']}, '$payment_method', '$delivery_method');";
       }
 
       $result .= "DELETE FROM `payments` WHERE user_id={$user_id};";

@@ -4,7 +4,7 @@
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   // proceed to buy
   if (isset($_POST['proceed-to-buy'])) {
-    $payment->proceedToBuy($_SESSION['user'], $_POST['inputPaymentMethod']);
+    $payment->proceedToBuy($_SESSION['user'], $_POST['inputPaymentMethod'], $_POST['inputDeliveryMethod']);
   }
 }
 
@@ -16,8 +16,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   <div class="row">
     <div class="col-md-7">
-      <h5 class="font-baloo text-muted">Payment Method</h5>
       <form class="needs-validation" method="post">
+        <h5 class="font-baloo text-muted">Payment Method</h5>
         <div class="d-block my-3">
           <?php
           foreach ($payment->getDataPayment() as $payments) {
@@ -40,6 +40,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
               </div>
               <label class="form-control" for="inputPaymentMethod<?= $paymentMethods ?>" style="background-color: #E9ECEF;"><?= $paymentMethods ?></label>
+            </div>
+          <?php } ?>
+        </div>
+        <h5 class="font-baloo text-muted">Delivery Method</h5>
+        <div class="d-block my-3">
+          <?php
+          foreach ($payment->getDataPayment() as $payments) {
+            $deliveryMethods = json_decode($payments['delivery_method']);
+
+            $deliveryMethodArr = array();
+            foreach ($deliveryMethods as $deliveryMethod) {
+              if (!in_array($deliveryMethod, $deliveryMethodArr)) {
+                array_push($deliveryMethodArr, $deliveryMethod);
+              }
+            }
+          }
+
+          foreach ($deliveryMethodArr as $deliveryMethods) {
+          ?>
+            <div class="input-group mb-1">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <input type="radio" name="inputDeliveryMethod" id="inputDeliveryMethod<?= $deliveryMethods ?>" value="<?= $deliveryMethods ?>" required>
+                </div>
+              </div>
+              <label class="form-control" for="inputDeliveryMethod<?= $deliveryMethods ?>" style="background-color: #E9ECEF;"><?= $deliveryMethods ?></label>
             </div>
           <?php } ?>
         </div>

@@ -8,7 +8,7 @@ $products = query("SELECT * FROM products WHERE product_id = $id")[0];
 
 // cek apakah tombol submit sudah ditekan atau belum
 if (isset($_POST["submit"])) {
-  if (!empty($_POST['inputPaymentMethod'])) {
+  if (!empty($_POST['inputPaymentMethod']) && !empty($_POST['inputDeliveryMethod'])) {
     // cek apakah data berhasil diubah atau tidak
     if (ubah($_POST) > 0) {
       echo "
@@ -95,6 +95,39 @@ if (isset($_POST["submit"])) {
         </div>
       </div>
       <label class="form-control" for="inputPaymentMethodCash" style="background-color: #E9ECEF;">Cash</label>
+    </div>
+  </div>
+  <div class="form-group">
+    <?php
+    $deliveryMethod = json_decode($products["delivery_method"]);
+    ?>
+    <label for="inputDeliveryMethod">Metode Pengiriman</label>
+    <!-- debit card method -->
+    <div class="input-group mb-1">
+      <div class="input-group-prepend">
+        <div class="input-group-text">
+          <input type="checkbox" name="inputDeliveryMethod[]" id="inputDeliveryMethodSiTurbo" <?php echo in_array("SiTurbo", $deliveryMethod) ? 'checked' : 0 ?> value="SiTurbo">
+        </div>
+      </div>
+      <label class="form-control" for="inputDeliveryMethodSiTurbo" style="background-color: #E9ECEF;">SiTurbo</label>
+    </div>
+    <!-- paypal method -->
+    <div class="input-group mb-1">
+      <div class="input-group-prepend">
+        <div class="input-group-text">
+          <input type="checkbox" name="inputDeliveryMethod[]" id="inputDeliveryMethodMaungParcel" <?php echo in_array("Maung Parcel", $deliveryMethod) ? 'checked' : 0 ?> value="Maung Parcel">
+        </div>
+      </div>
+      <label class="form-control" for="inputDeliveryMethodMaungParcel" style="background-color: #E9ECEF;">Maung Parcel</label>
+    </div>
+    <!-- cash method -->
+    <div class="input-group mb-1">
+      <div class="input-group-prepend">
+        <div class="input-group-text">
+          <input type="checkbox" name="inputDeliveryMethod[]" id="inputDeliveryMethodJNE" <?php echo in_array("JNE", $deliveryMethod) ? 'checked' : 0 ?> value="JNE">
+        </div>
+      </div>
+      <label class="form-control" for="inputDeliveryMethodJNE" style="background-color: #E9ECEF;">Cash</label>
     </div>
   </div>
   <div class="form-group">

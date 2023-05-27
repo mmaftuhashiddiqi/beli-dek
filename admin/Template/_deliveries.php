@@ -2,45 +2,59 @@
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   // proceed to buy
-  if (isset($_POST['process-button'])) {
-    $order->insertIntoDelivery($_POST['order-id']);
+  if (isset($_POST['done-button'])) {
+    if (hapusDelivery($_POST['delivery-id'])) {
+      echo "
+    		<script>
+		    	alert('product has been sent!');
+		    	document.location.href = 'deliveries.php';
+		    </script>
+    	";
+    } else {
+      echo "
+		    <script>
+			    alert('product failed to delete!');
+		    	document.location.href = 'deliveries.php';
+		    </script>
+	    ";
+    }
   }
 }
 
 // konfigurasi pagination
 $jumlahDataPerHalaman = 10;
-$jumlahData = count(query("SELECT * FROM orders"));
+$jumlahData = count(query("SELECT * FROM deliveries"));
 $jumlahHalaman = ceil($jumlahData / $jumlahDataPerHalaman);
 $halamanAktif = (isset($_GET["halaman"])) ? $_GET["halaman"] : 1;
 $awalData = ($jumlahDataPerHalaman * $halamanAktif) - $jumlahDataPerHalaman;
 
-$orders = query(
-  "SELECT orders.order_id, orders.user_id, orders.product_id, users.user_username, orders.order_date, products.product_brand, products.product_name, products.product_price, orders.product_count, orders.payment_method, orders.delivery_method
-    FROM orders
-    INNER JOIN users ON orders.user_id = users.user_id
-    INNER JOIN products ON orders.product_id = products.product_id 
+$deliveries = query(
+  "SELECT deliveries.delivery_id, deliveries.user_id, deliveries.product_id, users.user_username, deliveries.delivery_date, products.product_brand, products.product_name, products.product_price, deliveries.product_count, deliveries.payment_method, deliveries.delivery_method
+    FROM deliveries
+    INNER JOIN users ON deliveries.user_id = users.user_id
+    INNER JOIN products ON deliveries.product_id = products.product_id 
     LIMIT $awalData, $jumlahDataPerHalaman"
 );
 
 // tombol cari ditekan
 if (isset($_POST["search"])) {
-  $orders = cariOrder($_POST["keyword"]);
+  $deliveries = cariDelivery($_POST["keyword"]);
 }
 
 // sorted by
 if (isset($_POST["ascending-price"])) {
-  $orders = sortedOrderBy("ASC");
+  $deliveries = sortedDeliveryBy("ASC");
 } elseif (isset($_POST["descending-price"])) {
-  $orders = sortedOrderBy("DESC");
+  $deliveries = sortedDeliveryBy("DESC");
 } elseif (isset($_POST["shuffle"])) {
-  $orders = cariOrder("");
+  $deliveries = cariDelivery("");
 }
 
 ?>
 
-<section id="orders-list">
+<section id="deliveries-list">
   <div class="container" style="margin-top: 80px;">
-    <h4 class="font-rubik font-size-20">Order of Products</h4>
+    <h4 class="font-rubik font-size-20">Products On Delivery</h4>
     <hr>
 
     <div class="container d-flex justify-content-end pt-2 pb-4 pr-0">
@@ -48,7 +62,7 @@ if (isset($_POST["ascending-price"])) {
       <div class="live-search d-flex">
         <form class="form-inline d-flex justify-content-end" action="" method="post">
           <img src="./../assets/template/loader.gif" class="loader" width="50" style="display: none;">
-          <input class="form-control mr-sm-2" type="search" placeholder="Live search" aria-label="Search" name="keyword-order-live" autocomplete="off" id="keyword-order-live">
+          <input class="form-control mr-sm-2" type="search" placeholder="Live search" aria-label="Search" name="keyword-delivery-live" autocomplete="off" id="keyword-delivery-live">
         </form>
       </div>
       <!-- order by filter -->
@@ -72,7 +86,7 @@ if (isset($_POST["ascending-price"])) {
           <tr>
             <th scope="col" class="align-middle">No</th>
             <th scope="col" class="align-middle">Username</th>
-            <th scope="col" class="align-middle">Order Date</th>
+            <th scope="col" class="align-middle">Delivery Date</th>
             <th scope="col" class="align-middle">Product Name</th>
             <th scope="col" class="align-middle">Product Count</th>
             <th scope="col" class="align-middle">Show Details</th>
@@ -82,24 +96,24 @@ if (isset($_POST["ascending-price"])) {
         <tbody>
           <?php $i = 1; ?>
           <?php
-          foreach ($orders as $order) { ?>
+          foreach ($deliveries as $delivery) { ?>
             <tr>
               <th scope="row" class="align-middle"><?= $i ?></th>
-              <td class="align-middle"><?= $order['user_username']; ?></td>
-              <td class="align-middle"><?= $order['order_date']; ?></td>
-              <td class="align-middle"><?= $order['product_name']; ?></td>
-              <td class="align-middle"><?= $order['product_count'] ?></td>
+              <td class="align-middle"><?= $delivery['user_username']; ?></td>
+              <td class="align-middle"><?= $delivery['delivery_date']; ?></td>
+              <td class="align-middle"><?= $delivery['product_name']; ?></td>
+              <td class="align-middle"><?= $delivery['product_count'] ?></td>
               <td class="align-middle">
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-light font-size-12 m-1" data-toggle="modal" data-target="#Modal<?= $order['order_id'] ?>">
+                <button type="button" class="btn btn-light font-size-12 m-1" data-toggle="modal" data-target="#Modal<?= $delivery['delivery_id'] ?>">
                   Show Details
                 </button>
                 <!-- Modal -->
-                <div class="modal fade text-left" id="Modal<?= $order['order_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="ModalTitle" aria-hidden="true">
+                <div class="modal fade text-left" id="Modal<?= $delivery['delivery_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="ModalTitle" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="ModalTitle">Order Description</h5>
+                        <h5 class="modal-title" id="ModalTitle">Delivery Description</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
@@ -108,47 +122,47 @@ if (isset($_POST["ascending-price"])) {
                         <p class="text-break">
                           <span class="font-weight-bold bg-info text-white rounded p-1">Username</span>
                           <i class="fas fa-arrow-right ml-2"></i>
-                          <span class="ml-2 p-1"><?= $order['user_username']; ?></span>
+                          <span class="ml-2 p-1"><?= $delivery['user_username']; ?></span>
                         </p>
                         <p class="text-break">
-                          <span class="font-weight-bold bg-info text-white rounded p-1">Order Date</span>
+                          <span class="font-weight-bold bg-info text-white rounded p-1">Delivery Date</span>
                           <i class="fas fa-arrow-right ml-2"></i>
-                          <span class="ml-2 p-1"><?= $order['order_date']; ?></span>
+                          <span class="ml-2 p-1"><?= $delivery['delivery_date']; ?></span>
                         </p>
                         <p class="text-break">
                           <span class="font-weight-bold bg-info text-white rounded p-1">Product Brand</span>
                           <i class="fas fa-arrow-right ml-2"></i>
-                          <span class="ml-2 p-1"><?= $order['product_brand']; ?></span>
+                          <span class="ml-2 p-1"><?= $delivery['product_brand']; ?></span>
                         </p>
                         <p class="text-break">
                           <span class="font-weight-bold bg-info text-white rounded p-1">Product Name</span>
                           <i class="fas fa-arrow-right ml-2"></i>
-                          <span class="ml-2 p-1"><?= $order['product_name']; ?></span>
+                          <span class="ml-2 p-1"><?= $delivery['product_name']; ?></span>
                         </p>
                         <p class="text-break">
                           <span class="font-weight-bold bg-info text-white rounded p-1">Product Price</span>
                           <i class="fas fa-arrow-right ml-2"></i>
-                          <span class="ml-2 p-1"><?= rupiah($order['product_price']); ?></span>
+                          <span class="ml-2 p-1"><?= rupiah($delivery['product_price']); ?></span>
                         </p>
                         <p class="text-break">
                           <span class="font-weight-bold bg-info text-white rounded p-1">Product Count</span>
                           <i class="fas fa-arrow-right ml-2"></i>
-                          <span class="ml-2 p-1"><?= $order['product_count']; ?></span>
+                          <span class="ml-2 p-1"><?= $delivery['product_count']; ?></span>
                         </p>
                         <p class="text-break">
                           <span class="font-weight-bold bg-info text-white rounded p-1">Total Price</span>
                           <i class="fas fa-arrow-right ml-2"></i>
-                          <span class="ml-2 p-1 bg-success text-white rounded"><?= rupiah($order['product_price'] * $order['product_count']); ?></span>
+                          <span class="ml-2 p-1 bg-success text-white rounded"><?= rupiah($delivery['product_price'] * $delivery['product_count']); ?></span>
                         </p>
                         <p class="text-break">
                           <span class="font-weight-bold bg-info text-white rounded p-1">Payment Method</span>
                           <i class="fas fa-arrow-right ml-2"></i>
-                          <span class="ml-2 p-1 bg-warning rounded"><?= $order['payment_method']; ?></span>
+                          <span class="ml-2 p-1 bg-warning rounded"><?= $delivery['payment_method']; ?></span>
                         </p>
                         <p class="text-break">
                           <span class="font-weight-bold bg-info text-white rounded p-1">Delivery Method</span>
                           <i class="fas fa-arrow-right ml-2"></i>
-                          <span class="ml-2 p-1 bg-secondary text-white rounded"><?= $order['delivery_method']; ?></span>
+                          <span class="ml-2 p-1 bg-secondary text-white rounded"><?= $delivery['delivery_method']; ?></span>
                         </p>
                       </div>
                       <div class="modal-footer">
@@ -160,10 +174,10 @@ if (isset($_POST["ascending-price"])) {
               </td>
               <td class="align-middle">
                 <form method="post">
-                  <!-- process button -->
-                  <button name="process-button" id="process-button" class="btn btn-warning font-size-12 m-1">Process</button>
-                  <input type="hidden" name="order-id" id="order-id" value="<?= $order['order_id'] ?>">
-                  <!-- !process button -->
+                  <!-- done button -->
+                  <button name="done-button" id="done-button" class="btn btn-success font-size-12 m-1">Done</button>
+                  <input type="hidden" name="delivery-id" id="delivery-id" value="<?= $delivery['delivery_id'] ?>">
+                  <!-- !done button -->
                 </form>
               </td>
             </tr>

@@ -20,6 +20,7 @@ $products = cari($keywordProductLive);
       <th scope="col" class="align-middle">Stock</th>
       <th scope="col" class="align-middle">Price</th>
       <th scope="col" class="align-middle">Payment</th>
+      <th scope="col" class="align-middle">Delivery</th>
       <th scope="col" class="align-middle">Manage</th>
     </tr>
   </thead>
@@ -64,6 +65,14 @@ $products = cari($keywordProductLive);
           foreach ($paymentMethod as $payment) {
           ?>
             <p class="bg-warning rounded d-inline-block p-1 m-1"><?= $payment ?></p>
+          <?php } ?>
+        </td>
+        <td class="align-middle">
+          <?php
+          $deliveryMethod = json_decode($product['delivery_method']);
+          foreach ($deliveryMethod as $delivery) {
+          ?>
+            <p class="bg-secondary text-white rounded d-inline-block p-1 m-1"><?= $delivery ?></p>
           <?php } ?>
         </td>
         <td class="align-middle">

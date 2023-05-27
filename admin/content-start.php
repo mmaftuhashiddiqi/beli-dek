@@ -127,12 +127,28 @@
                 <span class="badge badge-pill badge-success"><?= count($product_shuffle) ?></span>
               </a>
             </li>
-            <li>
-              <a href="orders.php">
+            <li class="sidebar-dropdown">
+              <a href="#">
                 <i class="fa fa-shopping-bag"></i>
                 <span>Orders</span>
-                <span class="badge badge-pill badge-warning"><?= count($orders) ?></span>
+                <span class="badge badge-pill badge-danger"><?= count($orders) + count($deliveries) ?></span>
               </a>
+              <div class="sidebar-submenu">
+                <ul>
+                  <li>
+                    <a href="orders.php">
+                      <span>Orders</span>
+                      <span class="badge badge-pill badge-warning"><?= count($orders) ?></span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="deliveries.php">
+                      <span>On Delivery</span>
+                      <span class="badge badge-pill badge-secondary"><?= count($deliveries) ?></span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </li>
             <li class="header-menu">
               <span>About</span>

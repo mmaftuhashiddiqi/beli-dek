@@ -11,8 +11,8 @@ if (!isset($_SESSION["login"]) || !isset($_SESSION["admin"])) {
 
 <?php
 
-/* include delete order */
-include('Template/_delete_order.php');
-/* include delete order */
+/* include order live */
+include('Template/_deliveries_live.php');
+/* include order live */
 
 ?>

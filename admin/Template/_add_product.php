@@ -2,7 +2,7 @@
 
 // cek apakah tombol submit sudah ditekan atau belum
 if (isset($_POST["submit"])) {
-  if (!empty($_POST['inputPaymentMethod'])) {
+  if (!empty($_POST['inputPaymentMethod']) && !empty($_POST['inputDeliveryMethod'])) {
     // cek apakah data berhasil di tambahkan atau tidak
     if (tambah($_POST) > 0) {
       echo "
@@ -22,7 +22,7 @@ if (isset($_POST["submit"])) {
   } else {
     echo "
     <script>
-      alert('please select at least one payment option!');
+      alert('please select at least one payment option or delivery option!');
     </script>
     ";
   }
@@ -83,6 +83,36 @@ if (isset($_POST["submit"])) {
         </div>
       </div>
       <label class="form-control" for="inputPaymentMethodCash" style="background-color: #E9ECEF;">Cash</label>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputDeliveryMethod">Metode Pengiriman</label>
+    <!-- debit card method -->
+    <div class="input-group mb-1">
+      <div class="input-group-prepend">
+        <div class="input-group-text">
+          <input type="checkbox" name="inputDeliveryMethod[]" id="inputDeliveryMethodSiTurbo" value="SiTurbo">
+        </div>
+      </div>
+      <label class="form-control" for="inputDeliveryMethodSiTurbo" style="background-color: #E9ECEF;">SiTurbo</label>
+    </div>
+    <!-- paypal method -->
+    <div class="input-group mb-1">
+      <div class="input-group-prepend">
+        <div class="input-group-text">
+          <input type="checkbox" name="inputDeliveryMethod[]" id="inputDeliveryMethodMaungParcel" value="Maung parcel">
+        </div>
+      </div>
+      <label class="form-control" for="inputDeliveryMethodMaungParcel" style="background-color: #E9ECEF;">Maung Parcel</label>
+    </div>
+    <!-- cash method -->
+    <div class="input-group mb-1">
+      <div class="input-group-prepend">
+        <div class="input-group-text">
+          <input type="checkbox" name="inputDeliveryMethod[]" id="inputDeliveryMethodJNE" value="JNE">
+        </div>
+      </div>
+      <label class="form-control" for="inputDeliveryMethodJNE" style="background-color: #E9ECEF;">JNE</label>
     </div>
   </div>
   <div class="form-group">

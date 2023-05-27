@@ -54,3 +54,6 @@ $Cart = new Cart($db);
 // Order object
 $order = new Order($db);
 $orders = $order->getDataOrder();
+
+// Delivery object
+$deliveries = $order->getDataDelivery();

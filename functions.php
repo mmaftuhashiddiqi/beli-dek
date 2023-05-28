@@ -21,6 +21,9 @@ require('database/Registration.php');
 // require Profile Class
 require('database/Profile.php');
 
+// require Comment Class
+require('database/Comment.php');
+
 // require Convert Class
 require('database/Convert.php');
 
@@ -37,3 +40,6 @@ $Cart = new Cart($db);
 
 // Payment object
 $payment = new Payment($db);
+
+// Comment object
+$comment = new Comment($db);

@@ -43,7 +43,6 @@ Pada template project tersebut hanya tersedia session untuk user saja. Kemudian 
    - Statistics section
    - Not yet paid order page
    - already paid order page
-   - Payment / order message
 
 ## Installation Guide
 

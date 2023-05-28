@@ -42,7 +42,7 @@ class Comment
 
       $userId = $data["user_id"];
       $productId = $data["product_id"];
-      $commentContent = $data["inputComment"];
+      $commentContent = htmlspecialchars($data["inputComment"]);
 
       $query = "INSERT INTO `comments` (`user_id`, `product_id`, `comment_content`, `comment_date`)
       VALUES ('$userId', '$productId', '$commentContent', '$datetime')";

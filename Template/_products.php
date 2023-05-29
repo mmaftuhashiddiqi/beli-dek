@@ -161,79 +161,90 @@ foreach ($product->getData() as $products) :
           <!-- !description -->
 
           <!-- comment -->
-          <div class="col-12 mt-5">
-            <div class="mb-5">
-              <form action="" method="post">
-                <div class="form-group">
-                  <label class="font-rubik mb-3" for="inputComment">Leave Comment</label>
-                  <textarea name="inputComment" class="form-control bg-light" id="inputComment" placeholder="Leave Comment ..." rows="5" required></textarea>
-                  <input type="hidden" name="product_id" value="<?= $products['product_id']; ?>">
-                  <input type="hidden" name="user_id" value="<?= $_SESSION['user']; ?>">
-                </div>
-                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-              </form>
-            </div>
-            <div>
-              <p class="font-rubik">Comments</p>
-              <?php
-              $userComments = $comment->getComments($products["product_id"]);
-              if (empty($userComments)) {
-                echo '
+          <!-- <div class="mt-5"> -->
+          <div class="col-sm-8 mt-5">
+            <p class="font-rubik">Product Reviews</p>
+            <hr>
+            <?php
+            $userComments = $comment->getComments($products["product_id"]);
+            if (empty($userComments)) {
+              echo '
                   <div class="bg-light rounded shadow-sm d-flex justify-content-center align-items-center p-4">
                     <span class="font-rale font-size-14 text-secondary">Comment not Found!</span>
                   </div>
                 ';
-              }
-              foreach ($comment->getComments($products["product_id"]) as $comments) {
-              ?>
-                <div class="bg-light rounded shadow-sm p-3 mb-3">
-                  <div class="d-flex align-items-center justify-content-between mb-3">
-                    <div class="row">
-                      <span class="ml-3">
-                        <img src="./assets/template/profile-dark.png" alt="profile picture" width="40">
-                      </span>
-                      <span class="font-rubik ml-3">
-                        <div>
-                          <?= $comments["user_fullname"] != null ? $comments["user_fullname"] : $comments["user_username"]; ?>
-                        </div>
-                        <div class="font-rale font-size-12 text-secondary">
-                          <?php
-                          $phpDatetime = strtotime($comments["comment_date"]);
-                          echo date("H.i", $phpDatetime);
-                          ?>
-                        </div>
-                      </span>
-                    </div>
-                    <div>
-                      <span class="font-rubik text-secondary">
+            }
+            foreach ($comment->getComments($products["product_id"]) as $comments) {
+            ?>
+              <div class="bg-light rounded shadow-sm p-3 mb-3">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <div class="row">
+                    <span class="ml-3">
+                      <img src="./assets/template/profile-dark.png" alt="profile picture" width="40">
+                    </span>
+                    <span class="font-rubik ml-3">
+                      <div>
+                        <?= $comments["user_fullname"] != null ? $comments["user_fullname"] : $comments["user_username"]; ?>
+                      </div>
+                      <div class="font-rale font-size-12 text-secondary">
                         <?php
                         $phpDatetime = strtotime($comments["comment_date"]);
-                        echo date("F d, Y", $phpDatetime);
+                        echo date("H.i", $phpDatetime);
                         ?>
-                      </span>
-                    </div>
+                      </div>
+                    </span>
                   </div>
                   <div>
-                    <p class="font-rale font-size-14"><?= nl2br($comments["comment_content"]); ?></p>
-                  </div>
-                  <div class="d-flex justify-content-end">
-                    <div class="border border-secondary rounded mr-1 pl-1 pr-1">
-                      <span class="text-secondary">10 |</span>
-                      <button type="button" class="btn text-secondary p-0">
-                        <i class="fas fa-thumbs-up border"></i>
-                      </button>
-                    </div>
-                    <div class="border border-secondary rounded ml-1 pl-1 pr-1">
-                      <span class="text-secondary">5 |</span>
-                      <button type="button" class="btn text-secondary p-0">
-                        <i class="fas fa-thumbs-down"></i>
-                      </button>
-                    </div>
+                    <span class="font-rubik text-secondary">
+                      <?php
+                      $phpDatetime = strtotime($comments["comment_date"]);
+                      echo date("F d, Y", $phpDatetime);
+                      ?>
+                    </span>
                   </div>
                 </div>
-              <?php } ?>
-            </div>
+                <div>
+                  <p class="font-rale font-size-14"><?= nl2br($comments["comment_content"]); ?></p>
+                </div>
+                <div class="d-flex justify-content-end">
+                  <div class="border border-secondary rounded mr-1 pl-1 pr-1">
+                    <span class="text-secondary">10 |</span>
+                    <button type="button" class="btn text-secondary p-0">
+                      <i class="fas fa-thumbs-up border"></i>
+                    </button>
+                  </div>
+                  <div class="border border-secondary rounded ml-1 pl-1 pr-1">
+                    <span class="text-secondary">5 |</span>
+                    <button type="button" class="btn text-secondary p-0">
+                      <i class="fas fa-thumbs-down"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            <?php } ?>
           </div>
+          <div class="col-sm-4 mt-5">
+            <form action="" method="post">
+              <div class="form-group">
+                <p class="font-rubik">Leave Comment</p>
+                <hr>
+                <textarea name="inputComment" class="form-control bg-light" id="inputComment" placeholder="Leave Comment ..." rows="7" required></textarea>
+
+                <input type="hidden" name="product_id" value="<?= $products['product_id']; ?>">
+                <input type="hidden" name="user_id" value="<?= $_SESSION['user']; ?>">
+              </div>
+              <div class="form-group">
+                <label class="font-rubik text-secondary" for="inputName">Name</label>
+                <input type="text" class="form-control bg-light" name="inputName" id="inputName" placeholder="Name ...">
+              </div>
+              <div class="form-group">
+                <label class="font-rubik text-secondary" for="inputEmail">Email</label>
+                <input type="email" class="form-control bg-light" name="inputEmail" id="inputEmail" placeholder="Email ...">
+              </div>
+              <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+          <!-- </div> -->
           <!-- !comment -->
         </div>
       </div>

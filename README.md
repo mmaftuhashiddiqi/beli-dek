@@ -2,7 +2,7 @@
 
 ## Disclaimer
 
-Project ini Saya buat dengan menggunakan template project tutorial yang ada di youtube dengan judul `Complete Mobile Shopee E-Commerce Website Course - PHP & MySQL` (<https://youtu.be/KLWA2vCERSQ>).
+Project ini Saya buat dengan menggunakan template project tutorial yang ada di youtube dengan judul `Complete Mobile Shopee E-Commerce Website Course - PHP & MySQL` (link youtube: <https://youtu.be/KLWA2vCERSQ>, link github: <https://github.com/akashyap2013/Mobile_Shopee-E-Commerce-Website>).
 
 Pada template project tersebut hanya tersedia session untuk user saja. Kemudian Saya menambahkan session untuk admin beserta fitur-fiturnya dan juga menambahkan login dan registration form.
 
@@ -15,6 +15,7 @@ Pada template project tersebut hanya tersedia session untuk user saja. Kemudian 
    - Shopping cart
    - Wishlist
    - Payment
+   - Comment
    - Search bar
 
 2. **Untuk Admin**
@@ -24,6 +25,7 @@ Pada template project tersebut hanya tersedia session untuk user saja. Kemudian 
    - View users page
    - View products page
    - View orders page
+   - View deliveries page
    - Search bar
    - Live search bar
    - Sorted product
@@ -41,8 +43,6 @@ Pada template project tersebut hanya tersedia session untuk user saja. Kemudian 
 2. **Untuk Admin**
    - Mobile responsive
    - Statistics section
-   - Not yet paid order page
-   - already paid order page
 
 ## Installation Guide
 

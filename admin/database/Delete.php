@@ -4,6 +4,11 @@ function hapus($id)
 {
   global $con;
 
+  $comment = mysqli_query($con, "SELECT * FROM comments WHERE product_id = $id");
+  if (mysqli_num_rows($comment) >= 1) {
+    mysqli_query($con, "DELETE FROM comments WHERE product_id = $id");
+  }
+
   $cart = mysqli_query($con, "SELECT * FROM carts WHERE product_id = $id");
   if (mysqli_num_rows($cart) >= 1) {
     mysqli_query($con, "DELETE FROM carts WHERE product_id = $id");
@@ -22,6 +27,11 @@ function hapus($id)
   $order = mysqli_query($con, "SELECT * FROM orders WHERE product_id = $id");
   if (mysqli_num_rows($order) >= 1) {
     mysqli_query($con, "DELETE FROM orders WHERE product_id = $id");
+  }
+
+  $delivery = mysqli_query($con, "SELECT * FROM deliveries WHERE product_id = $id");
+  if (mysqli_num_rows($delivery) >= 1) {
+    mysqli_query($con, "DELETE FROM deliveries WHERE product_id = $id");
   }
 
   mysqli_query($con, "DELETE FROM products WHERE product_id = $id");

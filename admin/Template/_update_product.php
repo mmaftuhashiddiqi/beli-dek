@@ -127,7 +127,7 @@ if (isset($_POST["submit"])) {
           <input type="checkbox" name="inputDeliveryMethod[]" id="inputDeliveryMethodJNE" <?php echo in_array("JNE", $deliveryMethod) ? 'checked' : 0 ?> value="JNE">
         </div>
       </div>
-      <label class="form-control" for="inputDeliveryMethodJNE" style="background-color: #E9ECEF;">Cash</label>
+      <label class="form-control" for="inputDeliveryMethodJNE" style="background-color: #E9ECEF;">JNE</label>
     </div>
   </div>
   <div class="form-group">

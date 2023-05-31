@@ -39,13 +39,6 @@ function hapus($id)
   return mysqli_affected_rows($con);
 }
 
-function hapusOrder($orderId)
-{
-  global $con;
-  mysqli_query($con, "DELETE FROM orders WHERE order_id = $orderId");
-  return mysqli_affected_rows($con);
-}
-
 function hapusDelivery($deliveryId) {
   global $con;
   mysqli_query($con, "DELETE FROM deliveries WHERE delivery_id = $deliveryId");
